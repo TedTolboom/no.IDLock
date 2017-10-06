@@ -13,7 +13,7 @@ class IDLock101 extends ZwaveDevice {
 		this.printNode();
 
 		this.registerCapability('locked', 'DOOR_LOCK');
-		this.registerCapability('locked', 'NOTIFICATION');
+		// this.registerCapability('locked', 'NOTIFICATION');
 		// this.registerCapability('measure_battery', 'BATTERY');
 		// this.registerCapability('alarm_battery', 'BATTERY');
 	}
