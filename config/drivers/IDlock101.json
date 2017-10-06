@@ -26,7 +26,7 @@
 		"wakeUpInterval": 3600,
 		"learnmode": {
 			"instruction": {
-				"en": "Inclusion – (Puts your device in inclusion mode)\r\n• Push and hold button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release button and press “8” on keypad.\r\nInclusion mode starts immediately. LED indicator below logo signals this by flashing blue. "
+				"en": "Inclusion – (Puts your device in inclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release key button and press “8” on keypad.\r\nInclusion mode starts immediately. LED indicator below logo signals this by flashing blue. "
 			}
 		},
 		"productDocumentation": "https://Products.Z-WaveAlliance.org/ProductManual/File?folder=&filename=Manuals/2293/IDL Operational Manual EN v1.3.pdf",
@@ -44,7 +44,7 @@
 		},
 		"unlearnmode": {
 			"instruction": {
-				"en": "Exclusion – (Puts your device in exclusion mode)\r\n• Push and hold button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release button and press “8” on keypad.\r\nExclusion mode starts immediately. LED indicator below logo signals this by flashing blue."
+				"en": "Exclusion – (Puts your device in exclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release key button and press “8” on keypad.\r\nExclusion mode starts immediately. LED indicator below logo signals this by flashing blue."
 			}
 		}
 	},
