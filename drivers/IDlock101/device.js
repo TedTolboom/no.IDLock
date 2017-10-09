@@ -12,7 +12,13 @@ class IDLock101 extends ZwaveDevice {
 		// print the node's info to the console
 		this.printNode();
 
-		this.registerCapability('locked', 'DOOR_LOCK');
+		this.registerCapability('locked', 'DOOR_LOCK', {
+			getOpts: {
+				getOnStart: true, // get the initial value on app start
+				pollInterval: 'poll_interval_battery' // maps to device settings
+				// getOnWakeUp: true, // only useful for battery devices
+			}
+		});
 		// this.registerCapability('locked', 'NOTIFICATION');
 		this.registerCapability('measure_battery', 'BATTERY');
 		this.registerCapability('alarm_battery', 'BATTERY');

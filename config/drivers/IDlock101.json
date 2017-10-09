@@ -190,6 +190,21 @@
 				"max": 59
 			},
 			"type": "number"
+		},
+		{
+			"id": "poll_interval_battery",
+			"type": "number",
+			"label": {
+				"en": "Poll Interval battery condition"
+			},
+			"value": 3600,
+			"attr": {
+				"min": 0,
+				"max": 86400
+			},
+			"hint": {
+				"en": "The amount of seconds between asking the device for a status update, 0 will disable polling.\nRange: 0 - 86400.\nDefault: 3600 seconds."
+			}
 		}
 	]
 }
