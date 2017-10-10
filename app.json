@@ -151,25 +151,6 @@
           "type": "dropdown"
         },
         {
-          "id": 10,
-          "value": 0,
-          "label": {
-            "en": "Retrieve Registered User ID information"
-          },
-          "hint": {
-            "en": "Configuration GET for retriving UID information\r\n\r\nRetrival of registered UIDs on parameter number 10 to 59\r\nParameter number is representing UID index\r\n\r\nEx. \r\nUID index 1 = parameter 10\r\nUID index 50 = parameter 59"
-          },
-          "zwave": {
-            "index": 10,
-            "size": 4
-          },
-          "attr": {
-            "min": 10,
-            "max": 59
-          },
-          "type": "number"
-        },
-        {
           "id": "poll_interval_battery",
           "type": "number",
           "label": {
