@@ -26,7 +26,24 @@
     "small": "/assets/images/small.png"
   },
   "category": "security",
-  "flow": {},
+  "flow": {
+    "triggers": [
+      {
+        "id": "lockJammed",
+        "title": {
+          "en": "The lock is jammed",
+          "nl": "Het slot is geblokkeerd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDLock101"
+          }
+        ]
+      }
+    ]
+  },
   "drivers": [
     {
       "id": "IDlock101",
@@ -149,21 +166,6 @@
             }
           ],
           "type": "dropdown"
-        },
-        {
-          "id": "poll_interval_battery",
-          "type": "number",
-          "label": {
-            "en": "Poll Interval battery condition"
-          },
-          "value": 3600,
-          "attr": {
-            "min": 0,
-            "max": 86400
-          },
-          "hint": {
-            "en": "The amount of seconds between asking the device for a status update, 0 will disable polling.\nRange: 0 - 86400.\nDefault: 3600 seconds."
-          }
         }
       ]
     }
