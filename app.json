@@ -1,171 +1,171 @@
 {
-  "id": "no.idlock",
-  "sdk": 2,
-  "name": {
-    "en": "ID Lock Z-wave"
-  },
-  "version": "0.0.0",
-  "compatibility": ">=1.5.0",
-  "author": {
-    "name": "Ted Tolboom",
-    "email": "dTNL.Homey@gmail.com"
-  },
-  "contributing": {
-    "donate": {
-      "paypal": {
-        "email": "dtnl.homey@gmail.com",
-        "currency": "EUR"
-      }
-    }
-  },
-  "description": {
-    "en": "Adds support for ID Lock Z-wave devices"
-  },
-  "images": {
-    "large": "/assets/images/large.png",
-    "small": "/assets/images/small.png"
-  },
-  "category": "security",
-  "flow": {
-    "triggers": [
-      {
-        "id": "lockJammed",
-        "title": {
-          "en": "The lock is jammed",
-          "nl": "Het slot is geblokkeerd"
-        },
-        "args": [
-          {
-            "name": "device",
-            "type": "device",
-            "filter": "driver_id=IDLock101"
+	"id": "no.idlock",
+	"sdk": 2,
+	"name": {
+		"en": "ID Lock Z-wave"
+	},
+	"version": "0.0.0",
+	"compatibility": ">=1.5.0",
+	"author": {
+		"name": "Ted Tolboom",
+		"email": "dTNL.Homey@gmail.com"
+	},
+	"contributing": {
+		"donate": {
+			"paypal": {
+				"email": "dtnl.homey@gmail.com",
+				"currency": "EUR"
+			}
+		}
+	},
+	"description": {
+		"en": "Adds support for ID Lock Z-wave devices"
+	},
+	"images": {
+		"large": "/assets/images/large.png",
+		"small": "/assets/images/small.png"
+	},
+	"category": "security",
+	"flow": {
+		"triggers": [
+			{
+				"id": "lockJammed",
+				"title": {
+					"en": "The lock is jammed",
+					"nl": "Het slot is geblokkeerd"
+				},
+				"args": [
+					{
+						"name": "device",
+						"type": "device",
+						"filter": "driver_id=IDLock101"
           }
         ]
       }
     ]
-  },
-  "drivers": [
-    {
-      "id": "IDlock101",
-      "class": "lock",
-      "name": {
-        "en": "ID Lock 101"
-      },
-      "capabilities": [
+	},
+	"drivers": [
+		{
+			"id": "IDlock101",
+			"class": "lock",
+			"name": {
+				"en": "ID Lock 101"
+			},
+			"capabilities": [
         "locked",
         "measure_battery",
         "alarm_battery"
       ],
-      "images": {
-        "large": "/drivers/IDlock101/assets/images/large.png",
-        "small": "/drivers/IDlock101/assets/images/small.png"
-      },
-      "zwave": {
-        "manufacturerId": [
+			"images": {
+				"large": "/drivers/IDlock101/assets/images/large.png",
+				"small": "/drivers/IDlock101/assets/images/small.png"
+			},
+			"zwave": {
+				"manufacturerId": [
           560
         ],
-        "productTypeId": [
+				"productTypeId": [
           3,
           48
         ],
-        "productId": [
+				"productId": [
           1
         ],
-        "wakeUpInterval": 3600,
-        "learnmode": {
-          "instruction": {
-            "en": "Inclusion – (Puts your device in inclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release key button and press “8” on keypad.\r\nInclusion mode starts immediately. LED indicator below logo signals this by flashing blue. "
-          }
-        },
-        "productDocumentation": "https://Products.Z-WaveAlliance.org/ProductManual/File?folder=&filename=Manuals/2293/IDL Operational Manual EN v1.3.pdf",
-        "zwaveAllianceProductId": 2293,
-        "imageRemotePath": "https://products.z-wavealliance.org/ProductImages/Index?productName=ZC10-17055585",
-        "associationGroups": [
+				"wakeUpInterval": 3600,
+				"learnmode": {
+					"instruction": {
+						"en": "Inclusion – (Puts your device in inclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release key button and press “8” on keypad.\r\nInclusion mode starts immediately. LED indicator below logo signals this by flashing blue. "
+					}
+				},
+				"productDocumentation": "https://Products.Z-WaveAlliance.org/ProductManual/File?folder=&filename=Manuals/2293/IDL Operational Manual EN v1.3.pdf",
+				"zwaveAllianceProductId": 2293,
+				"imageRemotePath": "https://products.z-wavealliance.org/ProductImages/Index?productName=ZC10-17055585",
+				"associationGroups": [
           1
         ],
-        "associationGroupsOptions": {
-          "1": {
-            "hint": {
-              "en": "Z-Wave Plus Lifeline"
-            }
-          }
-        },
-        "unlearnmode": {
-          "instruction": {
-            "en": "Exclusion – (Puts your device in exclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release key button and press “8” on keypad.\r\nExclusion mode starts immediately. LED indicator below logo signals this by flashing blue."
-          }
-        }
-      },
-      "settings": [
-        {
-          "id": "Doorlock_mode",
-          "value": "1",
-          "label": {
-            "en": "Doorlock mode"
-          },
-          "hint": {
-            "en": "Doorlock operational behaviour"
-          },
-          "zwave": {
-            "index": 1,
-            "size": 1
-          },
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Disabled Away mode and Manual locking mode"
-              }
+				"associationGroupsOptions": {
+					"1": {
+						"hint": {
+							"en": "Z-Wave Plus Lifeline"
+						}
+					}
+				},
+				"unlearnmode": {
+					"instruction": {
+						"en": "Exclusion – (Puts your device in exclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release key button and press “8” on keypad.\r\nExclusion mode starts immediately. LED indicator below logo signals this by flashing blue."
+					}
+				}
+			},
+			"settings": [
+				{
+					"id": "Doorlock_mode",
+					"value": "1",
+					"label": {
+						"en": "Doorlock mode"
+					},
+					"hint": {
+						"en": "Doorlock operational behaviour"
+					},
+					"zwave": {
+						"index": 1,
+						"size": 1
+					},
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Disabled Away mode and Manual locking mode"
+							}
             },
-            {
-              "id": "1",
-              "label": {
-                "en": "Disabled Away mode and Automatic locking mode"
-              }
+						{
+							"id": "1",
+							"label": {
+								"en": "Disabled Away mode and Automatic locking mode"
+							}
             },
-            {
-              "id": "3",
-              "label": {
-                "en": "Away mode and Automatic locking mode"
-              }
+						{
+							"id": "3",
+							"label": {
+								"en": "Away mode and Automatic locking mode"
+							}
             },
-            {
-              "id": "2",
-              "label": {
-                "en": "Away mode and Manual locking mode"
-              }
-            }
-          ],
-          "type": "dropdown"
-        },
-        {
-          "id": "Doorlock_Hinge_Position",
-          "value": "0",
-          "label": {
-            "en": "Door Hinge Position Mode"
-          },
-          "hint": {
-            "en": "Parameter defines the door hinge position"
-          },
-          "zwave": {
-            "index": 3,
-            "size": 1
-          },
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Right"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Left"
-              }
+						{
+							"id": "2",
+							"label": {
+								"en": "Away mode and Manual locking mode"
+							}
             }
           ],
-          "type": "dropdown"
+					"type": "dropdown"
+        },
+				{
+					"id": "Doorlock_Hinge_Position",
+					"value": "0",
+					"label": {
+						"en": "Door Hinge Position Mode"
+					},
+					"hint": {
+						"en": "Parameter defines the door hinge position"
+					},
+					"zwave": {
+						"index": 3,
+						"size": 1
+					},
+					"values": [
+						{
+							"id": "0",
+							"label": {
+								"en": "Right"
+							}
+            },
+						{
+							"id": "1",
+							"label": {
+								"en": "Left"
+							}
+            }
+          ],
+					"type": "dropdown"
         }
       ]
     }
