@@ -33,7 +33,7 @@
 		"zwaveAllianceProductId": 2293,
 		"imageRemotePath": "https://products.z-wavealliance.org/ProductImages/Index?productName=ZC10-17055585",
 		"associationGroups": [
-			1
+			1, 2
 		],
 		"associationGroupsOptions": {
 			"1": {
