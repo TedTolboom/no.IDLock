@@ -91,59 +91,6 @@
 			"type": "dropdown"
 		},
 		{
-			"id": "RFID_configuration",
-			"value": "0",
-			"label": {
-				"en": "RFID Configuration Set and Report"
-			},
-			"hint": {
-				"en": "This parameter configures RFID cards to work with the door lock by setting the parameter to specific values.  After setting an RFID card to the door lock, the result and configuration can be read."
-			},
-			"zwave": {
-				"index": 2,
-				"size": 2
-			},
-			"values": [
-				{
-					"id": "1",
-					"label": {
-						"en": "Begin RFID Card Registration"
-					}
-				},
-				{
-					"id": "2",
-					"label": {
-						"en": "RFID Registration Failed"
-					}
-				},
-				{
-					"id": "3",
-					"label": {
-						"en": "Successful RFID Card Registration - 2nd byte contains Index Number"
-					}
-				},
-				{
-					"id": "5",
-					"label": {
-						"en": "RFID Card Registration Mode was not started"
-					}
-				},
-				{
-					"id": "6",
-					"label": {
-						"en": "RFID Card Registration Mode In Progress"
-					}
-				},
-				{
-					"id": "4",
-					"label": {
-						"en": "RFID Card Registration Mode Finished"
-					}
-				}
-			],
-			"type": "dropdown"
-		},
-		{
 			"id": "Doorlock_Hinge_Position",
 			"value": "0",
 			"label": {
@@ -171,40 +118,6 @@
 				}
 			],
 			"type": "dropdown"
-		},
-		{
-			"id": 10,
-			"value": 0,
-			"label": {
-				"en": "Retrieve Registered User ID information"
-			},
-			"hint": {
-				"en": "Configuration GET for retriving UID information\r\n\r\nRetrival of registered UIDs on parameter number 10 to 59\r\nParameter number is representing UID index\r\n\r\nEx. \r\nUID index 1 = parameter 10\r\nUID index 50 = parameter 59"
-			},
-			"zwave": {
-				"index": 10,
-				"size": 4
-			},
-			"attr": {
-				"min": 10,
-				"max": 59
-			},
-			"type": "number"
-		},
-		{
-			"id": "poll_interval_battery",
-			"type": "number",
-			"label": {
-				"en": "Poll Interval battery condition"
-			},
-			"value": 3600,
-			"attr": {
-				"min": 0,
-				"max": 86400
-			},
-			"hint": {
-				"en": "The amount of seconds between asking the device for a status update, 0 will disable polling.\nRange: 0 - 86400.\nDefault: 3600 seconds."
-			}
 		}
 	]
 }
