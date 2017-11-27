@@ -6,12 +6,79 @@
 	},
 	"capabilities": [
 		"locked",
+		"door",
 		"measure_battery",
+		"alarm_fire",
+		"alarm_tamper",
 		"alarm_battery"
 	],
+	"capabilitiesOptions": {
+		"door": {
+			"greyout": true
+		}
+	},
 	"images": {
 		"large": "/drivers/IDlock101/assets/images/large.png",
 		"small": "/drivers/IDlock101/assets/images/small.png"
+	},
+	"mobile": {
+		"components": [
+			{
+				"id": "icon",
+				"capabilities": []
+			},
+			{
+				"id": "sensor",
+				"capabilities": [
+					"locked",
+					"door",
+					"measure_battery",
+					"alarm_fire",
+					"alarm_tamper",
+					"alarm_battery"
+				],
+				"options": {
+					"icons": {
+						"locked": "/drivers/IDlock101/assets/locked.svg",
+						"door": "/drivers/IDlock101/assets/door.svg"
+					},
+					"locked": {
+						"noblink": true,
+						"greyout": true,
+						"label": {
+							"true": {
+								"en": "Locked",
+								"nl": "Gesloten"
+							},
+							"false": {
+								"en": "Open",
+								"nl": "Open"
+							}
+						}
+					},
+					"door": {
+						"noblink": false,
+						"greyout": true,
+						"label": {
+							"true": {
+								"en": "Open",
+								"nl": "Open"
+							},
+							"false": {
+								"en": "Closed",
+								"nl": "Dicht"
+							}
+						}
+					}
+				}
+			},
+			{
+				"id": "toggle",
+				"capabilities": [
+					"locked"
+				]
+			}
+		]
 	},
 	"zwave": {
 		"manufacturerId": [
