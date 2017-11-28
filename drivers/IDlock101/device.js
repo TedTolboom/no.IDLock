@@ -35,8 +35,16 @@ class IDLock101 extends ZwaveDevice {
 		});
 
 		// this.registerCapability('locked', 'NOTIFICATION');
-		this.registerCapability('measure_battery', 'BATTERY');
-		this.registerCapability('alarm_tamper', 'NOTIFICATION');
+		this.registerCapability('measure_battery', 'BATTERY', {
+			getOpts: {
+				getOnStart: true,
+			}
+		});
+		this.registerCapability('alarm_tamper', 'NOTIFICATION', {
+			getOpts: {
+				getOnStart: true,
+			}
+		});
 		this.registerCapability('alarm_fire', 'NOTIFICATION', {
 			get: 'NOTIFICATION_GET',
 			getOpts: {
