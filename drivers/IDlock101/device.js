@@ -17,6 +17,7 @@ class IDLock101 extends ZwaveDevice {
 				getOnStart: true,
 			}
 		});
+
 		this.registerCapability('door', 'DOOR_LOCK', {
 			get: 'DOOR_LOCK_OPERATION_GET',
 			getOpts: {
@@ -25,13 +26,13 @@ class IDLock101 extends ZwaveDevice {
 			report: 'DOOR_LOCK_OPERATION_REPORT',
 			reportParserV2(report) {
 				if (report && report.hasOwnProperty('Door Condition')) {
-					var doorConditionBinaryArray = (report['Door Condition']).toString(2);
-					this.log('Door Condition has changed:', report['Door Condition'], 'binary array', doorConditionBinaryArray)
-					return (doorConditionBinaryArray[0] === 1) ? 0 : 1;
+					this.log('Door Condition has changed:', report['Door Condition']);
+					return !Boolean(report['Door Condition'] & 0b001); // check if Bit 0 is 1 and return the inverse
 				};
 				return null;
 			},
 		});
+
 		// this.registerCapability('locked', 'NOTIFICATION');
 		this.registerCapability('measure_battery', 'BATTERY');
 		this.registerCapability('alarm_tamper', 'NOTIFICATION');
