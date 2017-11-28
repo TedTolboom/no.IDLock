@@ -91,11 +91,16 @@
             "capabilities": []
           },
           {
+            "id": "battery",
+            "capabilities": [
+              "measure_battery"
+            ]
+          },
+          {
             "id": "sensor",
             "capabilities": [
               "locked",
               "door",
-              "measure_battery",
               "alarm_fire",
               "alarm_tamper",
               "alarm_battery"
