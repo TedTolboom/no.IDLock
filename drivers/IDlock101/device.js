@@ -27,7 +27,8 @@ class IDLock101 extends ZwaveDevice {
 			reportParserV2(report) {
 				if (report && report.hasOwnProperty('Door Condition')) {
 					this.log('Door Condition has changed:', report['Door Condition']);
-					return !Boolean(report['Door Condition'] & 0b001); // check if Bit 0 is 1 and return the inverse
+					// check if Bit 0 is 1 (door closed) and return the inverse (alarm when door open)
+					return !Boolean(report['Door Condition'] & 0b001);
 				};
 				return null;
 			},
