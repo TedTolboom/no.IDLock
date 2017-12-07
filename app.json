@@ -69,15 +69,18 @@
       },
       "capabilities": [
         "locked",
-        "door",
+        "alarm_contact",
         "measure_battery",
         "alarm_fire",
         "alarm_tamper",
         "alarm_battery"
       ],
       "capabilitiesOptions": {
-        "door": {
-          "greyout": true
+        "alarm_contact": {
+          "title": {
+            "en": "Door state (contact alarm)",
+            "nl": "Deur status (contact alarm)"
+          }
         }
       },
       "images": {
@@ -100,7 +103,7 @@
             "id": "sensor",
             "capabilities": [
               "locked",
-              "door",
+              "alarm_contact",
               "alarm_fire",
               "alarm_tamper",
               "alarm_battery"
@@ -108,7 +111,7 @@
             "options": {
               "icons": {
                 "locked": "/drivers/IDlock101/assets/locked.svg",
-                "door": "/drivers/IDlock101/assets/door.svg"
+                "alarm_contact": "/drivers/IDlock101/assets/door.svg"
               },
               "locked": {
                 "noblink": true,
@@ -121,20 +124,6 @@
                   "false": {
                     "en": "Open",
                     "nl": "Open"
-                  }
-                }
-              },
-              "door": {
-                "noblink": false,
-                "greyout": true,
-                "label": {
-                  "true": {
-                    "en": "Open",
-                    "nl": "Open"
-                  },
-                  "false": {
-                    "en": "Closed",
-                    "nl": "Dicht"
                   }
                 }
               }

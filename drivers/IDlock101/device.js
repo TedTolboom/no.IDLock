@@ -18,7 +18,7 @@ class IDLock101 extends ZwaveDevice {
 			}
 		});
 
-		this.registerCapability('door', 'DOOR_LOCK', {
+		this.registerCapability('alarm_contact', 'DOOR_LOCK', {
 			get: 'DOOR_LOCK_OPERATION_GET',
 			getOpts: {
 				getOnStart: true,
