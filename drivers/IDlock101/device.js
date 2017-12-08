@@ -44,7 +44,8 @@ class IDLock101 extends ZwaveDevice {
 		this.registerCapability('alarm_battery', 'BATTERY');
 
 		// register alarm capabilities for devices with COMMAND_CLASS_NOTIFICATION
-		if (!(this.getCommandClass('NOTIFICATION') instanceof Error)) {
+		const commandClassNotification = this.getCommandClass('NOTIFICATION');
+		if (!(commandClassNotification instanceof Error)) {
 			this.registerCapability('alarm_tamper', 'NOTIFICATION', {
 				getOpts: {
 					getOnStart: true,
