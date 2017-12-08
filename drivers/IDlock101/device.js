@@ -76,41 +76,13 @@ class IDLock101 extends ZwaveDevice {
 					return null;
 				}
 			});
+			this.log('registered COMMAND_CLASS_NOTIFICATION capabilities listeners');
 		}
 		// register alarm capabilities for devices with COMMAND_CLASS_ALARM
-		/*if (!(this.getCommandClass('ALARM') instanceof Error)) {
-			this.registerCapability('alarm_tamper', 'ALARM', {
-				getOpts: {
-					getOnStart: true,
-				}
-			});
-
-			this.registerCapability('alarm_fire', 'ALARM', {
-				get: 'ALARM_GET',
-				getOpts: {
-					getOnStart: true,
-				},
-				getParser: () => ({
-					'V1 Alarm Type': 0,
-					'Notification Type': 'Emergency',
-					Event: 2,
-				}),
-				report: 'NOTIFICATION_REPORT',
-				reportParser: report => {
-					if (report && report['Notification Type'] === 'Emergency' && report.hasOwnProperty('Event (Parsed)')) {
-						if (report['Event (Parsed)'] === 'Contact Fire Service') return true;
-						if (report['Event (Parsed)'] === 'Event inactive' &&
-							report.hasOwnProperty('Event Parameter') &&
-							(report['Event Parameter'][0] === 2 ||
-								report['Event Parameter'][0] === 254)) {
-							return false;
-						}
-					}
-					return null;
-				}
-			});
+		if (!(this.getCommandClass('ALARM') instanceof Error)) {
+			this.log('registered COMMAND_CLASS_ALARM capabilities listeners');
 		}
-		*/
+
 
 	}
 }
