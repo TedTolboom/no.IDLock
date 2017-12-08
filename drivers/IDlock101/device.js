@@ -34,46 +34,83 @@ class IDLock101 extends ZwaveDevice {
 			},
 		});
 
-		// this.registerCapability('locked', 'NOTIFICATION');
+		// register BATTERY capabilities
 		this.registerCapability('measure_battery', 'BATTERY', {
 			getOpts: {
 				getOnStart: true,
 			}
 		});
-		this.registerCapability('alarm_tamper', 'NOTIFICATION', {
-			getOpts: {
-				getOnStart: true,
-			}
-		});
-		this.registerCapability('alarm_fire', 'NOTIFICATION', {
-			get: 'NOTIFICATION_GET',
-			getOpts: {
-				getOnStart: true,
-			},
-			getParser: () => ({
-				'V1 Alarm Type': 0,
-				'Notification Type': 'Emergency',
-				Event: 2,
-			}),
-			report: 'NOTIFICATION_REPORT',
-			reportParser: report => {
-				if (report && report['Notification Type'] === 'Emergency' && report.hasOwnProperty('Event (Parsed)')) {
-					if (report['Event (Parsed)'] === 'Contact Fire Service') return true;
-					if (report['Event (Parsed)'] === 'Event inactive' &&
-						report.hasOwnProperty('Event Parameter') &&
-						(report['Event Parameter'][0] === 2 ||
-							report['Event Parameter'][0] === 254)) {
-						return false;
-					}
-				}
-				return null;
-			}
-		});
+
 		this.registerCapability('alarm_battery', 'BATTERY');
 
-		this.registerReportListener('CENTRAL_SCENE', 'CENTRAL_SCENE_NOTIFICATION', (rawReport, parsedReport) => {
-			this.log('Scene notification report:', rawReport);
-		});
+		// register alarm capabilities for devices with COMMAND_CLASS_NOTIFICATION
+		if (!(this.getCommandClass('NOTIFICATION') instanceof Error)) {
+			this.registerCapability('alarm_tamper', 'NOTIFICATION', {
+				getOpts: {
+					getOnStart: true,
+				}
+			});
+
+			this.registerCapability('alarm_fire', 'NOTIFICATION', {
+				get: 'NOTIFICATION_GET',
+				getOpts: {
+					getOnStart: true,
+				},
+				getParser: () => ({
+					'V1 Alarm Type': 0,
+					'Notification Type': 'Emergency',
+					Event: 2,
+				}),
+				report: 'NOTIFICATION_REPORT',
+				reportParser: report => {
+					if (report && report['Notification Type'] === 'Emergency' && report.hasOwnProperty('Event (Parsed)')) {
+						if (report['Event (Parsed)'] === 'Contact Fire Service') return true;
+						if (report['Event (Parsed)'] === 'Event inactive' &&
+							report.hasOwnProperty('Event Parameter') &&
+							(report['Event Parameter'][0] === 2 ||
+								report['Event Parameter'][0] === 254)) {
+							return false;
+						}
+					}
+					return null;
+				}
+			});
+		}
+		// register alarm capabilities for devices with COMMAND_CLASS_ALARM
+		/*if (!(this.getCommandClass('ALARM') instanceof Error)) {
+			this.registerCapability('alarm_tamper', 'ALARM', {
+				getOpts: {
+					getOnStart: true,
+				}
+			});
+
+			this.registerCapability('alarm_fire', 'ALARM', {
+				get: 'ALARM_GET',
+				getOpts: {
+					getOnStart: true,
+				},
+				getParser: () => ({
+					'V1 Alarm Type': 0,
+					'Notification Type': 'Emergency',
+					Event: 2,
+				}),
+				report: 'NOTIFICATION_REPORT',
+				reportParser: report => {
+					if (report && report['Notification Type'] === 'Emergency' && report.hasOwnProperty('Event (Parsed)')) {
+						if (report['Event (Parsed)'] === 'Contact Fire Service') return true;
+						if (report['Event (Parsed)'] === 'Event inactive' &&
+							report.hasOwnProperty('Event Parameter') &&
+							(report['Event Parameter'][0] === 2 ||
+								report['Event Parameter'][0] === 254)) {
+							return false;
+						}
+					}
+					return null;
+				}
+			});
+		}
+		*/
+
 	}
 }
 module.exports = IDLock101;
