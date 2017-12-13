@@ -1,17 +1,79 @@
 {
 	"id": "IDlock101",
+	"branch": "master",
 	"class": "lock",
 	"name": {
 		"en": "ID Lock 101"
 	},
 	"capabilities": [
 		"locked",
+		"alarm_contact",
 		"measure_battery",
+		"alarm_heat",
+		"alarm_tamper",
 		"alarm_battery"
 	],
+	"capabilitiesOptions": {
+		"alarm_contact": {
+			"title": {
+				"en": "Door state (contact alarm)",
+				"nl": "Deur status (contact alarm)"
+			}
+		}
+	},
 	"images": {
 		"large": "/drivers/IDlock101/assets/images/large.png",
 		"small": "/drivers/IDlock101/assets/images/small.png"
+	},
+	"mobile": {
+		"components": [
+			{
+				"id": "icon",
+				"capabilities": []
+			},
+			{
+				"id": "battery",
+				"capabilities": [
+					"measure_battery"
+				]
+			},
+			{
+				"id": "sensor",
+				"capabilities": [
+					"locked",
+					"alarm_contact",
+					"alarm_heat",
+					"alarm_tamper",
+					"alarm_battery"
+				],
+				"options": {
+					"icons": {
+						"locked": "/drivers/IDlock101/assets/locked.svg",
+						"alarm_contact": "/drivers/IDlock101/assets/door.svg"
+					},
+					"locked": {
+						"noblink": true,
+						"greyout": true,
+						"label": {
+							"true": {
+								"en": "Locked",
+								"nl": "Gesloten"
+							},
+							"false": {
+								"en": "Open",
+								"nl": "Open"
+							}
+						}
+					}
+				}
+			},
+			{
+				"id": "toggle",
+				"capabilities": [
+					"locked"
+				]
+			}
+		]
 	},
 	"zwave": {
 		"manufacturerId": [
@@ -33,7 +95,7 @@
 		"zwaveAllianceProductId": 2293,
 		"imageRemotePath": "https://products.z-wavealliance.org/ProductImages/Index?productName=ZC10-17055585",
 		"associationGroups": [
-			1
+			1, 2
 		],
 		"associationGroupsOptions": {
 			"1": {
