@@ -15,7 +15,20 @@ class IDLock101 extends ZwaveDevice {
 		this.registerCapability('locked', 'DOOR_LOCK', {
 			getOpts: {
 				getOnStart: true,
-			}
+			},
+			report: 'DOOR_LOCK_OPERATION_REPORT',
+			reportParserV2(report) {
+				if (report && report.hasOwnProperty('Door Lock Mode')) {
+					// reset alarm_tamper or alarm_heat based on Unlock report
+					if (report['Door Lock Mode'] === 'Door Unsecured') {
+						if (this.getCapabilityValue('alarm_tamper')) this.setCapabilityValue('alarm_tamper', false);
+						if (this.getCapabilityValue('alarm_heat')) this.setCapabilityValue('alarm_heat', false);
+						this.log('DOOR_LOCK: reset tamper and heat alarm');
+					};
+					return report['Door Lock Mode'] === 'Door Secured';
+				}
+				return null;
+			},
 		});
 
 		this.registerCapability('alarm_contact', 'DOOR_LOCK', {
@@ -52,7 +65,7 @@ class IDLock101 extends ZwaveDevice {
 				}
 			});
 
-			this.registerCapability('alarm_fire', 'NOTIFICATION', {
+			this.registerCapability('alarm_heat', 'NOTIFICATION', {
 				get: 'NOTIFICATION_GET',
 				getOpts: {
 					getOnStart: true,
@@ -80,10 +93,42 @@ class IDLock101 extends ZwaveDevice {
 		}
 		// register alarm capabilities for devices with COMMAND_CLASS_ALARM
 		if (!(this.getCommandClass('ALARM') instanceof Error)) {
+			this.registerCapability('alarm_tamper', 'ALARM', {
+				get: 'ALARM_GET',
+				getOpts: {
+					getOnStart: true,
+				},
+				getParser: () => ({
+					'Alarm Type': 10,
+				}),
+				report: 'ALARM_REPORT',
+				reportParser: report => {
+					if (report && report['Alarm Type'] === 10 && report.hasOwnProperty('Alarm Level')) {
+						return report['Alarm Level'] === 1
+					}
+					return null;
+				}
+			});
+
+			this.registerCapability('alarm_heat', 'ALARM', {
+				get: 'ALARM_GET',
+				getOpts: {
+					getOnStart: true,
+				},
+				getParser: () => ({
+					'Alarm Type': 4,
+				}),
+				report: 'ALARM_REPORT',
+				reportParser: report => {
+					if (report && report['Alarm Type'] === 4 && report.hasOwnProperty('Alarm Level')) {
+						return report['Alarm Level'] === 1
+					}
+					return null;
+				}
+			});
+
 			this.log('registered COMMAND_CLASS_ALARM capabilities listeners');
 		}
-
-
 	}
 }
 module.exports = IDLock101;

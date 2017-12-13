@@ -8,7 +8,7 @@
 		"locked",
 		"alarm_contact",
 		"measure_battery",
-		"alarm_fire",
+		"alarm_heat",
 		"alarm_tamper",
 		"alarm_battery"
 	],
@@ -41,7 +41,7 @@
 				"capabilities": [
 					"locked",
 					"alarm_contact",
-					"alarm_fire",
+					"alarm_heat",
 					"alarm_tamper",
 					"alarm_battery"
 				],
