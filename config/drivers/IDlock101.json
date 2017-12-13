@@ -1,5 +1,6 @@
 {
 	"id": "IDlock101",
+	"branch": "master",
 	"class": "lock",
 	"name": {
 		"en": "ID Lock 101"
