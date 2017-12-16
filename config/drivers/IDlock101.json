@@ -16,8 +16,8 @@
 	"capabilitiesOptions": {
 		"alarm_contact": {
 			"title": {
-				"en": "Door state (contact alarm)",
-				"nl": "Deur status (contact alarm)"
+				"en": "Door open (Contact Alarm)",
+				"nl": "Deur open (Contact alarm)"
 			}
 		}
 	},
