@@ -31,10 +31,13 @@ Triggers:
  Actions:
  * Door lock / unlock
 
-Open work:
-* Device specific alarm triggers flow cards (incl. door open state)
-* Notification cards providing tokens with door unlock condition (manual, RFID, keypad etc)
+ ## Feedback:
+ Any requests please post them in the [ID Lock app topic on the Athom Forum](https://forum.athom.com/post/editdiscussion/4386) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)   
 
 ## Change Log:
 ### v 1.0.0
 * App store release for ID lock 101 (including Z-Wave module board 01A)
+
+## Future work:
+* Device specific alarm triggers flow cards (incl. door open state)
+* Notification cards providing tokens with door unlock condition (manual, RFID, keypad etc)
