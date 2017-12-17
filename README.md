@@ -39,5 +39,6 @@ Triggers:
 * App store release for ID lock 101 (including Z-Wave module board 01A)
 
 ## Future work:
-* Device specific alarm triggers flow cards (incl. door open state)
-* Notification cards providing tokens with door unlock condition (manual, RFID, keypad etc)
+* ID Lock 101: Device specific alarm triggers flow cards (incl. door open state)   
+* ID Lock 101: Notification cards providing tokens with door unlock condition (manual, RFID, keypad etc)   
+* Add support for ID Lock 150   
