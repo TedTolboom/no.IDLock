@@ -15,6 +15,7 @@ class IDLock101 extends ZwaveDevice {
 		this.registerCapability('locked', 'DOOR_LOCK', {
 			getOpts: {
 				getOnStart: true,
+				getOnOnline: false,
 			},
 			report: 'DOOR_LOCK_OPERATION_REPORT',
 			reportParserV2(report) {
@@ -51,6 +52,7 @@ class IDLock101 extends ZwaveDevice {
 		this.registerCapability('measure_battery', 'BATTERY', {
 			getOpts: {
 				getOnStart: true,
+				getOnOnline: false,
 			}
 		});
 
@@ -62,6 +64,7 @@ class IDLock101 extends ZwaveDevice {
 			this.registerCapability('alarm_tamper', 'NOTIFICATION', {
 				getOpts: {
 					getOnStart: true,
+					getOnOnline: false,
 				}
 			});
 
@@ -69,6 +72,7 @@ class IDLock101 extends ZwaveDevice {
 				get: 'NOTIFICATION_GET',
 				getOpts: {
 					getOnStart: true,
+					getOnOnline: false,
 				},
 				getParser: () => ({
 					'V1 Alarm Type': 0,
