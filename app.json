@@ -4,8 +4,9 @@
   "name": {
     "en": "ID Lock Z-wave"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": ">=1.5.0",
+  "athomForumDiscussionId": 4386,
   "author": {
     "name": "Ted Tolboom",
     "email": "dTNL.Homey@gmail.com"
@@ -13,8 +14,7 @@
   "contributing": {
     "donate": {
       "paypal": {
-        "username": "TedTolboom",
-        "currency": "EUR"
+        "username": "TedTolboom"
       }
     }
   },

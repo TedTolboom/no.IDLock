@@ -35,6 +35,9 @@ Triggers:
  Any requests please post them in the [ID Lock app topic on the Athom Forum](https://forum.athom.com/post/editdiscussion/4386) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)   
 
 ## Change Log:
+### v 1.0.2
+* Administrative update; add link to community forum topic       
+
 ### v 1.0.1
 * Remove (and overrule) default `getOnOnline` triggers to try to resolve battery draining issue    
 
