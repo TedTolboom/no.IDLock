@@ -4,7 +4,7 @@ const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
 
 // Documentation: https://Products.Z-WaveAlliance.org/ProductManual/File?folder=&filename=Manuals/2293/IDL Operational Manual EN v1.3.pdf
 
-class IDLock101 extends ZwaveDevice {
+class IDlock101 extends ZwaveDevice {
 	onMeshInit() {
 		// enable debugging
 		this.enableDebug();
@@ -135,4 +135,4 @@ class IDLock101 extends ZwaveDevice {
 		}
 	}
 }
-module.exports = IDLock101;
+module.exports = IDlock101;
