@@ -10,12 +10,13 @@ This app adds support for ID Lock Z-wave devices made by [ID Lock AS](https://id
 Please file Pull Requests on the *development* branch of this repository and with respect to the refactored files in _/drivers_ and _/config_ folders.   
 
 ## Supported devices
-* ID Lock 101 (incl. Z-Wave module board 01A)
+* ID Lock 101 (incl. Z-Wave module board 01A)   
+* ID Lock 150 (incl. Z-Wave module board 01A)    
 
 ## Supported Languages:
 * English
 
-## ID Lock 101 Features
+## ID Lock 101 & 150 Features
 
 The ID Lock 101 driver supports the following capabilities:
 * Door lock / unlocked
@@ -35,6 +36,10 @@ Triggers:
  Any requests please post them in the [ID Lock app topic on the Athom Forum](https://forum.athom.com/post/editdiscussion/4386) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)   
 
 ## Change Log:
+### v 1.1.0
+* Add support for ID Lock 150         
+* Update meshdriver to version 1.2.22   
+
 ### v 1.0.2
 * Administrative update; add link to community forum topic       
 
