@@ -1,0 +1,332 @@
+{
+	"id": "IDlock150",
+	"branch": "master",
+	"class": "lock",
+	"name": {
+		"en": "ID Lock 150"
+	},
+	"capabilities": [
+		"locked",
+		"alarm_contact",
+		"measure_battery",
+		"alarm_heat",
+		"alarm_tamper",
+		"alarm_battery"
+	],
+	"capabilitiesOptions": {
+		"alarm_contact": {
+			"title": {
+				"en": "Door open (Contact Alarm)",
+				"nl": "Deur open (Contact alarm)"
+			}
+		}
+	},
+	"images": {
+		"large": "/drivers/IDlock150/assets/images/large.png",
+		"small": "/drivers/IDlock150/assets/images/small.png"
+	},
+	"mobile": {
+		"components": [
+			{
+				"id": "icon",
+				"capabilities": []
+			},
+			{
+				"id": "battery",
+				"capabilities": [
+					"measure_battery"
+				]
+			},
+			{
+				"id": "sensor",
+				"capabilities": [
+					"locked",
+					"alarm_contact",
+					"alarm_heat",
+					"alarm_tamper",
+					"alarm_battery"
+				],
+				"options": {
+					"icons": {
+						"locked": "/drivers/IDlock150/assets/locked.svg",
+						"alarm_contact": "/drivers/IDlock150/assets/door.svg"
+					},
+					"locked": {
+						"noblink": true,
+						"greyout": true,
+						"label": {
+							"true": {
+								"en": "Locked",
+								"nl": "Gesloten"
+							},
+							"false": {
+								"en": "Open",
+								"nl": "Open"
+							}
+						}
+					}
+				}
+			},
+			{
+				"id": "toggle",
+				"capabilities": [
+					"locked"
+				]
+			}
+		]
+	},
+	"zwave": {
+		"manufacturerId": [
+			883
+		],
+		"productTypeId": [
+			3
+		],
+		"productId": [
+			1
+		],
+		"wakeUpInterval": 3600,
+		"learnmode": {
+			"instruction": {
+				"en": "Inclusion – (Puts your device in inclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release button and type Master PIN (Factory setting: “1234”) on keypad followed by LOCK button\r\n• Press digit“ 2” on keypad followed by LOCK button(you have now entered the“ Settings menu”).\r\n• Press digit“ 5” on keypad.\r\n Inclusion mode starts immediately.LED indicator below logo signals this by flashing blue."
+			}
+		},
+		"productDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=Manuals/2780/IDLock150_ZWave_UserManual_v2.1.pdf",
+		"zwaveAllianceProductId": 2780,
+		"imageRemotePath": "https://products.z-wavealliance.org/ProductImages/Index?productName=ZC10-18066154",
+		"associationGroups": [
+			1
+		],
+		"associationGroupsOptions": {
+			"1": {
+				"hint": {
+					"en": "Z-Wave Plus Lifeline"
+				}
+			}
+		},
+		"unlearnmode": {
+			"instruction": {
+				"en": "Exclusion – (Puts your device in exclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release button and type Master PIN (Factory setting: “1234”) on keypad followed by LOCK button\r\n• Press digit“ 2” on keypad followed by LOCK button(you have now entered the“ Settings menu”).\r\n• Press digit“ 5” on keypad.\r\nExclusion mode starts immediately.LED indicator below logo signals this by flashing blue."
+			}
+		}
+	},
+	"settings": [
+		{
+			"id": "Doorlock_mode",
+			"value": "1",
+			"label": {
+				"en": "Doorlock mode"
+			},
+			"hint": {
+				"en": "Doorlock operational behaviour"
+			},
+			"zwave": {
+				"index": 1,
+				"size": 1
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Disabled Away mode and Manual locking mode"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Disabled Away mode and Automatic locking mode (default)"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "Away mode and Automatic locking mode"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Away mode and Manual locking mode"
+					}
+				}
+			],
+			"type": "dropdown"
+		},
+		{
+			"id": "Doorlock_Hinge_Position",
+			"value": "0",
+			"label": {
+				"en": "Door Hinge Position Mode"
+			},
+			"hint": {
+				"en": "Parameter defines the door hinge position"
+			},
+			"zwave": {
+				"index": 3,
+				"size": 1
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Right"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Left"
+					}
+				}
+			],
+			"type": "dropdown"
+		},
+		{
+			"id": "Door_Audio_Volume_Level",
+			"value": "5",
+			"label": {
+				"en": "Audio Volume Level"
+			},
+			"hint": {
+				"en": "Parameter defines the door door audio volume. This parameter is a set only parameter. If the value is changed locally on the door lock, this value will not change"
+			},
+			"zwave": {
+				"index": 4,
+				"size": 1
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "No sound"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "Level 1"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "Level 2"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "Level 3"
+					}
+				},
+				{
+					"id": "4",
+					"label": {
+						"en": "Level 4"
+					}
+				},
+				{
+					"id": "5",
+					"label": {
+						"en": "Level 5 (default)"
+					}
+				},
+				{
+					"id": "6",
+					"label": {
+						"en": "Maximum sound level"
+					}
+				}
+			],
+			"type": "dropdown"
+		},
+		{
+			"id": "Door_Relock_mode",
+			"value": "1",
+			"label": {
+				"en": "Door ReLock Mode"
+			},
+			"hint": {
+				"en": "Parameter defines the door Relock mode"
+			},
+			"zwave": {
+				"index": 5,
+				"size": 1
+			},
+			"values": [
+				{
+					"id": "1",
+					"label": {
+						"en": "Door relock mode enabled"
+					}
+				},
+				{
+					"id": "0",
+					"label": {
+						"en": "Door relock mode disabled"
+					}
+				}
+			],
+			"type": "dropdown"
+		},
+		{
+			"id": "Service_PIN_mode",
+			"value": "0",
+			"label": {
+				"en": "Service PIN Mode"
+			},
+			"hint": {
+				"en": "This is a set only value, if changed locally on keypad these values are not changed on Z - wave module."
+			},
+			"zwave": {
+				"index": 6,
+				"size": 1
+			},
+			"values": [
+				{
+					"id": "0",
+					"label": {
+						"en": "Deactivated (default)"
+					}
+				},
+				{
+					"id": "1",
+					"label": {
+						"en": "1 times used"
+					}
+				},
+				{
+					"id": "2",
+					"label": {
+						"en": "2 times used"
+					}
+				},
+				{
+					"id": "3",
+					"label": {
+						"en": "5 times used"
+					}
+				},
+				{
+					"id": "4",
+					"label": {
+						"en": "10 times used"
+					}
+				},
+				{
+					"id": "8",
+					"label": {
+						"en": "12 Hours used"
+					}
+				},
+				{
+					"id": "6",
+					"label": {
+						"en": "24 Hours used"
+					}
+				}
+			],
+			"type": "dropdown"
+		}
+	]
+}
