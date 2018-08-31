@@ -188,7 +188,7 @@
 				"en": "Audio Volume Level"
 			},
 			"hint": {
-				"en": "Parameter defines the door hinge position"
+				"en": "Parameter defines the door door audio volume. This parameter is a set only parameter. If the value is changed locally on the door lock, this value will not change"
 			},
 			"zwave": {
 				"index": 4,
@@ -247,7 +247,7 @@
 				"en": "Door ReLock Mode"
 			},
 			"hint": {
-				"en": "Parameter defines the door hinge position"
+				"en": "Parameter defines the door Relock mode"
 			},
 			"zwave": {
 				"index": 5,
