@@ -1,11 +1,15 @@
 'use strict';
 
 const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
+const Homey = require('homey');
 
 // Documentation: https://Products.Z-WaveAlliance.org/ProductManual/File?folder=&filename=Manuals/2293/IDL Operational Manual EN v1.3.pdf
 
-class IDlock150 extends ZwaveDevice {
+class IDlock150 extends ZwaveDevice {	
 	onMeshInit() {
+		let unlockTrigger = new Homey.FlowCardTriggerDevice('lockstate');
+		unlockTrigger.register();
+
 		// enable debugging
 		this.enableDebug();
 
@@ -30,6 +34,68 @@ class IDlock150 extends ZwaveDevice {
 				}
 				return null;
 			},
+		});
+
+		this.registerCapability('locked', 'NOTIFICATION', {
+			getOpts: {
+				getOnStart: true,
+				getOnOnline: false,
+			},
+			reportParser: report => {
+				if (report && report['Notification Type'] === 'Access Control' && report.hasOwnProperty('Event (Parsed)')) {
+					if (report['Event (Parsed)'] === 'Keypad Unlock Operation' &&
+					report.hasOwnProperty('Event Parameter')) {
+						let codes = Homey.ManagerSettings.get('codes');
+						this.log("Codes", codes);
+
+						if (report['Event Parameter'][0] === 0 ){
+							unlockTrigger.trigger(this, {"who":"Homey"}, null).catch( this.error ).then( this.log('Homey opened the door') )
+						} else if (report['Event Parameter'][0] === 1 ){
+							unlockTrigger.trigger(this, {"who":"Master"},null).catch( this.error ).then( this.log('Master opened the door') )
+						} else if (report['Event Parameter'][0] === 2 ){
+							unlockTrigger.trigger(this, {"who":"Service"},null).catch( this.error ).then( this.log('Service opened the door') )
+						} else {
+							let user = 'Unknown';
+							let codes = Homey.ManagerSettings.get('codes');
+							let keyId = parseInt(report['Event Parameter'][0])-60
+							this.log("Codes", codes);
+							if (!codes) {
+								user = 'Unknown [key:'+keyId+']';
+							}
+							code = codes.filter(function(item){
+								return ( item.index === keyId && item.type === 'key')
+							})
+							this.log("Key codes", codes);
+							if (code.length === 1){
+								user = code[0].user;
+							}
+							unlockTrigger.trigger(this, {"who":user},null).catch( this.error ).then( this.log('User opened the door') )
+						}
+					}
+					if (report['Event (Parsed)'] === 'RF Unlock Operation' &&
+					report.hasOwnProperty('Event Parameter')) {
+						let user = 'Unknown'
+						let codes = Homey.ManagerSettings.get('codes');
+						let tagId = parseInt(report['Event Parameter'][0])-10
+						this.log("Codes", codes);
+						if (!codes) {
+							user = 'Unknown [tag:'+tagId+']';
+						}
+						code = codes.filter(function(item){
+							return ( item.index === tagId && item.type === 'tag')
+						})
+						this.log("Tag codes", codes);
+						if (code.length === 1){
+							user = code[0].user;
+						}
+						unlockTrigger.trigger(this, {"who":user},null).catch( this.error ).then( this.log('User opened the door') )
+					}
+					if (report['Event (Parsed)'] === 'Manual Unlock Operation') {
+						unlockTrigger.trigger(this, {"who":"Button"}, null).catch( this.error ).then( this.log('Homey opened the door') )
+					}
+				}
+				return null;
+			}
 		});
 
 		this.registerCapability('alarm_contact', 'DOOR_LOCK', {

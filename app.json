@@ -2,7 +2,7 @@
   "id": "no.idlock",
   "sdk": 2,
   "name": {
-    "en": "ID Lock Z-wave"
+    "en": "ID Lock"
   },
   "version": "1.1.0",
   "compatibility": ">=1.5.0",
@@ -34,7 +34,30 @@
     ]
   },
   "flow": {
-    "triggers": []
+    "triggers": [
+      {
+        "id": "lockstate",
+        "title": {
+          "en": "Someone unlocked the door"
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+                "en": "Who"
+            }
+          }
+      ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          }
+        ]
+      }
+    ]
   },
   "capabilities": {
     "door": {
