@@ -45,50 +45,42 @@ class IDlock150 extends ZwaveDevice {
 				if (report && report['Notification Type'] === 'Access Control' && report.hasOwnProperty('Event (Parsed)')) {
 					if (report['Event (Parsed)'] === 'Keypad Unlock Operation' &&
 					report.hasOwnProperty('Event Parameter')) {
-						let codes = Homey.ManagerSettings.get('codes');
+						let codes = JSON.parse(Homey.ManagerSettings.get('codes'));
 						this.log("Codes", codes);
-
-						if (report['Event Parameter'][0] === 0 ){
+						let keyType = parseInt(report['Event Parameter'][0])
+						if (keyType === 0 ){
 							unlockTrigger.trigger(this, {"who":"Homey"}, null).catch( this.error ).then( this.log('Homey opened the door') )
-						} else if (report['Event Parameter'][0] === 1 ){
+						} else if (keyType === 1 ){
 							unlockTrigger.trigger(this, {"who":"Master"},null).catch( this.error ).then( this.log('Master opened the door') )
-						} else if (report['Event Parameter'][0] === 2 ){
+						} else if (keyType === 2 ){
 							unlockTrigger.trigger(this, {"who":"Service"},null).catch( this.error ).then( this.log('Service opened the door') )
 						} else {
-							let user = 'Unknown';
-							let codes = Homey.ManagerSettings.get('codes');
-							let keyId = parseInt(report['Event Parameter'][0])-60
+							let codes = JSON.parse(Homey.ManagerSettings.get('codes'));
+							let keyId = keyType-59
+							let type = parseInt(report['Event (Raw)'][0])
+							let user = 'Unknown [key:'+keyId+']';
 							this.log("Codes", codes);
-							if (!codes) {
-								user = 'Unknown [key:'+keyId+']';
-							}
-							code = codes.filter(function(item){
-								return ( item.index === keyId && item.type === 'key')
-							})
-							this.log("Key codes", codes);
-							if (code.length === 1){
-								user = code[0].user;
+							for(var i in codes){
+								if (codes[i].index === keyId && codes[i].type=== type){
+									user = codes[i].user;
+								}
 							}
 							unlockTrigger.trigger(this, {"who":user},null).catch( this.error ).then( this.log('User opened the door') )
 						}
 					}
 					if (report['Event (Parsed)'] === 'RF Unlock Operation' &&
 					report.hasOwnProperty('Event Parameter')) {
-						let user = 'Unknown'
-						let codes = Homey.ManagerSettings.get('codes');
-						let tagId = parseInt(report['Event Parameter'][0])-10
+						let codes = JSON.parse(Homey.ManagerSettings.get('codes'));
+						let tagId = parseInt(report['Event Parameter'][0])-9
+						let type = parseInt(report['Event (Raw)'][0])
+						let user = 'Unknown [tag:'+tagId+']';
 						this.log("Codes", codes);
-						if (!codes) {
-							user = 'Unknown [tag:'+tagId+']';
+						for(var i in codes){
+							if (codes[i].index === tagId && codes[i].type=== type){
+								user = codes[i].user;
+							}
 						}
-						code = codes.filter(function(item){
-							return ( item.index === tagId && item.type === 'tag')
-						})
-						this.log("Tag codes", codes);
-						if (code.length === 1){
-							user = code[0].user;
-						}
-						unlockTrigger.trigger(this, {"who":user},null).catch( this.error ).then( this.log('User opened the door') )
+					unlockTrigger.trigger(this, {"who":user},null).catch( this.error ).then( this.log('User opened the door') )
 					}
 					if (report['Event (Parsed)'] === 'Manual Unlock Operation') {
 						unlockTrigger.trigger(this, {"who":"Button"}, null).catch( this.error ).then( this.log('Homey opened the door') )

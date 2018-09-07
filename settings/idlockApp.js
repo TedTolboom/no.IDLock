@@ -6,26 +6,19 @@ myApp.run(function(editableOptions, editableThemes) {
     editableOptions.theme = 'bs3';
 });
 
-myApp.filter('orderObjectBy', function() {
-    return function(items, field, reverse) {
-        var filtered = [];
-        angular.forEach(items, function(item) {
-            filtered.push(item);
-        });
-        filtered.sort(function(a, b) {
-            return (a[field] > b[field] ? 1 : -1);
-        });
-        if (reverse) filtered.reverse();
-        return filtered;
-    };
-});
-
-
 myApp.controller('myCodes', function($scope, $filter) {
     var temp;
 
     $scope.codes = [];
-
+    $scope.types = [
+        {value: 4, text: 'Tag'},
+        {value: 6, text: 'Key'}
+    ]; 
+    
+    $scope.showType = function(filterValue) {
+        var selected = $filter('filter')($scope.types, {value: filterValue});
+        return (filterValue && selected.length) ? selected[0].text : 'Not set';
+    };
     $scope.homey;
 
     $scope.setHomey = function(homey) {
@@ -47,7 +40,7 @@ myApp.controller('myCodes', function($scope, $filter) {
 
     $scope.checkNotEmpty = function(data) {
         if (typeof data === 'undefined') {
-            return "Field cannot be empty";
+            return "Invalid field entry";
         }
     };
 
@@ -75,9 +68,9 @@ myApp.controller('myCodes', function($scope, $filter) {
     $scope.addCode = function() {
         $scope.inserted = {
             id: $scope.codes.length + 1,
-            user: '',
-            index: 0,
-            type: ''
+            user: 'User',
+            index: '1',
+            type: 6
         };
         $scope.codes.push($scope.inserted);
     };

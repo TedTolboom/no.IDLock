@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="bootstrap.css" />
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="xeditable.min.css" />
     <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -37,10 +37,15 @@
                     </span>
                     </td>
                     <td>
+                        <span editable-select="code.type" e-name="type" e-form="rowform" e-ng-options="s.value as s.text for s in types" onbeforesave="checkNotEmpty($data)" e-required>
+                          {{ showType(code.type) }}
+                        </a>
+                    </td>
+                    <!-- <td>
                         <span editable-text="code.type" e-name="type" e-form="rowform" onbeforesave="checkNotEmpty($data)" e-required>
                     {{ code.type }}
                     </span>
-                    </td>
+                    </td> -->
                     <td style="white-space: nowrap">
                         <!-- form -->
                         <form editable-form name="rowform" onbeforesave="saveCode($data, code.id)" onaftersave="sendToHomey(codes)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == code">
