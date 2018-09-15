@@ -26,6 +26,7 @@ The ID Lock 101 driver supports the following capabilities:
 * Battery (alarm)
 
 Triggers:
+* Someone unlocked the door
 * Door lock / unlocked
 * Generic "an alarm triggered" trigger cards from devices, with additional logic AND condition isolating device
 
