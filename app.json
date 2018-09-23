@@ -45,7 +45,7 @@
             "name": "who",
             "type": "string",
             "title": {
-                "en": "Who"
+              "en": "Who"
             }
           }
         ],
