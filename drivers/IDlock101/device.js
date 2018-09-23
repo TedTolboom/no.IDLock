@@ -53,6 +53,8 @@ class IDlock101 extends ZwaveDevice {
 			getOpts: {
 				getOnStart: true,
 				getOnOnline: false,
+				pollInterval: 'poll_interval_BATTERY', // maps to device settings
+				pollMultiplication: 60000,
 			}
 		});
 

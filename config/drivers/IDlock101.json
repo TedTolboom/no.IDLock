@@ -180,6 +180,21 @@
 				}
 			],
 			"type": "dropdown"
+		},
+		{
+			"id": "poll_interval_BATTERY",
+			"value": 0,
+			"label": {
+				"en": "Battery level polling interval"
+			},
+			"hint": {
+				"en": "Set polling interval lock battery level (minutes), 0 = disabled, default = 0 minutes (disabled)"
+			},
+			"attr": {
+				"min": 0,
+				"max": 1440
+			},
+			"type": "number"
 		}
 	]
 }
