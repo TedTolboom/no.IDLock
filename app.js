@@ -6,7 +6,7 @@ class IDLock extends Homey.App {
 
 	onInit() {
 
-		this.log('MyApp is running...');
+		this.log('IDLock is running...');
 
 	}
 

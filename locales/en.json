@@ -1,1 +1,11 @@
-{}
+{
+    "personalCodes": "Here you can map a user with a key/tag code index.",
+    "myCodes" : "My Codes",
+    "name" : "Name",
+    "index" : "Index",
+    "edit" : "Edit",
+    "save" : "Save",
+    "cancel" : "Cancel",
+    "addCode" : "Add Code",
+    "del" : "Delete"
+   }
