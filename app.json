@@ -2,15 +2,28 @@
   "id": "no.idlock",
   "sdk": 2,
   "name": {
-    "en": "ID Lock Z-wave"
+    "en": "ID Lock"
   },
-  "version": "1.1.0",
+  "brandColor": "#000000",
+  "version": "1.2.0",
   "compatibility": ">=1.5.0",
   "athomForumDiscussionId": 4386,
   "homeyCommunityTopicId": 161,
   "author": {
     "name": "Ted Tolboom",
     "email": "dTNL.Homey@gmail.com"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Ted Tolboom",
+        "email": "dTNL.Homey@gmail.com"
+      },
+      {
+        "name": "Mats Paulsen",
+        "email": "mats@paulsen.one"
+      }
+    ]
   },
   "contributing": {
     "donate": {
@@ -34,23 +47,30 @@
     ]
   },
   "flow": {
-    "triggers": []
-  },
-  "capabilities": {
-    "door": {
-      "type": "boolean",
-      "title": {
-        "en": "Door state",
-        "nl": "Deur Status"
-      },
-      "desc": {
-        "en": "Door state (open/closed)",
-        "nl": "Deur status (open/dicht)"
-      },
-      "getable": true,
-      "setable": false,
-      "greyout": true
-    }
+    "triggers": [
+      {
+        "id": "lockstate",
+        "title": {
+          "en": "Someone unlocked the door"
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          }
+        ]
+      }
+    ]
   },
   "drivers": [
     {
@@ -72,7 +92,17 @@
           "title": {
             "en": "Door open (Contact Alarm)",
             "nl": "Deur open (Contact alarm)"
-          }
+          },
+          "icon": "/drivers/IDlock101/assets/door.svg"
+        },
+        "locked": {
+          "titleTrue": {
+            "en": "Locked"
+          },
+          "titleFalse": {
+            "en": "Unlocked"
+          },
+          "icon": "/drivers/IDlock101/assets/locked.svg"
         }
       },
       "images": {
@@ -174,7 +204,7 @@
             "en": "Doorlock mode"
           },
           "hint": {
-            "en": "Doorlock operational behaviour"
+            "en": "This parameter (1) defines the doorlock operational behaviour"
           },
           "zwave": {
             "index": 1,
@@ -215,7 +245,7 @@
             "en": "Door Hinge Position Mode"
           },
           "hint": {
-            "en": "Parameter defines the door hinge position"
+            "en": "This parameter (3) defines the door hinge position"
           },
           "zwave": {
             "index": 3,
@@ -258,7 +288,17 @@
           "title": {
             "en": "Door open (Contact Alarm)",
             "nl": "Deur open (Contact alarm)"
-          }
+          },
+          "icon": "/drivers/IDlock150/assets/door.svg"
+        },
+        "locked": {
+          "titleTrue": {
+            "en": "Locked"
+          },
+          "titleFalse": {
+            "en": "Unlocked"
+          },
+          "icon": "/drivers/IDlock150/assets/locked.svg"
         }
       },
       "images": {
@@ -358,7 +398,7 @@
             "en": "Doorlock mode"
           },
           "hint": {
-            "en": "Doorlock operational behaviour"
+            "en": "This parameter (1) defines the doorlock operational behaviour"
           },
           "zwave": {
             "index": 1,
@@ -374,7 +414,7 @@
             {
               "id": "1",
               "label": {
-                "en": "Disabled Away mode and Automatic locking mode (default)"
+                "en": "Disabled Away mode and Automatic locking mode"
               }
             },
             {
@@ -399,7 +439,7 @@
             "en": "Door Hinge Position Mode"
           },
           "hint": {
-            "en": "Parameter defines the door hinge position"
+            "en": "This parameter (3) defines the door hinge position"
           },
           "zwave": {
             "index": 3,
@@ -428,7 +468,7 @@
             "en": "Audio Volume Level"
           },
           "hint": {
-            "en": "Parameter defines the door door audio volume. This parameter is a set only parameter. If the value is changed locally on the door lock, this value will not change"
+            "en": "This parameter (4) defines the door door audio volume. This parameter is a set only parameter. If the value is changed locally on the door lock, this value will not change"
           },
           "zwave": {
             "index": 4,
@@ -487,7 +527,7 @@
             "en": "Door ReLock Mode"
           },
           "hint": {
-            "en": "Parameter defines the door Relock mode"
+            "en": "This parameter (5) defines the door Relock mode"
           },
           "zwave": {
             "index": 5,
@@ -516,7 +556,7 @@
             "en": "Service PIN Mode"
           },
           "hint": {
-            "en": "This is a set only value, if changed locally on keypad these values are not changed on Z - wave module."
+            "en": "This parameter (6) is a set only value, if changed locally on keypad these values are not changed on Z - wave module."
           },
           "zwave": {
             "index": 6,
@@ -570,5 +610,21 @@
         }
       ]
     }
-  ]
+  ],
+  "capabilities": {
+    "door": {
+      "type": "boolean",
+      "title": {
+        "en": "Door state",
+        "nl": "Deur Status"
+      },
+      "desc": {
+        "en": "Door state (open/closed)",
+        "nl": "Deur status (open/dicht)"
+      },
+      "getable": true,
+      "setable": false,
+      "greyout": true
+    }
+  }
 }

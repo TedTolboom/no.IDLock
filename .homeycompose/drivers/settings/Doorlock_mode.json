@@ -1,0 +1,40 @@
+{
+	"value": "1",
+	"label": {
+		"en": "Doorlock mode"
+	},
+	"hint": {
+		"en": "This parameter ({{zwaveParameterIndex}}) defines the doorlock operational behaviour"
+	},
+	"zwave": {
+		"index": 1,
+		"size": 1
+	},
+	"values": [
+		{
+			"id": "0",
+			"label": {
+				"en": "Disabled Away mode and Manual locking mode"
+			}
+    },
+		{
+			"id": "1",
+			"label": {
+				"en": "Disabled Away mode and Automatic locking mode"
+			}
+    },
+		{
+			"id": "3",
+			"label": {
+				"en": "Away mode and Automatic locking mode"
+			}
+    },
+		{
+			"id": "2",
+			"label": {
+				"en": "Away mode and Manual locking mode"
+			}
+    }
+  ],
+	"type": "dropdown"
+}

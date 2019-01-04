@@ -1,0 +1,58 @@
+{
+	"value": "5",
+	"label": {
+		"en": "Audio Volume Level"
+	},
+	"hint": {
+		"en": "This parameter ({{zwaveParameterIndex}}) defines the door door audio volume. This parameter is a set only parameter. If the value is changed locally on the door lock, this value will not change"
+	},
+	"zwave": {
+		"index": 4,
+		"size": 1
+	},
+	"values": [
+		{
+			"id": "0",
+			"label": {
+				"en": "No sound"
+			}
+    },
+		{
+			"id": "1",
+			"label": {
+				"en": "Level 1"
+			}
+    },
+		{
+			"id": "2",
+			"label": {
+				"en": "Level 2"
+			}
+    },
+		{
+			"id": "3",
+			"label": {
+				"en": "Level 3"
+			}
+    },
+		{
+			"id": "4",
+			"label": {
+				"en": "Level 4"
+			}
+    },
+		{
+			"id": "5",
+			"label": {
+				"en": "Level 5 (default)"
+			}
+    },
+		{
+			"id": "6",
+			"label": {
+				"en": "Maximum sound level"
+			}
+    }
+  ],
+	"type": "dropdown"
+}

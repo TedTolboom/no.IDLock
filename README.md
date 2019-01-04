@@ -6,9 +6,6 @@ This app adds support for ID Lock Z-wave devices made by [ID Lock AS](https://id
 [ID Lock app Athom apps](https://apps.athom.com/app/no.IDLock)                    
 [ID Lock Github repository](https://github.com/TedTolboom/no.IDLock)   
 
-**Note:** This app is using [HomeyConfig composer](https://www.npmjs.com/package/node-homey-config-composer).   
-Please file Pull Requests on the *development* branch of this repository and with respect to the refactored files in _/drivers_ and _/config_ folders.   
-
 ## Supported devices
 * ID Lock 101 (incl. Z-Wave module board 01A)   
 * ID Lock 150 (incl. Z-Wave module board 01A)    
@@ -18,7 +15,7 @@ Please file Pull Requests on the *development* branch of this repository and wit
 
 ## ID Lock 101 & 150 Features
 
-The ID Lock 101 driver supports the following capabilities:
+The ID Lock 101 / ID Lock 150 driver supports the following capabilities:
 * Door lock / unlocked
 * Door open / closed (contact alarm)
 * Heat alarm
@@ -26,6 +23,7 @@ The ID Lock 101 driver supports the following capabilities:
 * Battery (alarm)
 
 Triggers:
+* Someone unlocked the door (ID Lock 150 only)
 * Door lock / unlocked
 * Generic "an alarm triggered" trigger cards from devices, with additional logic AND condition isolating device
 
@@ -33,9 +31,14 @@ Triggers:
  * Door lock / unlock
 
  ## Feedback:
- Any requests please post them in the [ID Lock app topic on the Athom Forum](https://forum.athom.com/post/editdiscussion/4386) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)   
+ Any requests please post them in the [ID Lock app topic on the Homey community Forum](https://community.athom.com/t/161) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)   
 
 ## Change Log:
+### v 1.2.0
+* Add support for registering user codes and recognizing who unlocked the door (for ID Lock 150) (credits to Mats Paulsen)      
+* Minor (cosmetical) modifications to make the app Homey SW v2.0.0 compatible      
+* Update meshdriver to version 1.2.28   
+
 ### v 1.1.0
 * Add support for ID Lock 150         
 * Update meshdriver to version 1.2.22   
@@ -52,4 +55,6 @@ Triggers:
 ## Future work:
 * ID Lock 101: Device specific alarm triggers flow cards (incl. door open state)   
 * ID Lock 101: Notification cards providing tokens with door unlock condition (manual, RFID, keypad etc)   
-* Add support for ID Lock 150   
+* ID Lock 150: Device specific alarm triggers flow cards (incl. door open state)   
+* ~ ID Lock 150: Notification cards providing tokens with door unlock condition (manual, RFID, keypad etc) ~   
+* ~ Add support for ID Lock 150 ~   
