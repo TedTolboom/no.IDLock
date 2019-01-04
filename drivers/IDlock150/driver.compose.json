@@ -1,0 +1,122 @@
+{
+	"id": "IDlock150",
+	"class": "lock",
+	"name": {
+		"en": "ID Lock 150"
+	},
+	"capabilities": [
+		"locked",
+		"alarm_contact",
+		"measure_battery",
+		"alarm_heat",
+		"alarm_tamper",
+		"alarm_battery"
+	],
+	"capabilitiesOptions": {
+		"alarm_contact": {
+			"title": {
+				"en": "Door open (Contact Alarm)",
+				"nl": "Deur open (Contact alarm)"
+			},
+			"icon": "{{driverAssetsPath}}/door.svg"
+		},
+		"locked": {
+			"titleTrue": {
+				"en": "Locked"
+			},
+			"titleFalse": {
+				"en": "Unlocked"
+			},
+			"icon": "{{driverAssetsPath}}/locked.svg"
+		}
+	},
+	"images": {
+		"large": "{{driverAssetsPath}}/images/large.png",
+		"small": "{{driverAssetsPath}}/images/small.png"
+	},
+	"mobile": {
+		"components": [
+			{
+				"id": "icon",
+				"capabilities": []
+			},
+			{
+				"id": "battery",
+				"capabilities": [
+					"measure_battery"
+				]
+			},
+			{
+				"id": "sensor",
+				"capabilities": [
+					"locked",
+					"alarm_contact",
+					"alarm_heat",
+					"alarm_tamper",
+					"alarm_battery"
+				],
+				"options": {
+					"icons": {
+						"locked": "{{driverAssetsPath}}/locked.svg",
+						"alarm_contact": "{{driverAssetsPath}}/door.svg"
+					},
+					"locked": {
+						"noblink": true,
+						"greyout": true,
+						"label": {
+							"true": {
+								"en": "Locked",
+								"nl": "Gesloten"
+							},
+							"false": {
+								"en": "Open",
+								"nl": "Open"
+							}
+						}
+					}
+				}
+			},
+			{
+				"id": "toggle",
+				"capabilities": [
+					"locked"
+				]
+			}
+		]
+	},
+	"zwave": {
+		"manufacturerId": [
+			883
+		],
+		"productTypeId": [
+			3
+		],
+		"productId": [
+			1
+		],
+		"wakeUpInterval": 3600,
+		"learnmode": {
+			"instruction": {
+				"en": "Inclusion – (Puts your device in inclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release button and type Master PIN (Factory setting: “1234”) on keypad followed by LOCK button\r\n• Press digit“ 2” on keypad followed by LOCK button(you have now entered the“ Settings menu”).\r\n• Press digit“ 5” on keypad.\r\n Inclusion mode starts immediately.LED indicator below logo signals this by flashing blue."
+			}
+		},
+		"productDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=Manuals/2780/IDLock150_ZWave_UserManual_v2.1.pdf",
+		"zwaveAllianceProductId": 2780,
+		"imageRemotePath": "https://products.z-wavealliance.org/ProductImages/Index?productName=ZC10-18066154",
+		"associationGroups": [
+			1
+		],
+		"associationGroupsOptions": {
+			"1": {
+				"hint": {
+					"en": "Z-Wave Plus Lifeline"
+				}
+			}
+		},
+		"unlearnmode": {
+			"instruction": {
+				"en": "Exclusion – (Puts your device in exclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release button and type Master PIN (Factory setting: “1234”) on keypad followed by LOCK button\r\n• Press digit“ 2” on keypad followed by LOCK button(you have now entered the“ Settings menu”).\r\n• Press digit“ 5” on keypad.\r\nExclusion mode starts immediately.LED indicator below logo signals this by flashing blue."
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+[
+	{
+		"$extends": "Doorlock_mode",
+		"id": "Doorlock_mode"
+  },
+	{
+		"$extends": "Doorlock_Hinge_Position",
+		"id": "Doorlock_Hinge_Position"
+  },
+	{
+		"$extends": "Door_Audio_Volume_Level",
+		"id": "Door_Audio_Volume_Level"
+  },
+	{
+		"$extends": "Door_Relock_mode",
+		"id": "Door_Relock_mode"
+  },
+	{
+		"$extends": "Service_PIN_mode",
+		"id": "Service_PIN_mode"
+  }
+]

@@ -1,0 +1,10 @@
+[
+	{
+		"$extends": "Doorlock_mode",
+		"id": "Doorlock_mode"
+  },
+	{
+		"$extends": "Doorlock_Hinge_Position",
+		"id": "Doorlock_Hinge_Position"
+  }
+]

@@ -1,0 +1,58 @@
+{
+	"value": "0",
+	"label": {
+		"en": "Service PIN Mode"
+	},
+	"hint": {
+		"en": "This parameter ({{zwaveParameterIndex}}) is a set only value, if changed locally on keypad these values are not changed on Z - wave module."
+	},
+	"zwave": {
+		"index": 6,
+		"size": 1
+	},
+	"values": [
+		{
+			"id": "0",
+			"label": {
+				"en": "Deactivated (default)"
+			}
+    },
+		{
+			"id": "1",
+			"label": {
+				"en": "1 times used"
+			}
+    },
+		{
+			"id": "2",
+			"label": {
+				"en": "2 times used"
+			}
+    },
+		{
+			"id": "3",
+			"label": {
+				"en": "5 times used"
+			}
+    },
+		{
+			"id": "4",
+			"label": {
+				"en": "10 times used"
+			}
+    },
+		{
+			"id": "8",
+			"label": {
+				"en": "12 Hours used"
+			}
+    },
+		{
+			"id": "6",
+			"label": {
+				"en": "24 Hours used"
+			}
+    }
+  ],
+	"type": "dropdown"
+}

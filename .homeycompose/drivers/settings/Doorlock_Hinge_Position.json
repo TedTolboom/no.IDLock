@@ -1,0 +1,28 @@
+{
+	"value": "0",
+	"label": {
+		"en": "Door Hinge Position Mode"
+	},
+	"hint": {
+		"en": "This parameter ({{zwaveParameterIndex}}) defines the door hinge position"
+	},
+	"zwave": {
+		"index": 3,
+		"size": 1
+	},
+	"values": [
+		{
+			"id": "0",
+			"label": {
+				"en": "Right"
+			}
+    },
+		{
+			"id": "1",
+			"label": {
+				"en": "Left"
+			}
+    }
+  ],
+	"type": "dropdown"
+}
