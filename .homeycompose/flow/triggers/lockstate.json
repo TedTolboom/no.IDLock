@@ -1,0 +1,22 @@
+{
+	"id": "lockstate",
+	"title": {
+		"en": "Someone unlocked the door"
+	},
+	"tokens": [
+		{
+			"name": "who",
+			"type": "string",
+			"title": {
+				"en": "Who"
+			}
+        }
+    ],
+	"args": [
+		{
+			"name": "device",
+			"type": "device",
+			"filter": "driver_id=IDlock150"
+        }
+    ]
+}

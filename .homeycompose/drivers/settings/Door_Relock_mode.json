@@ -1,0 +1,28 @@
+{
+	"value": "1",
+	"label": {
+		"en": "Door ReLock Mode"
+	},
+	"hint": {
+		"en": "This parameter ({{zwaveParameterIndex}}) defines the door Relock mode"
+	},
+	"zwave": {
+		"index": 5,
+		"size": 1
+	},
+	"values": [
+		{
+			"id": "1",
+			"label": {
+				"en": "Door relock mode enabled"
+			}
+    },
+		{
+			"id": "0",
+			"label": {
+				"en": "Door relock mode disabled"
+			}
+    }
+  ],
+	"type": "dropdown"
+}

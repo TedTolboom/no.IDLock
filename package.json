@@ -1,0 +1,24 @@
+{
+	"name": "no.IDLock",
+	"version": "1.2.0",
+	"description": "This app adds support for devices made by [ID Lock](http://www.IDLock.no).",
+	"main": "app.js",
+	"dependencies": {
+		"homey-meshdriver": "^1.2.28"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"run": "athom app run",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/TedTolboom/no.IDLock.git"
+	},
+	"author": "Ted Tolboom",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/TedTolboom/no.IDLock/issues"
+	},
+	"homepage": "https://github.com/TedTolboom/no.IDLock.git#readme"
+}

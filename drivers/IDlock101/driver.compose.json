@@ -1,6 +1,5 @@
 {
 	"id": "IDlock101",
-	"branch": "master",
 	"class": "lock",
 	"name": {
 		"en": "ID Lock 101"
@@ -18,12 +17,22 @@
 			"title": {
 				"en": "Door open (Contact Alarm)",
 				"nl": "Deur open (Contact alarm)"
-			}
+			},
+			"icon": "{{driverAssetsPath}}/door.svg"
+		},
+		"locked": {
+			"titleTrue": {
+				"en": "Locked"
+			},
+			"titleFalse": {
+				"en": "Unlocked"
+			},
+			"icon": "{{driverAssetsPath}}/locked.svg"
 		}
 	},
 	"images": {
-		"large": "/drivers/IDlock101/assets/images/large.png",
-		"small": "/drivers/IDlock101/assets/images/small.png"
+		"large": "{{driverAssetsPath}}/images/large.png",
+		"small": "{{driverAssetsPath}}/images/small.png"
 	},
 	"mobile": {
 		"components": [
@@ -48,8 +57,8 @@
 				],
 				"options": {
 					"icons": {
-						"locked": "/drivers/IDlock101/assets/locked.svg",
-						"alarm_contact": "/drivers/IDlock101/assets/door.svg"
+						"locked": "{{driverAssetsPath}}/locked.svg",
+						"alarm_contact": "{{driverAssetsPath}}/door.svg"
 					},
 					"locked": {
 						"noblink": true,
@@ -109,77 +118,5 @@
 				"en": "Exclusion – (Puts your device in exclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release key button and press “8” on keypad.\r\nExclusion mode starts immediately. LED indicator below logo signals this by flashing blue."
 			}
 		}
-	},
-	"settings": [
-		{
-			"id": "Doorlock_mode",
-			"value": "1",
-			"label": {
-				"en": "Doorlock mode"
-			},
-			"hint": {
-				"en": "Doorlock operational behaviour"
-			},
-			"zwave": {
-				"index": 1,
-				"size": 1
-			},
-			"values": [
-				{
-					"id": "0",
-					"label": {
-						"en": "Disabled Away mode and Manual locking mode"
-					}
-				},
-				{
-					"id": "1",
-					"label": {
-						"en": "Disabled Away mode and Automatic locking mode"
-					}
-				},
-				{
-					"id": "3",
-					"label": {
-						"en": "Away mode and Automatic locking mode"
-					}
-				},
-				{
-					"id": "2",
-					"label": {
-						"en": "Away mode and Manual locking mode"
-					}
-				}
-			],
-			"type": "dropdown"
-		},
-		{
-			"id": "Doorlock_Hinge_Position",
-			"value": "0",
-			"label": {
-				"en": "Door Hinge Position Mode"
-			},
-			"hint": {
-				"en": "Parameter defines the door hinge position"
-			},
-			"zwave": {
-				"index": 3,
-				"size": 1
-			},
-			"values": [
-				{
-					"id": "0",
-					"label": {
-						"en": "Right"
-					}
-				},
-				{
-					"id": "1",
-					"label": {
-						"en": "Left"
-					}
-				}
-			],
-			"type": "dropdown"
-		}
-	]
+	}
 }
