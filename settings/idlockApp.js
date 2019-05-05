@@ -8,7 +8,12 @@ myApp.run(function(editableOptions, editableThemes) {
 
 myApp.controller('myCodes', function($scope, $filter) {
     var temp;
-
+    $scope.triggerSettings = {
+        "homey": true,
+        "code": true,
+        "tag": true,
+        "button": false
+    };
     $scope.codes = [];
     $scope.types = [
         {value: 4, text: 'Tag'},
@@ -36,6 +41,16 @@ myApp.controller('myCodes', function($scope, $filter) {
                 console.log($scope.codes);
             });
         });
+        $scope.homey.get('triggerSettings', function(err, settings) {
+            console.log('Trigger settings:', settings);
+            if (settings != (null || undefined)) {
+                $scope.triggerSettings = settings;
+            }
+            document.getElementById('triggerHomey').checked = $scope.triggerSettings.homey;
+            document.getElementById('triggerCode').checked = $scope.triggerSettings.code;
+            document.getElementById('triggerTag').checked = $scope.triggerSettings.tag;
+            document.getElementById('triggerButton').checked = $scope.triggerSettings.button;
+        });
     }
 
     $scope.checkNotEmpty = function(data) {
@@ -44,21 +59,21 @@ myApp.controller('myCodes', function($scope, $filter) {
         }
     };
 
+    $scope.saveTriggerSettings = function() {
+        $scope.triggerSettings.homey = document.getElementById('triggerHomey').checked;
+        $scope.triggerSettings.code = document.getElementById('triggerCode').checked;
+        $scope.triggerSettings.tag = document.getElementById('triggerTag').checked;
+        $scope.triggerSettings.button = document.getElementById('triggerButton').checked;
+
+        $scope.homey.set('triggerSettings', $scope.triggerSettings);
+    };
+
     $scope.saveCode = function(data, id) {
         console.log('saveCode');
         angular.extend(data, { id: id });
         console.log(data);
         return true;
     };
-
-    $scope.sendToHomey = function(data) {
-        console.log("Data:", data);
-        temp = angular.toJson($scope.codes);
-        console.log("Json data: ", temp);
-        console.log("scope: ", $scope);
-        console.log("homey: ", $scope.homey);
-        $scope.homey.set('codes', temp);
-    }
 
     $scope.removeCode = function(index) {
         $scope.codes.splice(index, 1);
@@ -74,4 +89,13 @@ myApp.controller('myCodes', function($scope, $filter) {
         };
         $scope.codes.push($scope.inserted);
     };
+    $scope.sendToHomey = function(data) {
+        console.log("Data:", data);
+        temp = angular.toJson($scope.codes);
+        console.log("Json data: ", temp);
+        console.log("scope: ", $scope);
+        console.log("homey: ", $scope.homey);
+        $scope.homey.set('codes', temp);
+    }
+
 });
