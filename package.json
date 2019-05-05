@@ -4,7 +4,7 @@
 	"description": "This app adds support for devices made by [ID Lock](http://www.IDLock.no).",
 	"main": "app.js",
 	"dependencies": {
-		"homey-meshdriver": "^1.2.28"
+		"homey-meshdriver": "^1.2.32"
 	},
 	"devDependencies": {},
 	"scripts": {

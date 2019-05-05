@@ -34,6 +34,11 @@ Triggers:
  Any requests please post them in the [ID Lock app topic on the Homey community Forum](https://community.athom.com/t/161) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)   
 
 ## Change Log:
+### v 1.2.1
+* Add possibility to report different unlocking triggers (Homey / Code / Tag / Button (from inside)); credits to Mats Paulsen   
+* Converted settings page to use languages definition (locale) files (english locale); credits to Mats Paulsen      
+* Update meshdriver to version 1.2.32   
+
 ### v 1.2.0
 * Add support for registering user codes and recognizing who unlocked the door (for ID Lock 150) (credits to Mats Paulsen)      
 * Minor (cosmetical) modifications to make the app Homey SW v2.0.0 compatible      
