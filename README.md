@@ -34,6 +34,9 @@ Triggers:
  Any requests please post them in the [ID Lock app topic on the Homey community Forum](https://community.athom.com/t/161) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)   
 
 ## Change Log:
+### v 1.2.2
+* Fix issue where ID lock app is crashing due to missing `triggerSettings` object   
+
 ### v 1.2.1
 * Add possibility to report different unlocking triggers (Homey / Code / Tag / Button (from inside)); credits to Mats Paulsen   
 * Converted settings page to use languages definition (locale) files (english locale); credits to Mats Paulsen      
