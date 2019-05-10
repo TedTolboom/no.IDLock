@@ -5,7 +5,7 @@ const Homey = require('homey');
 
 // Documentation: https://Products.Z-WaveAlliance.org/ProductManual/File?folder=&filename=Manuals/2293/IDL Operational Manual EN v1.3.pdf
 
-class IDlock150 extends ZwaveDevice {	
+class IDlock150 extends ZwaveDevice {
 	onMeshInit() {
 		let unlockTrigger = new Homey.FlowCardTriggerDevice('lockstate');
 		unlockTrigger.register();
@@ -44,7 +44,7 @@ class IDlock150 extends ZwaveDevice {
 			reportParser: report => {
 				this.log("  ---- Notification ----");
 				if (report && report['Notification Type'] === 'Access Control' && report.hasOwnProperty('Event')) {
-					var triggerSettings = Homey.ManagerSettings.get('triggerSettings');
+					var triggerSettings = Homey.ManagerSettings.get('triggerSettings') || { "homey": false, "code": false, "tag": false, "button": false };
 					var codes = JSON.parse(Homey.ManagerSettings.get('codes'));
 					//Keypad Unlock Operation
 					if (report['Event'] === 6 && report.hasOwnProperty('Event Parameter')) {
