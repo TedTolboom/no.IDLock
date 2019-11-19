@@ -41,17 +41,29 @@
 				"en": "10 times used"
 			}
     },
-		{
-			"id": "8",
-			"label": {
-				"en": "12 Hours used"
-			}
+           		{
+              			"id": "7",
+              			"label": {
+                				"en": "Always valid"
+              			}
+     },
+    {
+      "id": "8",
+      "label": {
+        "en": "12 Hours used"
+      }
     },
 		{
-			"id": "6",
+			"id": "9",
 			"label": {
 				"en": "24 Hours used"
 			}
+    },
+            		{
+             			"id": "FE",
+              			"label": {
+                				"en": "Disables both PIN and Service PIN menu on door lock"
+              		}
     }
   ],
 	"type": "dropdown"

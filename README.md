@@ -34,6 +34,13 @@ Triggers:
  Any requests please post them in the [ID Lock app topic on the Homey community Forum](https://community.athom.com/t/161) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)   
 
 ## Change Log:
+### v 1.2.3
+* Added new settings from firmware released in August.
+* Service Pin Mode, added Always valid and disable mode
+* Added RFID mode
+* Added Updater Mode
+* Added Master PIN Mode
+
 ### v 1.2.2
 * Fix issue where ID lock app is crashing due to missing `triggerSettings` object   
 

@@ -1,0 +1,28 @@
+{
+	"value": "1",
+	"label": {
+		"en": "Master PIN Unlock Mode"
+	},
+	"hint": {
+		"en": "This parameter ({{zwaveParameterIndex}}) defines the Master PIN unlock mode"
+          	},
+          "zwave": {
+            "index": 9,
+            "size": 1
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On"
+              }
+            }
+          ],
+          "type": "dropdown"
+        }

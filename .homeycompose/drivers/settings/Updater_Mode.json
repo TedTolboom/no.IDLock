@@ -1,0 +1,40 @@
+{
+  "value": "0",
+  "label": {
+    "en": "Updater Mode (only IDL-150)"
+  },
+  "hint": {
+    "en": "This parameter ({{zwaveParameterIndex}}) defines the door updater mode"
+  },
+  "zwave": {
+    "index": 8,
+    "size": 1
+  },
+  "values": [
+    {
+      "id": "0",
+      "label": {
+        "en": "Off (no sound)"
+      }
+    },
+    {
+      "id": "1",
+      "label": {
+        "en": "On (no sound)"
+      }
+    },
+    {
+      "id": "2",
+      "label": {
+        "en": "Off"
+      }
+    },
+    {
+      "id": "3",
+      "label": {
+        "en": "On"
+      }
+    }
+  ],
+  "type": "dropdown"
+}

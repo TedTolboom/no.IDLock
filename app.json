@@ -594,15 +594,126 @@
               }
             },
             {
+              "id": "7",
+              "label": {
+                "en": "Always valid"
+              }
+            },
+            {
               "id": "8",
               "label": {
                 "en": "12 Hours used"
               }
             },
             {
-              "id": "6",
+              "id": "9",
               "label": {
                 "en": "24 Hours used"
+              }
+            },
+            {
+              "id": "FE",
+              "label": {
+                "en": "Disables both PIN and Service PIN menu on door lock"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "RFID_Mode",
+          "value": "5",
+          "label": {
+            "en": "RFID Mode"
+          },
+          "hint": {
+            "en": "This parameter (2) defines if RFID is enabled"
+          },
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
+          "values": [
+            {
+              "id": "5",
+              "label": {
+                "en": "RFID mode enabled"
+              }
+            },
+            {
+              "id": "9",
+              "label": {
+                "en": "RFID mode disabled"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "Updater_Mode",
+          "value": "0",
+          "label": {
+            "en": "Updater Mode (only IDL-150)"
+          },
+          "hint": {
+            "en": "This parameter (8) defines the door updater mode"
+          },
+          "zwave": {
+            "index": 8,
+            "size": 1
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off (no sound)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On (no sound)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "On"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "Master_Pin_Mode",
+          "value": "1",
+          "label": {
+            "en": "Master PIN Unlock Mode"
+          },
+          "hint": {
+            "en": "This parameter (9) defines the Master PIN unlock mode"
+          },
+          "zwave": {
+            "index": 9,
+            "size": 1
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On"
               }
             }
           ],

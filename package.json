@@ -1,6 +1,6 @@
 {
 	"name": "no.IDLock",
-	"version": "1.2.0",
+	"version": "1.2.3",
 	"description": "This app adds support for devices made by [ID Lock](http://www.IDLock.no).",
 	"main": "app.js",
 	"dependencies": {
