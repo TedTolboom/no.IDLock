@@ -1,0 +1,20 @@
+{
+    "triggersTitle": "Triggers",
+    "triggerSomeoneTitle": "Trigga 'En specifik användare låste upp dörren' med följane:",
+    "homey": "Homey",
+    "code": "Kod",
+    "tag": "Tag",
+    "button": "Knapp",
+    "indexModeTitle": "Indexeringsmetod",
+    "indexMode": "Använd v.1.6+ indexering",
+    "indexModeHelp": "Varning: om aktiveras så kan dina flows behövas skrivas om",
+    "codesTitle" : "Kod/Tag Mappning",
+    "codesName" : "Namn",
+    "codesIndex" : "Index",
+    "codesType": "Typ",
+    "codesEdit" : "Edit",
+    "codesSave" : "Spara",
+    "codesCancel" : "Avbryt",
+    "codesDelete" : "Radera",
+    "codesAddCode" : "Ny Kod/Tag"
+   }

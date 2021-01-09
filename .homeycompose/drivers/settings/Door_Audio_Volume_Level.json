@@ -1,10 +1,12 @@
 {
 	"value": "5",
 	"label": {
-		"en": "Audio Volume Level"
+		"en": "Audio Volume Level",
+		"sv": "Ljudbivå"
 	},
 	"hint": {
-		"en": "This parameter ({{zwaveParameterIndex}}) defines the door door audio volume. This parameter is a set only parameter. If the value is changed locally on the door lock, this value will not change"
+		"en": "This parameter ({{zwaveParameterIndex}}) defines the doors audio volume. This parameter is a set only parameter. If the value is changed locally on the door lock, this value will not change",
+		"sv": "Denna parameter ({{zwaveParameterIndex}}) sätter låsets ljudnivå. Parametern är en set only parameter. Om inställningen ändras på låset, kommer inte värdet i Homey att uppdateras."
 	},
 	"zwave": {
 		"index": 4,
@@ -14,45 +16,52 @@
 		{
 			"id": "0",
 			"label": {
-				"en": "No sound"
+				"en": "No sound",
+				"sv": "inget ljud"
 			}
-    },
+		},
 		{
 			"id": "1",
 			"label": {
-				"en": "Level 1"
+				"en": "Level 1",
+				"sv": "Nivå 1"
 			}
-    },
+		},
 		{
 			"id": "2",
 			"label": {
-				"en": "Level 2"
+				"en": "Level 2",
+				"sv": "Nivå 2"
 			}
-    },
+		},
 		{
 			"id": "3",
 			"label": {
-				"en": "Level 3"
+				"en": "Level 3",
+				"sv": "Nivå 3"
 			}
-    },
+		},
 		{
 			"id": "4",
 			"label": {
-				"en": "Level 4"
+				"en": "Level 4",
+				"sv": "Nivå 4"
 			}
-    },
+		},
 		{
 			"id": "5",
 			"label": {
-				"en": "Level 5 (default)"
+				"en": "Level 5 (default)",
+				"sv": "Nivå 5 (Standard)"
 			}
-    },
+		},
 		{
 			"id": "6",
 			"label": {
-				"en": "Maximum sound level"
+				"en": "Maximum sound level",
+				"sv": "Maximal ljudnivå"
 			}
-    }
-  ],
+		}
+	],
 	"type": "dropdown"
 }

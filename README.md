@@ -34,6 +34,12 @@ Triggers:
  Any requests please post them in the [ID Lock app topic on the Homey community Forum](https://community.athom.com/t/161) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)   
 
 ## Change Log:
+### 1.2.4
+* Added new app setting to select updated indexing mode (use same index numbers as lock on users code/tag).
+* Added Swedish localization.
+* Update meshdriver to version 1.3.24 
+* Added energy array (warning from Homey)
+
 ### v 1.2.3
 * Added new settings from firmware released in August.
 * Service Pin Mode, added Always valid and disable mode

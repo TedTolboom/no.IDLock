@@ -14,10 +14,11 @@ myApp.controller('myCodes', function($scope, $filter) {
         "tag": true,
         "button": false
     };
+    $scope.updatedIndexMode = false;
     $scope.codes = [];
     $scope.types = [
         {value: 4, text: 'Tag'},
-        {value: 6, text: 'Key'}
+        {value: 6, text: 'Code'}
     ]; 
     
     $scope.showType = function(filterValue) {
@@ -36,10 +37,17 @@ myApp.controller('myCodes', function($scope, $filter) {
                 newCodes = [];
             }
             $scope.$apply(function() {
-                console.log('Set new keys:' + newCodes);
+                console.log('Set new codes:' + newCodes);
                 $scope.codes = angular.fromJson(newCodes);
                 console.log($scope.codes);
             });
+        });
+        $scope.homey.get('updatedIndexMode', function(err, value) {
+            console.log('updatedIndexMode:', value);
+            if (value != (null || undefined)) {
+                $scope.updatedIndexMode = value;
+            }
+            document.getElementById('updatedIndexMode').checked = $scope.updatedIndexMode;
         });
         $scope.homey.get('triggerSettings', function(err, settings) {
             console.log('Trigger settings:', settings);
@@ -68,6 +76,12 @@ myApp.controller('myCodes', function($scope, $filter) {
         $scope.homey.set('triggerSettings', $scope.triggerSettings);
     };
 
+    $scope.saveIndexModeSettings = function() {
+        $scope.updatedIndexMode = document.getElementById('updatedIndexMode').checked;
+
+        $scope.homey.set('updatedIndexMode', $scope.updatedIndexMode);
+    };
+
     $scope.saveCode = function(data, id) {
         console.log('saveCode');
         angular.extend(data, { id: id });
@@ -89,6 +103,7 @@ myApp.controller('myCodes', function($scope, $filter) {
         };
         $scope.codes.push($scope.inserted);
     };
+
     $scope.sendToHomey = function(data) {
         console.log("Data:", data);
         temp = angular.toJson($scope.codes);

@@ -5,6 +5,9 @@
     "code": "Code",
     "tag": "Tag",
     "button": "Button",
+    "indexModeTitle": "Index mode",
+    "indexMode": "Use v.1.6+ indexing",
+    "indexModeHelp": "Warning: if activate - your current flows may break",
     "codesTitle" : "Code/Tag Mappings",
     "codesName" : "Name",
     "codesIndex" : "Index",
@@ -13,5 +16,5 @@
     "codesSave" : "Save",
     "codesCancel" : "Cancel",
     "codesDelete" : "Delete",
-    "codesAddCode" : "Add Code"
+    "codesAddCode" : "Add Code/Tag"
    }

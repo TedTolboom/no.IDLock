@@ -12,20 +12,35 @@
 		"alarm_tamper",
 		"alarm_battery"
 	],
+	"energy": {
+		"batteries": [
+			"AA",
+			"AA",
+			"AA",
+			"AA",
+			"AA",
+			"AA",
+			"AA",
+			"AA"
+		]
+	},
 	"capabilitiesOptions": {
 		"alarm_contact": {
 			"title": {
 				"en": "Door open (Contact Alarm)",
+				"sv": "Öppen dörr (Kontaktalarm)",
 				"nl": "Deur open (Contact alarm)"
 			},
 			"icon": "{{driverAssetsPath}}/door.svg"
 		},
 		"locked": {
 			"titleTrue": {
-				"en": "Locked"
+				"en": "Locked",
+				"sv": "Låst"
 			},
 			"titleFalse": {
-				"en": "Unlocked"
+				"en": "Unlocked",
+				"sv": "Upplåst"
 			},
 			"icon": "{{driverAssetsPath}}/locked.svg"
 		}
@@ -66,10 +81,12 @@
 						"label": {
 							"true": {
 								"en": "Locked",
+								"sv": "Låst",
 								"nl": "Gesloten"
 							},
 							"false": {
 								"en": "Open",
+								"sv": "Öppen",
 								"nl": "Open"
 							}
 						}

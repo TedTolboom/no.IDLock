@@ -19,12 +19,12 @@
         <div id="home" class="active">
             <p data-i18n="triggersTitle">-Triggers-</p>
             <div class="settings-itemgroup">
-                    <div class="settings-item">
-                        <div class="settings-item-text">
-                                <span data-i18n="triggerSomeoneTitle">-Trigger "Someone unlocked the door" using:-</span>
-                            </div>
-                        </div>
-                    <div class="settings-item">
+                <div class="settings-item">
+                    <div class="settings-item-text">
+                        <span data-i18n="triggerSomeoneTitle">-Trigger "Someone unlocked the door" using:-</span>
+                    </div>
+                </div>
+                <div class="settings-item">
                     <div class="settings-item-text">
                         <span data-i18n="homey">-Homey-</span>
                     </div>
@@ -69,6 +69,25 @@
                     </div>
                 </div>
             </div>
+            <p data-i18n="indexModeTitle">-Index mode-</p>
+            <div id="indexMode" class="active settings-itemgroup">
+                <div class="settings-item">
+                    <div class="settings-item-text">
+                        <span data-i18n="indexMode">-Use v.1.6+ indexing-</span>
+                    </div>
+                    <div class="settings-item-last">
+                        <label class="form-switch">
+                            <input id="updatedIndexMode" type="checkbox" ng-click="saveIndexModeSettings()">
+                            <i></i>
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-item">
+                    <div class="settings-item-text">
+                        <span data-i18n="indexModeHelp">-Warning, this may break your flows-</span>
+                    </div>
+                </div>
+            </div>
             <p data-i18n="codesTitle">-Codes-</p>
             <div id="codes" class="active settings-itemgroup">
                 <table class="table table-bordered table-hover table-condensed">
@@ -80,19 +99,23 @@
                     </tr>
                     <tr ng-repeat="code in codes">
                         <td>
-                            <span editable-text="code.user" e-name="user" e-form="rowform" onbeforesave="checkNotEmpty($data)" e-required>
-                        {{ code.user }}
-                        </span>
+                            <span editable-text="code.user" e-name="user" e-form="rowform"
+                                onbeforesave="checkNotEmpty($data)" e-required>
+                                {{ code.user }}
+                            </span>
                         </td>
                         <td>
-                            <span editable-number="code.index" e-name="index" e-form="rowform" e-min="1" e-max="9" onbeforesave="checkNotEmpty($data)" e-required>
-                        {{ code.index }}
-                        </span>
+                            <span editable-number="code.index" e-name="index" e-form="rowform" e-min="1" e-max="9"
+                                onbeforesave="checkNotEmpty($data)" e-required>
+                                {{ code.index }}
+                            </span>
                         </td>
                         <td>
-                            <span editable-select="code.type" e-name="type" e-form="rowform" e-ng-options="s.value as s.text for s in types" onbeforesave="checkNotEmpty($data)" e-required>
-                            {{ showType(code.type) }}
-                            </a>
+                            <span editable-select="code.type" e-name="type" e-form="rowform"
+                                e-ng-options="s.value as s.text for s in types" onbeforesave="checkNotEmpty($data)"
+                                e-required>
+                                {{ showType(code.type) }}
+                                </a>
                         </td>
                         <!-- <td>
                             <span editable-text="code.type" e-name="type" e-form="rowform" onbeforesave="checkNotEmpty($data)" e-required>
@@ -101,18 +124,23 @@
                         </td> -->
                         <td style="white-space: nowrap">
                             <!-- form -->
-                            <form editable-form name="rowform" onbeforesave="saveCode($data, code.id)" onaftersave="sendToHomey(codes)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == code">
-                                <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary" data-i18n="codesSave">-Save-</button>
-                                <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default" data-i18n="codesCancel">-Cancel-</button>
+                            <form editable-form name="rowform" onbeforesave="saveCode($data, code.id)"
+                                onaftersave="sendToHomey(codes)" ng-show="rowform.$visible"
+                                class="form-buttons form-inline" shown="inserted == code">
+                                <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary"
+                                    data-i18n="codesSave">-Save-</button>
+                                <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
+                                    class="btn btn-default" data-i18n="codesCancel">-Cancel-</button>
                             </form>
                             <div class="buttons" ng-show="!rowform.$visible">
-                                <button class="btn btn-primary" ng-click="rowform.$show()" data-i18n="codesEdit">-Edit-</button>
-                                <button class="btn btn-danger" ng-click="removeCode($index)" data-i18n="codesDelete">-Delete-</button>
+                                <button class="btn btn-primary" ng-click="rowform.$show()"
+                                    data-i18n="codesEdit">-Edit-</button>
+                                <button class="btn btn-danger" ng-click="removeCode($index)"
+                                    data-i18n="codesDelete">-Delete-</button>
                             </div>
                         </td>
                     </tr>
                 </table>
-
                 <button class="btn btn-default" ng-click="addCode()" data-i18n="codesAddCode">-Add Code-</button>
             </div>
         </div>

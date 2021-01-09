@@ -1,28 +1,31 @@
 {
-	"value": "1",
-	"label": {
-		"en": "Master PIN Unlock Mode"
-	},
-	"hint": {
-		"en": "This parameter ({{zwaveParameterIndex}}) defines the Master PIN unlock mode"
-          	},
-          "zwave": {
-            "index": 9,
-            "size": 1
-          },
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Off"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "On"
-              }
+    "value": "1",
+    "label": {
+        "en": "Master PIN Unlock Mode"
+    },
+    "hint": {
+        "en": "This parameter ({{zwaveParameterIndex}}) defines the Master PIN unlock mode",
+        "sv": "Denna parameter ({{zwaveParameterIndex}}) anger om man kan använda Master PIN för att låsa upp"
+    },
+    "zwave": {
+        "index": 9,
+        "size": 1
+    },
+    "values": [
+        {
+            "id": "0",
+            "label": {
+                "en": "Off",
+                "sv": "Av"
             }
-          ],
-          "type": "dropdown"
+        },
+        {
+            "id": "1",
+            "label": {
+                "en": "On",
+                "sv": "På (Standard)"
+            }
         }
+    ],
+    "type": "dropdown"
+}
