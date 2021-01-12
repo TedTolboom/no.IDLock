@@ -5,6 +5,7 @@
     "code": "Code",
     "tag": "Tag",
     "button": "Button",
+    "auto": "Auto",
     "indexModeTitle": "Index mode",
     "indexMode": "Use v.1.6+ indexing",
     "indexModeHelp": "Warning: if activate - your current flows may break",

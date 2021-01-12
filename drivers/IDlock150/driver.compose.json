@@ -9,8 +9,7 @@
 		"alarm_contact",
 		"measure_battery",
 		"alarm_heat",
-		"alarm_tamper",
-		"alarm_battery"
+		"alarm_tamper"
 	],
 	"energy": {
 		"batteries": [
@@ -67,8 +66,7 @@
 					"locked",
 					"alarm_contact",
 					"alarm_heat",
-					"alarm_tamper",
-					"alarm_battery"
+					"alarm_tamper"
 				],
 				"options": {
 					"icons": {

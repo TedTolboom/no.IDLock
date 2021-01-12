@@ -12,6 +12,7 @@ class IDlock101 extends ZwaveDevice {
 		// print the node's info to the console
 		this.printNode();
 
+		
 		this.registerCapability('locked', 'DOOR_LOCK', {
 			getOpts: {
 				getOnStart: true,
@@ -56,7 +57,7 @@ class IDlock101 extends ZwaveDevice {
 			}
 		});
 
-		this.registerCapability('alarm_battery', 'BATTERY');
+		// this.registerCapability('alarm_battery', 'BATTERY');
 
 		// register alarm capabilities for devices with COMMAND_CLASS_NOTIFICATION
 		const commandClassNotification = this.getCommandClass('NOTIFICATION');

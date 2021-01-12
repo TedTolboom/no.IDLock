@@ -1,0 +1,14 @@
+{
+	"id": "lockjammed",
+	"title": {
+		"en": "Lock jammed",
+		"sv": "Låset fastnat"
+	},
+	"args": [
+		{
+			"name": "device",
+			"type": "device",
+			"filter": "driver_id=IDlock150"
+		}
+	]
+}

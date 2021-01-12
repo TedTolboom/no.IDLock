@@ -12,7 +12,8 @@ myApp.controller('myCodes', function($scope, $filter) {
         "homey": true,
         "code": true,
         "tag": true,
-        "button": false
+        "button": false,
+        "auto": false
     };
     $scope.updatedIndexMode = false;
     $scope.codes = [];
@@ -58,6 +59,7 @@ myApp.controller('myCodes', function($scope, $filter) {
             document.getElementById('triggerCode').checked = $scope.triggerSettings.code;
             document.getElementById('triggerTag').checked = $scope.triggerSettings.tag;
             document.getElementById('triggerButton').checked = $scope.triggerSettings.button;
+            document.getElementById('triggerAuto').checked = $scope.triggerSettings.auto;
         });
     }
 
@@ -72,6 +74,7 @@ myApp.controller('myCodes', function($scope, $filter) {
         $scope.triggerSettings.code = document.getElementById('triggerCode').checked;
         $scope.triggerSettings.tag = document.getElementById('triggerTag').checked;
         $scope.triggerSettings.button = document.getElementById('triggerButton').checked;
+        $scope.triggerSettings.auto = document.getElementById('triggerAuto').checked;
 
         $scope.homey.set('triggerSettings', $scope.triggerSettings);
     };

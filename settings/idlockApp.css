@@ -16,6 +16,23 @@
     border-color: rgb(199,199,203);
 }
 
+.setting-header {
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.settings-item-info {
+    display: table-cell;
+    padding-left: 10px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    width: 100%;
+    font-family: -apple-system;
+    font-size: 14px;
+}
+
 .settings-item {
     display: table-row;
     background-color: rgb(255,255,255);

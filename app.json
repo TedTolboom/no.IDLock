@@ -49,6 +49,20 @@
   "flow": {
     "triggers": [
       {
+        "id": "lockjammed",
+        "title": {
+          "en": "Lock jammed",
+          "sv": "Låset fastnat"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          }
+        ]
+      },
+      {
         "id": "lockstate",
         "title": {
           "en": "Someone unlocked the door",
@@ -61,6 +75,20 @@
             "title": {
               "en": "Who",
               "sv": "Namn"
+            },
+            "example": {
+              "en": "Master"
+            }
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "sv": "Typ"
+            },
+            "example": {
+              "en": "Keypad"
             }
           }
         ],
@@ -69,6 +97,94 @@
             "name": "device",
             "type": "device",
             "filter": "driver_id=IDlock150"
+          }
+        ]
+      },
+      {
+        "id": "unlockstate",
+        "title": {
+          "en": "Someone locked the door",
+          "sv": "En specifik användare låste dörren"
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "sv": "Namn"
+            },
+            "example": {
+              "en": "Master"
+            }
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "sv": "Typ"
+            },
+            "example": {
+              "en": "Keypad"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "setawaymode",
+        "title": {
+          "en": "Set lock mode (home/away)",
+          "sv": "Ställ in bortal/hemma"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Disabled Away mode and Manual locking mode",
+                  "sv": "Inaktivera Bortaläge, Manuell låsning"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Disabled Away mode and Automatic locking mode",
+                  "sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Away mode and Automatic locking mode",
+                  "sv": "Aktiverat Bortaläge, Automatisk låsning"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Away mode and Manual locking mode",
+                  "sv": "Aktiverat Bortaläge, Manuell låsning"
+                }
+              }
+            ]
           }
         ]
       }
@@ -86,8 +202,7 @@
         "alarm_contact",
         "measure_battery",
         "alarm_heat",
-        "alarm_tamper",
-        "alarm_battery"
+        "alarm_tamper"
       ],
       "energy": {
         "batteries": [
@@ -144,8 +259,7 @@
               "locked",
               "alarm_contact",
               "alarm_heat",
-              "alarm_tamper",
-              "alarm_battery"
+              "alarm_tamper"
             ],
             "options": {
               "icons": {
@@ -309,8 +423,7 @@
         "alarm_contact",
         "measure_battery",
         "alarm_heat",
-        "alarm_tamper",
-        "alarm_battery"
+        "alarm_tamper"
       ],
       "energy": {
         "batteries": [
@@ -367,8 +480,7 @@
               "locked",
               "alarm_contact",
               "alarm_heat",
-              "alarm_tamper",
-              "alarm_battery"
+              "alarm_tamper"
             ],
             "options": {
               "icons": {
@@ -813,23 +925,5 @@
         }
       ]
     }
-  ],
-  "capabilities": {
-    "door": {
-      "type": "boolean",
-      "title": {
-        "en": "Door state",
-        "sv": "Dörrstatus",
-        "nl": "Deur Status"
-      },
-      "desc": {
-        "en": "Door state (open/closed)",
-        "sv": "Dörrstatus (öppen/stängd)",
-        "nl": "Deur status (open/dicht)"
-      },
-      "getable": true,
-      "setable": false,
-      "greyout": true
-    }
-  }
+  ]
 }
