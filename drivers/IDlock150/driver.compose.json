@@ -9,7 +9,8 @@
 		"alarm_contact",
 		"measure_battery",
 		"alarm_heat",
-		"alarm_tamper"
+		"alarm_tamper",
+		"alarm_battery"
 	],
 	"energy": {
 		"batteries": [
@@ -47,57 +48,6 @@
 	"images": {
 		"large": "{{driverAssetsPath}}/images/large.png",
 		"small": "{{driverAssetsPath}}/images/small.png"
-	},
-	"mobile": {
-		"components": [
-			{
-				"id": "icon",
-				"capabilities": []
-			},
-			{
-				"id": "battery",
-				"capabilities": [
-					"measure_battery"
-				]
-			},
-			{
-				"id": "sensor",
-				"capabilities": [
-					"locked",
-					"alarm_contact",
-					"alarm_heat",
-					"alarm_tamper"
-				],
-				"options": {
-					"icons": {
-						"locked": "{{driverAssetsPath}}/locked.svg",
-						"alarm_contact": "{{driverAssetsPath}}/door.svg"
-					},
-					"locked": {
-						"noblink": true,
-						"greyout": true,
-						"label": {
-							"true": {
-								"en": "Locked",
-								"sv": "Låst",
-								"nl": "Gesloten"
-							},
-							"false": {
-								"en": "Open",
-								"sv": "Öppen",
-								"nl": "Open"
-							}
-						}
-					}
-				}
-			},
-			{
-				"id": "toggle",
-				"capabilities": [
-					"locked"
-				]
-			}
-		]
 	},
 	"zwave": {
 		"manufacturerId": [

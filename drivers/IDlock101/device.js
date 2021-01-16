@@ -7,10 +7,10 @@ const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
 class IDlock101 extends ZwaveDevice {
 	onMeshInit() {
 		// enable debugging
-		this.enableDebug();
+		// this.enableDebug();
 
 		// print the node's info to the console
-		this.printNode();
+		// this.printNode();
 
 		
 		this.registerCapability('locked', 'DOOR_LOCK', {
@@ -57,7 +57,7 @@ class IDlock101 extends ZwaveDevice {
 			}
 		});
 
-		// this.registerCapability('alarm_battery', 'BATTERY');
+		this.registerCapability('alarm_battery', 'BATTERY');
 
 		// register alarm capabilities for devices with COMMAND_CLASS_NOTIFICATION
 		const commandClassNotification = this.getCommandClass('NOTIFICATION');

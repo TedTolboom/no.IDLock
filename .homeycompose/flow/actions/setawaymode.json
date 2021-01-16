@@ -2,7 +2,7 @@
     "id": "setawaymode",
     "title": {
         "en": "Set lock mode (home/away)",
-        "sv": "Ställ in bortal/hemma"
+        "sv": "Ställ in borta/hemma"
     },
     "args": [
         {

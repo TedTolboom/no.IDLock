@@ -5,8 +5,8 @@
     "en": "ID Lock"
   },
   "brandColor": "#000000",
-  "version": "1.2.3",
-  "compatibility": ">=1.5.0",
+  "version": "1.2.4",
+  "compatibility": ">=4.0.0",
   "athomForumDiscussionId": 4386,
   "homeyCommunityTopicId": 161,
   "author": {
@@ -22,6 +22,10 @@
       {
         "name": "Mats Paulsen",
         "email": "mats@paulsen.one"
+      },
+      {
+        "name": "Jonathan Cohen",
+        "email": "jonathan@cohen.se"
       }
     ]
   },
@@ -144,7 +148,7 @@
         "id": "setawaymode",
         "title": {
           "en": "Set lock mode (home/away)",
-          "sv": "Ställ in bortal/hemma"
+          "sv": "Ställ in borta/hemma"
         },
         "args": [
           {
@@ -202,7 +206,8 @@
         "alarm_contact",
         "measure_battery",
         "alarm_heat",
-        "alarm_tamper"
+        "alarm_tamper",
+        "alarm_battery"
       ],
       "energy": {
         "batteries": [
@@ -240,57 +245,6 @@
       "images": {
         "large": "/drivers/IDlock101/assets/images/large.png",
         "small": "/drivers/IDlock101/assets/images/small.png"
-      },
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": []
-          },
-          {
-            "id": "battery",
-            "capabilities": [
-              "measure_battery"
-            ]
-          },
-          {
-            "id": "sensor",
-            "capabilities": [
-              "locked",
-              "alarm_contact",
-              "alarm_heat",
-              "alarm_tamper"
-            ],
-            "options": {
-              "icons": {
-                "locked": "/drivers/IDlock101/assets/locked.svg",
-                "alarm_contact": "/drivers/IDlock101/assets/door.svg"
-              },
-              "locked": {
-                "noblink": true,
-                "greyout": true,
-                "label": {
-                  "true": {
-                    "en": "Locked",
-                    "sv": "Låst",
-                    "nl": "Gesloten"
-                  },
-                  "false": {
-                    "en": "Open",
-                    "sv": "Öppen",
-                    "nl": "Open"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": "toggle",
-            "capabilities": [
-              "locked"
-            ]
-          }
-        ]
       },
       "zwave": {
         "manufacturerId": [
@@ -423,7 +377,8 @@
         "alarm_contact",
         "measure_battery",
         "alarm_heat",
-        "alarm_tamper"
+        "alarm_tamper",
+        "alarm_battery"
       ],
       "energy": {
         "batteries": [
@@ -461,57 +416,6 @@
       "images": {
         "large": "/drivers/IDlock150/assets/images/large.png",
         "small": "/drivers/IDlock150/assets/images/small.png"
-      },
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": []
-          },
-          {
-            "id": "battery",
-            "capabilities": [
-              "measure_battery"
-            ]
-          },
-          {
-            "id": "sensor",
-            "capabilities": [
-              "locked",
-              "alarm_contact",
-              "alarm_heat",
-              "alarm_tamper"
-            ],
-            "options": {
-              "icons": {
-                "locked": "/drivers/IDlock150/assets/locked.svg",
-                "alarm_contact": "/drivers/IDlock150/assets/door.svg"
-              },
-              "locked": {
-                "noblink": true,
-                "greyout": true,
-                "label": {
-                  "true": {
-                    "en": "Locked",
-                    "sv": "Låst",
-                    "nl": "Gesloten"
-                  },
-                  "false": {
-                    "en": "Open",
-                    "sv": "Öppen",
-                    "nl": "Open"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": "toggle",
-            "capabilities": [
-              "locked"
-            ]
-          }
-        ]
       },
       "zwave": {
         "manufacturerId": [
@@ -849,11 +753,11 @@
           "id": "Updater_Mode",
           "value": "0",
           "label": {
-            "en": "Updater Mode (only IDL-150)"
+            "en": "Updater Mode"
           },
           "hint": {
             "en": "This parameter (8) defines the door updater mode",
-            "sv": "Denna parameter (8) aktiverar användandet av Updater App (endast IDLock 150)"
+            "sv": "Denna parameter (8) aktiverar användandet av Updater App"
           },
           "zwave": {
             "index": 8,
@@ -918,6 +822,34 @@
               "label": {
                 "en": "On",
                 "sv": "På (Standard)"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "Index_Mode",
+          "value": "1",
+          "label": {
+            "en": "Set index mode",
+            "sv": "Indexeringsmetod "
+          },
+          "hint": {
+            "en": "This parameter sets Index mode, based on change in firmware 1.6 - Note, if changing this your current flows may need to be re-written",
+            "sv": "Denna parameter sätter hur Indexeringen ska fungera, efter en ändring i firmware 1.6 - Varning: om aktiveras så kan dina flows behövas skrivas om"
+          },
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Pre 1.6"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "1.6 and later",
+                "sv": "1.6 eller nyare"
               }
             }
           ],

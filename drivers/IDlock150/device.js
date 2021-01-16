@@ -75,13 +75,13 @@ class IDlock150 extends ZwaveDevice {
 						if (report.hasOwnProperty('Event Parameter')) {
 							var keyType = parseInt(report['Event Parameter'][0]);
 							var codes = JSON.parse(Homey.ManagerSettings.get('codes'));
-							var updatedIndexMode = Homey.ManagerSettings.get('updatedIndexMode');
+							var indexMode = this.getSettings().Index_Mode;						
 							var masterIndex = 1;
 							var serviceIndex = 2
 							var keyOffset = -59;
 							var tagOffset = -9;
-							// Overide vith new indexing from v1.6
-							if (updatedIndexMode) {
+							// Override vith new indexing from v1.6
+							if (indexMode === '2') {
 								masterIndex = 109;
 								serviceIndex = 108
 								keyOffset = 0;
@@ -197,6 +197,8 @@ class IDlock150 extends ZwaveDevice {
 			}
 		});
 
+		this.registerCapability('alarm_battery', 'BATTERY');
+
 		this.registerCapability('alarm_heat', 'NOTIFICATION', {
 			get: 'NOTIFICATION_GET',
 			getOpts: {
@@ -222,7 +224,6 @@ class IDlock150 extends ZwaveDevice {
 				return null;
 			}
 		});
-
 	}
 
 	async awaymodeActionRunListener(args, state) {

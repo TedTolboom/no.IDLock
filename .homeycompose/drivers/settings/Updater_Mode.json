@@ -1,11 +1,11 @@
 {
     "value": "0",
     "label": {
-        "en": "Updater Mode (only IDL-150)"
+        "en": "Updater Mode"
     },
     "hint": {
         "en": "This parameter ({{zwaveParameterIndex}}) defines the door updater mode",
-        "sv": "Denna parameter ({{zwaveParameterIndex}}) aktiverar användandet av Updater App (endast IDLock 150)"
+        "sv": "Denna parameter ({{zwaveParameterIndex}}) aktiverar användandet av Updater App"
     },
     "zwave": {
         "index": 8,

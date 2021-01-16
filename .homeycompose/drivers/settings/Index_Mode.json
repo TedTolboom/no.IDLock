@@ -1,0 +1,27 @@
+{
+    "value": "1",
+    "label": {
+        "en": "Set index mode",
+        "sv": "Indexeringsmetod "
+    },
+    "hint": {
+        "en": "This parameter sets Index mode, based on change in firmware 1.6 - Note, if changing this your current flows may need to be re-written",
+        "sv": "Denna parameter sätter hur Indexeringen ska fungera, efter en ändring i firmware 1.6 - Varning: om aktiveras så kan dina flows behövas skrivas om"
+    },
+    "values": [
+        {
+            "id": "1",
+            "label": {
+                "en": "Pre 1.6"
+            }
+        },
+        {
+            "id": "2",
+            "label": {
+                "en": "1.6 and later",
+                "sv": "1.6 eller nyare"
+            }
+        }
+    ],
+    "type": "dropdown"
+}

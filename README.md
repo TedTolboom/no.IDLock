@@ -12,6 +12,7 @@ This app adds support for ID Lock Z-wave devices made by [ID Lock AS](https://id
 
 ## Supported Languages:
 * English
+* Swedish
 
 ## ID Lock 101 & 150 Features
 
@@ -20,34 +21,35 @@ The ID Lock 101 / ID Lock 150 driver supports the following capabilities:
 * Door open / closed (contact alarm)
 * Heat alarm
 * Tamper alarm
-* Battery (alarm)
+* battery (alarm)
 
 Triggers:
 * Someone unlocked the door (ID Lock 150 only)
+* Someone locked the door (ID Lock 150 only)
 * Door lock / unlocked
 * Generic "an alarm triggered" trigger cards from devices, with additional logic AND condition isolating device
+* Door jammed (ID Lock 150 only)
 
  Actions:
  * Door lock / unlock
+ * Set lock mode (ID Lock 150 only)
 
  ## Feedback:
  Any requests please post them in the [ID Lock app topic on the Homey community Forum](https://community.athom.com/t/161) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)   
 
 ## Change Log:
-### v 1.2.5
+
+### v 1.2.4
 * ID Lock 150: Notification cards providing tokens with door unlock condition (Manual, RFID, Keypad or Automatic)
 * ID Lock 150: Added "Someone locked the door" flow cards with user and lock condition (Manual, RFID, Keypad or Automatic)
 * ID Lock 150: Added auto lock/relock nofication (and setting)
 * ID Lock 150: Added "Lock jammed" flow card
 * ID Lock 150: Added Action card to set lock mode (home/away)
-* Removed alarm_battery and use only measure_battery (as Homey Developer guidelines specify).
 * Removed unused capability and code
-
-### v 1.2.4
 * Added new app setting to select updated indexing mode (use same index numbers as lock on users code/tag), enable the setting to start using, may then break your current flows
 * Added Swedish localization.
 * Update meshdriver to version 1.3.24 
-* Added energy object with battery array (as Homey Developer guidelines specify).
+* Added energy object with battery array.
 
 ### v 1.2.3
 * Added new settings from firmware released in August 2020.

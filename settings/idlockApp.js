@@ -15,7 +15,6 @@ myApp.controller('myCodes', function($scope, $filter) {
         "button": false,
         "auto": false
     };
-    $scope.updatedIndexMode = false;
     $scope.codes = [];
     $scope.types = [
         {value: 4, text: 'Tag'},
@@ -42,13 +41,6 @@ myApp.controller('myCodes', function($scope, $filter) {
                 $scope.codes = angular.fromJson(newCodes);
                 console.log($scope.codes);
             });
-        });
-        $scope.homey.get('updatedIndexMode', function(err, value) {
-            console.log('updatedIndexMode:', value);
-            if (value != (null || undefined)) {
-                $scope.updatedIndexMode = value;
-            }
-            document.getElementById('updatedIndexMode').checked = $scope.updatedIndexMode;
         });
         $scope.homey.get('triggerSettings', function(err, settings) {
             console.log('Trigger settings:', settings);
@@ -77,12 +69,6 @@ myApp.controller('myCodes', function($scope, $filter) {
         $scope.triggerSettings.auto = document.getElementById('triggerAuto').checked;
 
         $scope.homey.set('triggerSettings', $scope.triggerSettings);
-    };
-
-    $scope.saveIndexModeSettings = function() {
-        $scope.updatedIndexMode = document.getElementById('updatedIndexMode').checked;
-
-        $scope.homey.set('updatedIndexMode', $scope.updatedIndexMode);
     };
 
     $scope.saveCode = function(data, id) {
