@@ -53,10 +53,230 @@
   "flow": {
     "triggers": [
       {
-        "id": "lockjammed",
+        "id": "door_lock",
+        "title": {
+          "en": "A specific user locked the door",
+          "sv": "En specifik användare låste dörren"
+        },
+        "titleFormatted": {
+          "en": "[[who]] lock the door with [[type]]",
+          "sv": "[[who]] låser dörren med [[type]]"
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "sv": "Namn"
+            },
+            "example": {
+              "en": "Peter"
+            }
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "sv": "Typ"
+            },
+            "example": {
+              "en": "Code",
+              "sv": "Kod"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          },
+          {
+            "name": "who",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Type name...",
+              "sv": "Ange namn.."
+            },
+            "title": {
+              "en": "Who",
+              "sv": "Namn"
+            }
+          },
+          {
+            "name": "type",
+            "type": "dropdown",
+            "placeholder": {
+              "en": "Choose a value...",
+              "sv": "Välj en typ..."
+            },
+            "title": {
+              "en": "Type",
+              "sv": "Typ"
+            },
+            "values": [
+              {
+                "id": "any",
+                "label": {
+                  "en": "Any",
+                  "sv": "Alla"
+                }
+              },
+              {
+                "id": "code",
+                "label": {
+                  "en": "Code",
+                  "sv": "Kod"
+                }
+              },
+              {
+                "id": "tag",
+                "label": {
+                  "en": "Tag",
+                  "sv": "Tag"
+                }
+              },
+              {
+                "id": "automatic",
+                "label": {
+                  "en": "Automatic",
+                  "sv": "Automatiskt"
+                }
+              },
+              {
+                "id": "button",
+                "label": {
+                  "en": "Button",
+                  "sv": "Knapp/vred"
+                }
+              },
+              {
+                "id": "homey",
+                "label": {
+                  "en": "Homey"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "door_unlock",
+        "title": {
+          "en": "A specific user unlocked the door",
+          "sv": "En specifik användare låste upp dörren"
+        },
+        "titleFormatted": {
+          "en": "[[who]] unlock the door with [[type]]",
+          "sv": "[[who]] låser upp dörren med [[type]]"
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "sv": "Namn"
+            },
+            "example": {
+              "en": "Peter"
+            }
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "sv": "Typ"
+            },
+            "example": {
+              "en": "Code",
+              "sv": "Kod"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          },
+          {
+            "name": "who",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Type name...",
+              "sv": "Ange namn.."
+            },
+            "title": {
+              "en": "Who",
+              "sv": "Namn"
+            }
+          },
+          {
+            "name": "type",
+            "type": "dropdown",
+            "placeholder": {
+              "en": "Choose a value...",
+              "sv": "Välj en typ..."
+            },
+            "title": {
+              "en": "Type",
+              "sv": "Typ"
+            },
+            "values": [
+              {
+                "id": "any",
+                "label": {
+                  "en": "Any",
+                  "sv": "Alla"
+                }
+              },
+              {
+                "id": "code",
+                "label": {
+                  "en": "Code",
+                  "sv": "Kod"
+                }
+              },
+              {
+                "id": "tag",
+                "label": {
+                  "en": "Tag",
+                  "sv": "Tag"
+                }
+              },
+              {
+                "id": "automatic",
+                "label": {
+                  "en": "Automatic",
+                  "sv": "Automatiskt"
+                }
+              },
+              {
+                "id": "button",
+                "label": {
+                  "en": "Button",
+                  "sv": "Knapp/vred"
+                }
+              },
+              {
+                "id": "homey",
+                "label": {
+                  "en": "Homey"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lock_jammed",
         "title": {
           "en": "Lock jammed",
-          "sv": "Låset fastnat"
+          "sv": "Låset har fastnat"
         },
         "args": [
           {
@@ -70,7 +290,7 @@
         "id": "lockstate",
         "title": {
           "en": "Someone unlocked the door",
-          "sv": "En specifik användare låste upp dörren"
+          "sv": "Någon låste upp dörren"
         },
         "tokens": [
           {
@@ -81,7 +301,7 @@
               "sv": "Namn"
             },
             "example": {
-              "en": "Master"
+              "en": "Peter"
             }
           },
           {
@@ -92,7 +312,8 @@
               "sv": "Typ"
             },
             "example": {
-              "en": "Keypad"
+              "en": "Code",
+              "sv": "Kod"
             }
           }
         ],
@@ -108,7 +329,7 @@
         "id": "unlockstate",
         "title": {
           "en": "Someone locked the door",
-          "sv": "En specifik användare låste dörren"
+          "sv": "Någon användare låste dörren"
         },
         "tokens": [
           {
@@ -119,7 +340,7 @@
               "sv": "Namn"
             },
             "example": {
-              "en": "Master"
+              "en": "Peter"
             }
           },
           {
@@ -130,7 +351,8 @@
               "sv": "Typ"
             },
             "example": {
-              "en": "Keypad"
+              "en": "Code",
+              "sv": "Kod"
             }
           }
         ],
@@ -143,9 +365,181 @@
         ]
       }
     ],
+    "conditions": [
+      {
+        "id": "door_locking",
+        "title": {
+          "en": "A specific user is locking the door",
+          "sv": "En specifik användare låser dörren"
+        },
+        "titleFormatted": {
+          "en": "[[who]] !{{|do not}} lock the door with [[type]]",
+          "sv": "[[who]] låser !{{|inte}} dören med [[type]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          },
+          {
+            "name": "who",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Type name...",
+              "sv": "Ange namn.."
+            },
+            "title": {
+              "en": "Who",
+              "sv": "Namn"
+            }
+          },
+          {
+            "name": "type",
+            "type": "dropdown",
+            "placeholder": {
+              "en": "Choose a value...",
+              "sv": "Välj en typ..."
+            },
+            "title": {
+              "en": "Type",
+              "sv": "Typ"
+            },
+            "values": [
+              {
+                "id": "any",
+                "label": {
+                  "en": "Any",
+                  "sv": "Alla"
+                }
+              },
+              {
+                "id": "code",
+                "label": {
+                  "en": "Code",
+                  "sv": "Kod"
+                }
+              },
+              {
+                "id": "tag",
+                "label": {
+                  "en": "Tag",
+                  "sv": "Tag"
+                }
+              },
+              {
+                "id": "automatic",
+                "label": {
+                  "en": "Automatic",
+                  "sv": "Automatiskt"
+                }
+              },
+              {
+                "id": "button",
+                "label": {
+                  "en": "Button",
+                  "sv": "Knapp/vred"
+                }
+              },
+              {
+                "id": "homey",
+                "label": {
+                  "en": "Homey"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "door_unlocking",
+        "title": {
+          "en": "A specific user is unlocking the door",
+          "sv": "En specifik användare låser upp dörren"
+        },
+        "titleFormatted": {
+          "en": "[[who]] !{{|do not}} unlock the door with [[type]]",
+          "sv": "[[who]] låser !{{|inte}} upp dören med [[type]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          },
+          {
+            "name": "who",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Type name...",
+              "sv": "Ange namn.."
+            },
+            "title": {
+              "en": "Who",
+              "sv": "Namn"
+            }
+          },
+          {
+            "name": "type",
+            "type": "dropdown",
+            "placeholder": {
+              "en": "Choose a value...",
+              "sv": "Välj en typ..."
+            },
+            "title": {
+              "en": "Type",
+              "sv": "Typ"
+            },
+            "values": [
+              {
+                "id": "any",
+                "label": {
+                  "en": "Any",
+                  "sv": "Alla"
+                }
+              },
+              {
+                "id": "code",
+                "label": {
+                  "en": "Code",
+                  "sv": "Kod"
+                }
+              },
+              {
+                "id": "tag",
+                "label": {
+                  "en": "Tag",
+                  "sv": "Tag"
+                }
+              },
+              {
+                "id": "automatic",
+                "label": {
+                  "en": "Automatic",
+                  "sv": "Automatiskt"
+                }
+              },
+              {
+                "id": "button",
+                "label": {
+                  "en": "Button",
+                  "sv": "Knapp/vred"
+                }
+              },
+              {
+                "id": "homey",
+                "label": {
+                  "en": "Homey"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
     "actions": [
       {
-        "id": "setawaymode",
+        "id": "set_awaymode",
         "title": {
           "en": "Set lock mode (home/away)",
           "sv": "Ställ in borta/hemma"

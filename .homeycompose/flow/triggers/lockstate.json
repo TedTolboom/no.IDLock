@@ -2,7 +2,7 @@
 	"id": "lockstate",
 	"title": {
 		"en": "Someone unlocked the door",
-		"sv": "En specifik användare låste upp dörren"
+		"sv": "Någon låste upp dörren"
 	},
 	"tokens": [
 		{
@@ -13,7 +13,7 @@
 				"sv": "Namn"
 			},
 			"example": {
-				"en": "Master"
+				"en": "Peter"
 			}
 		},
 		{
@@ -24,7 +24,8 @@
 				"sv": "Typ"
 			},
 			"example": {
-				"en": "Keypad"
+				"en": "Code",
+				"sv": "Kod"
 			}
 		}
 	],

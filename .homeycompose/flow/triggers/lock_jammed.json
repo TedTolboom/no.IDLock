@@ -1,8 +1,8 @@
 {
-	"id": "lockjammed",
+	"id": "lock_jammed",
 	"title": {
 		"en": "Lock jammed",
-		"sv": "Låset fastnat"
+		"sv": "Låset har fastnat"
 	},
 	"args": [
 		{

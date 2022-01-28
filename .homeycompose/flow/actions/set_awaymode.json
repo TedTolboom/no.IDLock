@@ -1,5 +1,5 @@
 {
-    "id": "setawaymode",
+    "id": "set_awaymode",
     "title": {
         "en": "Set lock mode (home/away)",
         "sv": "Ställ in borta/hemma"
@@ -43,6 +43,6 @@
                     }
                 }
             ]
-          }
+        }
     ]
 }
