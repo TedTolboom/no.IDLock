@@ -6,8 +6,8 @@
 		"no": "En spesifikk bruker låste døren"
 	},
 	"titleFormatted": {
-		"en": "[[who]] lock the door with [[type]]",
-		"sv": "[[who]] låser dörren med [[type]]",
+		"en": "[[who]] locked the door with [[type]]",
+		"sv": "[[who]] låste dörren med [[type]]",
 		"no": "[[who]] låste døren med [[type]]"
 	},
 	"tokens": [
