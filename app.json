@@ -26,6 +26,10 @@
       {
         "name": "Jonathan Cohen",
         "email": "jonathan@cohen.se"
+      },
+      {
+        "name": "Rune Moskvil Lyngås",
+        "email": "runely85@gmail.com"
       }
     ]
   },
@@ -37,7 +41,8 @@
     }
   },
   "description": {
-    "en": "Adds support for ID Lock Z-wave devices"
+    "en": "Adds support for ID Lock Z-wave devices",
+    "no": "Legger til støtte for ID Lock Z-wave enheter"
   },
   "images": {
     "large": "/assets/images/large.png",
@@ -56,11 +61,13 @@
         "id": "door_lock",
         "title": {
           "en": "A specific user locked the door",
-          "sv": "En specifik användare låste dörren"
+          "sv": "En specifik användare låste dörren",
+          "no": "En spesifikk bruker låste døren"
         },
         "titleFormatted": {
           "en": "[[who]] lock the door with [[type]]",
-          "sv": "[[who]] låser dörren med [[type]]"
+          "sv": "[[who]] låser dörren med [[type]]",
+          "no": "[[who]] låste døren med [[type]]"
         },
         "tokens": [
           {
@@ -68,7 +75,8 @@
             "type": "string",
             "title": {
               "en": "Who",
-              "sv": "Namn"
+              "sv": "Namn",
+              "no": "Navn"
             },
             "example": {
               "en": "Peter"
@@ -79,11 +87,13 @@
             "type": "string",
             "title": {
               "en": "Type",
-              "sv": "Typ"
+              "sv": "Typ",
+              "no": "Type"
             },
             "example": {
               "en": "Code",
-              "sv": "Kod"
+              "sv": "Kod",
+              "no": "Kode"
             }
           }
         ],
@@ -98,11 +108,13 @@
             "type": "autocomplete",
             "placeholder": {
               "en": "Type name...",
-              "sv": "Ange namn.."
+              "sv": "Ange namn..",
+              "no": "Angi navn..."
             },
             "title": {
               "en": "Who",
-              "sv": "Namn"
+              "sv": "Namn",
+              "no": "Navn"
             }
           },
           {
@@ -110,46 +122,53 @@
             "type": "dropdown",
             "placeholder": {
               "en": "Choose a value...",
-              "sv": "Välj en typ..."
+              "sv": "Välj en typ...",
+              "no": "Velg en type..."
             },
             "title": {
               "en": "Type",
-              "sv": "Typ"
+              "sv": "Typ",
+              "no": "Type"
             },
             "values": [
               {
                 "id": "any",
                 "label": {
                   "en": "Any",
-                  "sv": "Alla"
+                  "sv": "Alla",
+                  "no": "Alle"
                 }
               },
               {
                 "id": "code",
                 "label": {
                   "en": "Code",
-                  "sv": "Kod"
+                  "sv": "Kod",
+                  "no": "Kode"
                 }
               },
               {
                 "id": "tag",
                 "label": {
                   "en": "Tag",
-                  "sv": "Tag"
+                  "sv": "Tag",
+                  "no": "Tag"
                 }
               },
               {
                 "id": "automatic",
                 "label": {
                   "en": "Automatic",
-                  "sv": "Automatiskt"
+                  "sv": "Automatiskt",
+                  "no": "Automatisk"
                 }
               },
               {
                 "id": "button",
                 "label": {
                   "en": "Button",
-                  "sv": "Knapp/vred"
+                  "sv": "Knapp/vred",
+                  "no": "Knapp"
                 }
               },
               {
@@ -166,11 +185,13 @@
         "id": "door_unlock",
         "title": {
           "en": "A specific user unlocked the door",
-          "sv": "En specifik användare låste upp dörren"
+          "sv": "En specifik användare låste upp dörren",
+          "no": "En spesifikk bruker låste opp døren"
         },
         "titleFormatted": {
           "en": "[[who]] unlock the door with [[type]]",
-          "sv": "[[who]] låser upp dörren med [[type]]"
+          "sv": "[[who]] låser upp dörren med [[type]]",
+          "no": "[[who]] låste opp døren med [[type]]"
         },
         "tokens": [
           {
@@ -178,7 +199,8 @@
             "type": "string",
             "title": {
               "en": "Who",
-              "sv": "Namn"
+              "sv": "Namn",
+              "no": "Navn"
             },
             "example": {
               "en": "Peter"
@@ -189,11 +211,13 @@
             "type": "string",
             "title": {
               "en": "Type",
-              "sv": "Typ"
+              "sv": "Typ",
+              "no": "Type"
             },
             "example": {
               "en": "Code",
-              "sv": "Kod"
+              "sv": "Kod",
+              "no": "Kode"
             }
           }
         ],
@@ -208,11 +232,13 @@
             "type": "autocomplete",
             "placeholder": {
               "en": "Type name...",
-              "sv": "Ange namn.."
+              "sv": "Ange namn..",
+              "no": "Angi navn..."
             },
             "title": {
               "en": "Who",
-              "sv": "Namn"
+              "sv": "Namn",
+              "no": "Navn"
             }
           },
           {
@@ -220,46 +246,53 @@
             "type": "dropdown",
             "placeholder": {
               "en": "Choose a value...",
-              "sv": "Välj en typ..."
+              "sv": "Välj en typ...",
+              "no": "Velg en type..."
             },
             "title": {
               "en": "Type",
-              "sv": "Typ"
+              "sv": "Typ",
+              "no": "Type"
             },
             "values": [
               {
                 "id": "any",
                 "label": {
                   "en": "Any",
-                  "sv": "Alla"
+                  "sv": "Alla",
+                  "no": "Alle"
                 }
               },
               {
                 "id": "code",
                 "label": {
                   "en": "Code",
-                  "sv": "Kod"
+                  "sv": "Kod",
+                  "no": "Kode"
                 }
               },
               {
                 "id": "tag",
                 "label": {
                   "en": "Tag",
-                  "sv": "Tag"
+                  "sv": "Tag",
+                  "no": "Tag"
                 }
               },
               {
                 "id": "automatic",
                 "label": {
                   "en": "Automatic",
-                  "sv": "Automatiskt"
+                  "sv": "Automatiskt",
+                  "no": "Automatisk"
                 }
               },
               {
                 "id": "button",
                 "label": {
                   "en": "Button",
-                  "sv": "Knapp/vred"
+                  "sv": "Knapp/vred",
+                  "no": "Knapp"
                 }
               },
               {
@@ -276,7 +309,8 @@
         "id": "lock_jammed",
         "title": {
           "en": "Lock jammed",
-          "sv": "Låset har fastnat"
+          "sv": "Låset har fastnat",
+          "no": "Låsen er fastkjørt"
         },
         "args": [
           {
@@ -290,7 +324,8 @@
         "id": "lockstate",
         "title": {
           "en": "Someone unlocked the door",
-          "sv": "Någon låste upp dörren"
+          "sv": "Någon låste upp dörren",
+          "no": "Noen låste opp døren"
         },
         "tokens": [
           {
@@ -298,7 +333,8 @@
             "type": "string",
             "title": {
               "en": "Who",
-              "sv": "Namn"
+              "sv": "Namn",
+              "no": "Navn"
             },
             "example": {
               "en": "Peter"
@@ -309,11 +345,13 @@
             "type": "string",
             "title": {
               "en": "Type",
-              "sv": "Typ"
+              "sv": "Typ",
+              "no": "Type"
             },
             "example": {
               "en": "Code",
-              "sv": "Kod"
+              "sv": "Kod",
+              "no": "Kode"
             }
           }
         ],
@@ -329,7 +367,8 @@
         "id": "unlockstate",
         "title": {
           "en": "Someone locked the door",
-          "sv": "Någon användare låste dörren"
+          "sv": "Någon användare låste dörren",
+          "no": "Noen låste døren"
         },
         "tokens": [
           {
@@ -337,7 +376,8 @@
             "type": "string",
             "title": {
               "en": "Who",
-              "sv": "Namn"
+              "sv": "Namn",
+              "no": "Navn"
             },
             "example": {
               "en": "Peter"
@@ -348,11 +388,13 @@
             "type": "string",
             "title": {
               "en": "Type",
-              "sv": "Typ"
+              "sv": "Typ",
+              "no": "Type"
             },
             "example": {
               "en": "Code",
-              "sv": "Kod"
+              "sv": "Kod",
+              "no": "Kode"
             }
           }
         ],
@@ -370,11 +412,13 @@
         "id": "door_locking",
         "title": {
           "en": "A specific user is locking the door",
-          "sv": "En specifik användare låser dörren"
+          "sv": "En specifik användare låser dörren",
+          "no": "En spesifikk bruker låser døren"
         },
         "titleFormatted": {
           "en": "[[who]] !{{|do not}} lock the door with [[type]]",
-          "sv": "[[who]] låser !{{|inte}} dören med [[type]]"
+          "sv": "[[who]] låser !{{|inte}} dören med [[type]]",
+          "no": "[[who]] låser !{{|ikke}} døren med [[type]]"
         },
         "args": [
           {
@@ -387,11 +431,13 @@
             "type": "autocomplete",
             "placeholder": {
               "en": "Type name...",
-              "sv": "Ange namn.."
+              "sv": "Ange namn..",
+              "no": "Angi navn..."
             },
             "title": {
               "en": "Who",
-              "sv": "Namn"
+              "sv": "Namn",
+              "no": "Navn"
             }
           },
           {
@@ -399,46 +445,53 @@
             "type": "dropdown",
             "placeholder": {
               "en": "Choose a value...",
-              "sv": "Välj en typ..."
+              "sv": "Välj en typ...",
+              "no": "Velg en type..."
             },
             "title": {
               "en": "Type",
-              "sv": "Typ"
+              "sv": "Typ",
+              "no": "Type"
             },
             "values": [
               {
                 "id": "any",
                 "label": {
                   "en": "Any",
-                  "sv": "Alla"
+                  "sv": "Alla",
+                  "no": "Alle"
                 }
               },
               {
                 "id": "code",
                 "label": {
                   "en": "Code",
-                  "sv": "Kod"
+                  "sv": "Kod",
+                  "no": "Kode"
                 }
               },
               {
                 "id": "tag",
                 "label": {
                   "en": "Tag",
-                  "sv": "Tag"
+                  "sv": "Tag",
+                  "no": "Tag"
                 }
               },
               {
                 "id": "automatic",
                 "label": {
                   "en": "Automatic",
-                  "sv": "Automatiskt"
+                  "sv": "Automatiskt",
+                  "no": "Automatisk"
                 }
               },
               {
                 "id": "button",
                 "label": {
                   "en": "Button",
-                  "sv": "Knapp/vred"
+                  "sv": "Knapp/vred",
+                  "no": "Knapp"
                 }
               },
               {
@@ -455,11 +508,13 @@
         "id": "door_unlocking",
         "title": {
           "en": "A specific user is unlocking the door",
-          "sv": "En specifik användare låser upp dörren"
+          "sv": "En specifik användare låser upp dörren",
+          "no": "En spesifikk bruker låser opp døren"
         },
         "titleFormatted": {
           "en": "[[who]] !{{|do not}} unlock the door with [[type]]",
-          "sv": "[[who]] låser !{{|inte}} upp dören med [[type]]"
+          "sv": "[[who]] låser !{{|inte}} upp dören med [[type]]",
+          "no": "[[who]] låser !{{|ikke}} opp døren med [[type]]"
         },
         "args": [
           {
@@ -472,11 +527,13 @@
             "type": "autocomplete",
             "placeholder": {
               "en": "Type name...",
-              "sv": "Ange namn.."
+              "sv": "Ange namn..",
+              "no": "Angi navn..."
             },
             "title": {
               "en": "Who",
-              "sv": "Namn"
+              "sv": "Namn",
+              "no": "Navn"
             }
           },
           {
@@ -484,46 +541,53 @@
             "type": "dropdown",
             "placeholder": {
               "en": "Choose a value...",
-              "sv": "Välj en typ..."
+              "sv": "Välj en typ...",
+              "no": "Velg en type"
             },
             "title": {
               "en": "Type",
-              "sv": "Typ"
+              "sv": "Typ",
+              "no": "Type"
             },
             "values": [
               {
                 "id": "any",
                 "label": {
                   "en": "Any",
-                  "sv": "Alla"
+                  "sv": "Alla",
+                  "no": "Alle"
                 }
               },
               {
                 "id": "code",
                 "label": {
                   "en": "Code",
-                  "sv": "Kod"
+                  "sv": "Kod",
+                  "no": "Kode"
                 }
               },
               {
                 "id": "tag",
                 "label": {
                   "en": "Tag",
-                  "sv": "Tag"
+                  "sv": "Tag",
+                  "no": "Tag"
                 }
               },
               {
                 "id": "automatic",
                 "label": {
                   "en": "Automatic",
-                  "sv": "Automatiskt"
+                  "sv": "Automatiskt",
+                  "no": "Automatisk"
                 }
               },
               {
                 "id": "button",
                 "label": {
                   "en": "Button",
-                  "sv": "Knapp/vred"
+                  "sv": "Knapp/vred",
+                  "no": "Knapp"
                 }
               },
               {
@@ -542,7 +606,8 @@
         "id": "set_awaymode",
         "title": {
           "en": "Set lock mode (home/away)",
-          "sv": "Ställ in borta/hemma"
+          "sv": "Ställ in borta/hemma",
+          "no": "Still inn hjemme-/bortemodus"
         },
         "args": [
           {
@@ -558,28 +623,32 @@
                 "id": "0",
                 "label": {
                   "en": "Disabled Away mode and Manual locking mode",
-                  "sv": "Inaktivera Bortaläge, Manuell låsning"
+                  "sv": "Inaktivera Bortaläge, Manuell låsning",
+                  "no": "Deaktivert Bortemodus og Manuell låsing"
                 }
               },
               {
                 "id": "1",
                 "label": {
                   "en": "Disabled Away mode and Automatic locking mode",
-                  "sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)"
+                  "sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)",
+                  "no": "Deaktivert Bortemodus og Automatisk låsing (standard)"
                 }
               },
               {
                 "id": "3",
                 "label": {
                   "en": "Away mode and Automatic locking mode",
-                  "sv": "Aktiverat Bortaläge, Automatisk låsning"
+                  "sv": "Aktiverat Bortaläge, Automatisk låsning",
+                  "no": "Aktivert Bortemodus og Automatisk låsing"
                 }
               },
               {
                 "id": "2",
                 "label": {
                   "en": "Away mode and Manual locking mode",
-                  "sv": "Aktiverat Bortaläge, Manuell låsning"
+                  "sv": "Aktiverat Bortaläge, Manuell låsning",
+                  "no": "Aktivert Bortemodus og Manuell låsing"
                 }
               }
             ]
@@ -620,18 +689,21 @@
           "title": {
             "en": "Door open (Contact Alarm)",
             "sv": "Öppen dörr (Kontaktalarm)",
-            "nl": "Deur open (Contact alarm)"
+            "nl": "Deur open (Contact alarm)",
+            "no": "Åpen dør (Kontaktalarm)"
           },
           "icon": "/drivers/IDlock101/assets/door.svg"
         },
         "locked": {
           "titleTrue": {
             "en": "Locked",
-            "sv": "Låst"
+            "sv": "Låst",
+            "no": "Låst"
           },
           "titleFalse": {
             "en": "Unlocked",
-            "sv": "Upplåst"
+            "sv": "Upplåst",
+            "no": "Ulåst"
           },
           "icon": "/drivers/IDlock101/assets/locked.svg"
         }
@@ -683,11 +755,13 @@
           "value": "1",
           "label": {
             "en": "Doorlock mode",
-            "sv": "Låsningsinställningar"
+            "sv": "Låsningsinställningar",
+            "no": "Dørlås"
           },
           "hint": {
             "en": "This parameter (1) defines the doorlock operational behaviour",
-            "sv": "Denna parameter (1) ställer in hur låsning ska ske, bortasäkring samt autolåsning"
+            "sv": "Denna parameter (1) ställer in hur låsning ska ske, bortasäkring samt autolåsning",
+            "no": "Denna parameteren (1) stiller inn hvordan låsing skal skje, bortemodus, samt autolåsing"
           },
           "zwave": {
             "index": 1,
@@ -698,28 +772,32 @@
               "id": "0",
               "label": {
                 "en": "Disabled Away mode and Manual locking mode",
-                "sv": "Inaktivera Bortaläge, Manuell låsning"
+                "sv": "Inaktivera Bortaläge, Manuell låsning",
+                "no": "Deaktivert Bortemodus og Manuell låsing"
               }
             },
             {
               "id": "1",
               "label": {
                 "en": "Disabled Away mode and Automatic locking mode",
-                "sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)"
+                "sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)",
+                "no": "Deaktivert Bortemodus og Automatisk låsing (standard)"
               }
             },
             {
               "id": "3",
               "label": {
                 "en": "Away mode and Automatic locking mode",
-                "sv": "Aktiverat Bortaläge, Automatisk låsning"
+                "sv": "Aktiverat Bortaläge, Automatisk låsning",
+                "no": "Aktivert Bortemodus og Automatisk låsing"
               }
             },
             {
               "id": "2",
               "label": {
                 "en": "Away mode and Manual locking mode",
-                "sv": "Aktiverat Bortaläge, Manuell låsning"
+                "sv": "Aktiverat Bortaläge, Manuell låsning",
+                "no": "Aktivert Bortemodus og Manuell låsing"
               }
             }
           ],
@@ -730,11 +808,13 @@
           "value": "0",
           "label": {
             "en": "Door Hinge Position Mode",
-            "sv": "Dörrhänging"
+            "sv": "Dörrhänging",
+            "no": "Dørhengselsretning"
           },
           "hint": {
             "en": "This parameter (3) defines the door hinge position",
-            "sv": "Denna parameter (3) ställer in rätt riktning för dörrens gångjärn"
+            "sv": "Denna parameter (3) ställer in rätt riktning för dörrens gångjärn",
+            "no": "Denne parameteren (3) stiller inn dørhengselsretningen"
           },
           "zwave": {
             "index": 3,
@@ -745,14 +825,16 @@
               "id": "0",
               "label": {
                 "en": "Right",
-                "sv": "Höger (Standard)"
+                "sv": "Höger (Standard)",
+                "no": "Høyre"
               }
             },
             {
               "id": "1",
               "label": {
                 "en": "Left",
-                "sv": "Vänster"
+                "sv": "Vänster",
+                "no": "Venstre"
               }
             }
           ],
@@ -791,18 +873,21 @@
           "title": {
             "en": "Door open (Contact Alarm)",
             "sv": "Öppen dörr (Kontaktalarm)",
-            "nl": "Deur open (Contact alarm)"
+            "nl": "Deur open (Contact alarm)",
+            "no": "Åpen dør (Kontaktalarm)"
           },
           "icon": "/drivers/IDlock150/assets/door.svg"
         },
         "locked": {
           "titleTrue": {
             "en": "Locked",
-            "sv": "Låst"
+            "sv": "Låst",
+            "no": "Låst"
           },
           "titleFalse": {
             "en": "Unlocked",
-            "sv": "Upplåst"
+            "sv": "Upplåst",
+            "no": "Ulåst"
           },
           "icon": "/drivers/IDlock150/assets/locked.svg"
         }
@@ -852,11 +937,13 @@
           "value": "1",
           "label": {
             "en": "Doorlock mode",
-            "sv": "Låsningsinställningar"
+            "sv": "Låsningsinställningar",
+            "no": "Dørlås"
           },
           "hint": {
             "en": "This parameter (1) defines the doorlock operational behaviour",
-            "sv": "Denna parameter (1) ställer in hur låsning ska ske, bortasäkring samt autolåsning"
+            "sv": "Denna parameter (1) ställer in hur låsning ska ske, bortasäkring samt autolåsning",
+            "no": "Denna parameteren (1) stiller inn hvordan låsing skal skje, bortemodus, samt autolåsing"
           },
           "zwave": {
             "index": 1,
@@ -867,28 +954,32 @@
               "id": "0",
               "label": {
                 "en": "Disabled Away mode and Manual locking mode",
-                "sv": "Inaktivera Bortaläge, Manuell låsning"
+                "sv": "Inaktivera Bortaläge, Manuell låsning",
+                "no": "Deaktivert Bortemodus og Manuell låsing"
               }
             },
             {
               "id": "1",
               "label": {
                 "en": "Disabled Away mode and Automatic locking mode",
-                "sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)"
+                "sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)",
+                "no": "Deaktivert Bortemodus og Automatisk låsing (standard)"
               }
             },
             {
               "id": "3",
               "label": {
                 "en": "Away mode and Automatic locking mode",
-                "sv": "Aktiverat Bortaläge, Automatisk låsning"
+                "sv": "Aktiverat Bortaläge, Automatisk låsning",
+                "no": "Aktivert Bortemodus og Automatisk låsing"
               }
             },
             {
               "id": "2",
               "label": {
                 "en": "Away mode and Manual locking mode",
-                "sv": "Aktiverat Bortaläge, Manuell låsning"
+                "sv": "Aktiverat Bortaläge, Manuell låsning",
+                "no": "Aktivert Bortemodus og Manuell låsing"
               }
             }
           ],
@@ -899,11 +990,13 @@
           "value": "0",
           "label": {
             "en": "Door Hinge Position Mode",
-            "sv": "Dörrhänging"
+            "sv": "Dörrhänging",
+            "no": "Dørhengselsretning"
           },
           "hint": {
             "en": "This parameter (3) defines the door hinge position",
-            "sv": "Denna parameter (3) ställer in rätt riktning för dörrens gångjärn"
+            "sv": "Denna parameter (3) ställer in rätt riktning för dörrens gångjärn",
+            "no": "Denne parameteren (3) stiller inn dørhengselsretningen"
           },
           "zwave": {
             "index": 3,
@@ -914,14 +1007,16 @@
               "id": "0",
               "label": {
                 "en": "Right",
-                "sv": "Höger (Standard)"
+                "sv": "Höger (Standard)",
+                "no": "Høyre"
               }
             },
             {
               "id": "1",
               "label": {
                 "en": "Left",
-                "sv": "Vänster"
+                "sv": "Vänster",
+                "no": "Venstre"
               }
             }
           ],
@@ -932,11 +1027,13 @@
           "value": "5",
           "label": {
             "en": "Audio Volume Level",
-            "sv": "Ljudbivå"
+            "sv": "Ljudbivå",
+            "no": "Lydnivå"
           },
           "hint": {
             "en": "This parameter (4) defines the doors audio volume. This parameter is a set only parameter. If the value is changed locally on the door lock, this value will not change",
-            "sv": "Denna parameter (4) sätter låsets ljudnivå. Parametern är en set only parameter. Om inställningen ändras på låset, kommer inte värdet i Homey att uppdateras."
+            "sv": "Denna parameter (4) sätter låsets ljudnivå. Parametern är en set only parameter. Om inställningen ändras på låset, kommer inte värdet i Homey att uppdateras.",
+            "no": "Denne parameteren (4) setter låsens lydnivå. Parameteren er en set-only parameter. Om instillingen endres på låsen, kommer ikke verdien i Homey til å oppdateres."
           },
           "zwave": {
             "index": 4,
@@ -947,49 +1044,56 @@
               "id": "0",
               "label": {
                 "en": "No sound",
-                "sv": "inget ljud"
+                "sv": "inget ljud",
+                "no": "Ingen lyd"
               }
             },
             {
               "id": "1",
               "label": {
                 "en": "Level 1",
-                "sv": "Nivå 1"
+                "sv": "Nivå 1",
+                "no": "Nivå 1"
               }
             },
             {
               "id": "2",
               "label": {
                 "en": "Level 2",
-                "sv": "Nivå 2"
+                "sv": "Nivå 2",
+                "no": "Nivå 2"
               }
             },
             {
               "id": "3",
               "label": {
                 "en": "Level 3",
-                "sv": "Nivå 3"
+                "sv": "Nivå 3",
+                "no": "Nivå 3"
               }
             },
             {
               "id": "4",
               "label": {
                 "en": "Level 4",
-                "sv": "Nivå 4"
+                "sv": "Nivå 4",
+                "no": "Nivå 4"
               }
             },
             {
               "id": "5",
               "label": {
                 "en": "Level 5 (default)",
-                "sv": "Nivå 5 (Standard)"
+                "sv": "Nivå 5 (Standard)",
+                "no": "Nivå 5 (standard)"
               }
             },
             {
               "id": "6",
               "label": {
                 "en": "Maximum sound level",
-                "sv": "Maximal ljudnivå"
+                "sv": "Maximal ljudnivå",
+                "no": "Maks lydnivå"
               }
             }
           ],
@@ -1000,11 +1104,13 @@
           "value": "1",
           "label": {
             "en": "Door ReLock Mode",
-            "sv": "Omlåsning av/på"
+            "sv": "Omlåsning av/på",
+            "no": "Gjenlåsing"
           },
           "hint": {
             "en": "This parameter (5) defines the door Relock mode",
-            "sv": "Denna parameter (5) sätter av/på för automatisk omlåsning"
+            "sv": "Denna parameter (5) sätter av/på för automatisk omlåsning",
+            "no": "Denne parameteren (5) setter av/på for automatisk gjenlåsing"
           },
           "zwave": {
             "index": 5,
@@ -1015,14 +1121,16 @@
               "id": "1",
               "label": {
                 "en": "Door relock mode enabled",
-                "sv": "Omlåsning på (Standard)"
+                "sv": "Omlåsning på (Standard)",
+                "no": "Gjenlåsing på (standard)"
               }
             },
             {
               "id": "0",
               "label": {
                 "en": "Door relock mode disabled",
-                "sv": "Omlåsning av"
+                "sv": "Omlåsning av",
+                "no": "Gjenlåsing av"
               }
             }
           ],
@@ -1033,11 +1141,13 @@
           "value": "0",
           "label": {
             "en": "Service PIN Mode",
-            "sv": "Hantera Service PIN"
+            "sv": "Hantera Service PIN",
+            "no": "Service PIN-modus"
           },
           "hint": {
             "en": "This parameter (6) is a set only value, if changed locally on keypad these values are not changed on Z-wave module.",
-            "sv": "Denna parameter (6) hanterar service PIN. Parametern är en set only parameter. Om inställningen ändras på låset, kommer inte värdet i Homey att uppdateras."
+            "sv": "Denna parameter (6) hanterar service PIN. Parametern är en set only parameter. Om inställningen ändras på låset, kommer inte värdet i Homey att uppdateras.",
+            "no": "Denne parameteren (6) er en set-only parameter. Om instillingen endres på låsen, kommer ikke verdien i Homey til å oppdateres."
           },
           "zwave": {
             "index": 6,
@@ -1048,63 +1158,72 @@
               "id": "0",
               "label": {
                 "en": "Deactivated (default)",
-                "sv": "Inaktiverat (standard)"
+                "sv": "Inaktiverat (standard)",
+                "no": "Deaktivert (standard)"
               }
             },
             {
               "id": "1",
               "label": {
                 "en": "1 times used",
-                "sv": "Giltig 1 gång"
+                "sv": "Giltig 1 gång",
+                "no": "Gyldig 1 gang"
               }
             },
             {
               "id": "2",
               "label": {
                 "en": "2 times used",
-                "sv": "Giltig 2 gånger"
+                "sv": "Giltig 2 gånger",
+                "no": "Gyldig 2 ganger"
               }
             },
             {
               "id": "3",
               "label": {
                 "en": "5 times used",
-                "sv": "Giltig 5 gånger"
+                "sv": "Giltig 5 gånger",
+                "no": "Gyldig 5 ganger"
               }
             },
             {
               "id": "4",
               "label": {
                 "en": "10 times used",
-                "sv": "Giltig 10 gånger"
+                "sv": "Giltig 10 gånger",
+                "no": "Gyldig 10 ganger"
               }
             },
             {
               "id": "7",
               "label": {
                 "en": "Always valid",
-                "sv": "Alltid giltig"
+                "sv": "Alltid giltig",
+                "no": "Alltid gyldig"
               }
             },
             {
               "id": "8",
               "label": {
                 "en": "12 Hours used",
-                "sv": "Giltig 12 timmar"
+                "sv": "Giltig 12 timmar",
+                "no": ""
               }
             },
             {
               "id": "9",
               "label": {
                 "en": "24 Hours used",
-                "sv": "Giltig 24 timmar"
+                "sv": "Giltig 24 timmar",
+                "no": "Gyldig 24 timer"
               }
             },
             {
               "id": "FE",
               "label": {
                 "en": "Disables both PIN and Service PIN menu on door lock",
-                "sv": "Inaktiverar PIN and Service PIN meny på låsenheten"
+                "sv": "Inaktiverar PIN and Service PIN meny på låsenheten",
+                "no": "Deaktiverer både PIN og Service PIN-modus på låsen"
               }
             }
           ],
@@ -1115,11 +1234,13 @@
           "value": "5",
           "label": {
             "en": "RFID Mode",
-            "sv": "RFID på/av"
+            "sv": "RFID på/av",
+            "no": "RFID-modus"
           },
           "hint": {
             "en": "This parameter (2) defines if RFID is enabled",
-            "sv": "Denna parameter (2) sätter om RFID ska vara påslaget eller ej (endast IDLock 150)"
+            "sv": "Denna parameter (2) sätter om RFID ska vara påslaget eller ej (endast IDLock 150)",
+            "no": "Denne parameteren (2) setter  om RFID skal være aktivert eller ikke (kun IDLock 150)"
           },
           "zwave": {
             "index": 2,
@@ -1130,14 +1251,16 @@
               "id": "5",
               "label": {
                 "en": "RFID mode enabled",
-                "sv": "RFID är aktiverat (Standard)"
+                "sv": "RFID är aktiverat (Standard)",
+                "no": "RFID er aktivert (standard)"
               }
             },
             {
               "id": "9",
               "label": {
                 "en": "RFID mode disabled",
-                "sv": "RFID ör inaktiverat"
+                "sv": "RFID ör inaktiverat",
+                "no": "RFID er deaktivert"
               }
             }
           ],
@@ -1151,7 +1274,8 @@
           },
           "hint": {
             "en": "This parameter (8) defines the door updater mode",
-            "sv": "Denna parameter (8) aktiverar användandet av Updater App"
+            "sv": "Denna parameter (8) aktiverar användandet av Updater App",
+            "no": "Denne parameteren (8) håndterer låsens Updater Mode"
           },
           "zwave": {
             "index": 8,
@@ -1162,28 +1286,32 @@
               "id": "0",
               "label": {
                 "en": "Off (no sound)",
-                "sv": "Av (Inget ljud, Standard)"
+                "sv": "Av (Inget ljud, Standard)",
+                "no": "Av (ingen lyd, standard)"
               }
             },
             {
               "id": "1",
               "label": {
                 "en": "On (no sound)",
-                "sv": "På  (Inget ljud)"
+                "sv": "På  (Inget ljud)",
+                "no": "På (ingen lyd)"
               }
             },
             {
               "id": "2",
               "label": {
                 "en": "Off",
-                "sv": "Av"
+                "sv": "Av",
+                "no": "Av"
               }
             },
             {
               "id": "3",
               "label": {
                 "en": "On",
-                "sv": "På"
+                "sv": "På",
+                "no": "På"
               }
             }
           ],
@@ -1197,7 +1325,8 @@
           },
           "hint": {
             "en": "This parameter (9) defines the Master PIN unlock mode",
-            "sv": "Denna parameter (9) anger om man kan använda Master PIN för att låsa upp"
+            "sv": "Denna parameter (9) anger om man kan använda Master PIN för att låsa upp",
+            "no": "Denne parameteren (9) setter om man kan bruke Master PIN for opplåsning"
           },
           "zwave": {
             "index": 9,
@@ -1208,14 +1337,16 @@
               "id": "0",
               "label": {
                 "en": "Off",
-                "sv": "Av"
+                "sv": "Av",
+                "no": "Av"
               }
             },
             {
               "id": "1",
               "label": {
                 "en": "On",
-                "sv": "På (Standard)"
+                "sv": "På (Standard)",
+                "no": "På (standard)"
               }
             }
           ],
@@ -1226,11 +1357,13 @@
           "value": "1",
           "label": {
             "en": "Set index mode",
-            "sv": "Indexeringsmetod "
+            "sv": "Indexeringsmetod ",
+            "no": "Indekseringsmetode"
           },
           "hint": {
             "en": "This parameter sets Index mode, based on change in firmware 1.6 - Note, if changing this your current flows may need to be re-written",
-            "sv": "Denna parameter sätter hur Indexeringen ska fungera, efter en ändring i firmware 1.6 - Varning: om aktiveras så kan dina flows behövas skrivas om"
+            "sv": "Denna parameter sätter hur Indexeringen ska fungera, efter en ändring i firmware 1.6 - Varning: om aktiveras så kan dina flows behövas skrivas om",
+            "no": "Denne parameteren setter hvordan Indekseringen skal fungere, etter endring i firmware 1.6 - Advarsel: Ved endring så må kanskje dine flows skrives om"
           },
           "values": [
             {
@@ -1243,7 +1376,8 @@
               "id": "2",
               "label": {
                 "en": "1.6 and later",
-                "sv": "1.6 eller nyare"
+                "sv": "1.6 eller nyare",
+                "no": "1.6 eller nyere"
               }
             }
           ],

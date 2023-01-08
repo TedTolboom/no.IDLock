@@ -2,7 +2,8 @@
 	"id": "lock_jammed",
 	"title": {
 		"en": "Lock jammed",
-		"sv": "Låset har fastnat"
+		"sv": "Låset har fastnat",
+		"no": "Låsen er fastkjørt"
 	},
 	"args": [
 		{

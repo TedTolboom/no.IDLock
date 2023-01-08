@@ -29,18 +29,21 @@
 			"title": {
 				"en": "Door open (Contact Alarm)",
 				"sv": "Öppen dörr (Kontaktalarm)",
-				"nl": "Deur open (Contact alarm)"
+				"nl": "Deur open (Contact alarm)",
+				"no": "Åpen dør (Kontaktalarm)"
 			},
 			"icon": "{{driverAssetsPath}}/door.svg"
 		},
 		"locked": {
 			"titleTrue": {
 				"en": "Locked",
-				"sv": "Låst"
+				"sv": "Låst",
+				"no": "Låst"
 			},
 			"titleFalse": {
 				"en": "Unlocked",
-				"sv": "Upplåst"
+				"sv": "Upplåst",
+				"no": "Ulåst"
 			},
 			"icon": "{{driverAssetsPath}}/locked.svg"
 		}
