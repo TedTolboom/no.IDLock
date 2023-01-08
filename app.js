@@ -10,47 +10,29 @@ class IDLock extends Homey.App {
 
 		// Triggers
 
-		this.unlockTrigger = new Homey.FlowCardTriggerDevice('lockstate').register(); // deprecated
-		
-		this.lockTrigger = new Homey.FlowCardTriggerDevice('unlockstate').register(); // deprecated
+		const doorLockTrigger = this.homey.flow.getTriggerCard('door_lock')
+		doorLockTrigger.registerRunListener(this.onTypeWhoMatchTrigger.bind(this))
+		doorLockTrigger.getArgument('who').registerAutocompleteListener(this.onWhoAutoComplete.bind(this))
 
-		this.lockJammedTrigger = new Homey.FlowCardTriggerDevice('lock_jammed').register();
-
-		this.doorLockTrigger = new Homey.FlowCardTriggerDevice('door_lock')
-			.register()
-			.registerRunListener(this.onTypeWhoMatchTrigger.bind(this));		
-	 	this.doorLockTrigger
-			.getArgument('who')
-			.registerAutocompleteListener(this.onWhoAutoComplete.bind(this));
-
-		this.doorUnlockTrigger = new Homey.FlowCardTriggerDevice('door_unlock')
-			.register()
-			.registerRunListener(this.onTypeWhoMatchTrigger.bind(this));				
-		this.doorUnlockTrigger 
-			.getArgument('who')
-			.registerAutocompleteListener(this.onWhoAutoComplete.bind(this));
+		const doorUnlockTrigger = this.homey.flow.getTriggerCard('door_unlock')
+		doorUnlockTrigger.registerRunListener(this.onTypeWhoMatchTrigger.bind(this))
+		doorUnlockTrigger.getArgument('who').registerAutocompleteListener(this.onWhoAutoComplete.bind(this))
 
 		// Conditions
 
-		this.doorLockingCondition = new Homey.FlowCardCondition('door_locking')
-			.register()
-			.registerRunListener(this.onTypeWhoMatchTrigger.bind(this));				
-		this.doorLockingCondition 
-			.getArgument('who')
-			.registerAutocompleteListener(this.onWhoAutoComplete.bind(this));
+		const doorLocking = this.homey.flow.getConditionCard('door_locking')
+		doorLocking.registerRunListener(this.onTypeWhoMatchTrigger.bind(this))
+		doorLocking.getArgument('who').registerAutocompleteListener(this.onWhoAutoComplete.bind(this))
 
-		this.doorUnlockingCondition = new Homey.FlowCardCondition('door_unlocking')
-			.register()
-			.registerRunListener(this.onTypeWhoMatchTrigger.bind(this));				
-		this.doorUnlockingCondition 
-			.getArgument('who')
-			.registerAutocompleteListener(this.onWhoAutoComplete.bind(this));
+		const doorUnlocking = this.homey.flow.getConditionCard('door_unlocking')
+		doorUnlocking.registerRunListener(this.onTypeWhoMatchTrigger.bind(this))
+		doorUnlocking.getArgument('who').registerAutocompleteListener(this.onWhoAutoComplete.bind(this))
 
 		// Actions
-			
-		this.awaymodeAction = new Homey.FlowCardAction('set_awaymode')
-			.register()
-			.registerRunListener((args, state) => { return args.device.awaymodeActionRunListener(args, state); });
+
+		this.homey.flow.getActionCard('set_awaymode').registerRunListener((args, state) => {
+			return args.device.awaymodeActionRunListener(args, state)
+		})
 	}
 
 	onTypeWhoMatchTrigger(args, state) {
@@ -63,7 +45,7 @@ class IDLock extends Homey.App {
 	}
 
 	onWhoAutoComplete(query, args) {
-		let distinctNames = [...new Set(JSON.parse(Homey.ManagerSettings.get('codes')).map(item => item.user))].sort();
+		let distinctNames = [...new Set(JSON.parse(this.homey.settings.get('codes')).map(item => item.user))].sort();
 		let resultArray = distinctNames.map( user => { return { name:user } });
 		resultArray.unshift({ name: 'Unknown' });
 		resultArray.unshift({ name: 'Any' });

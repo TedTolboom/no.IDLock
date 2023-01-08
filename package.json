@@ -4,9 +4,11 @@
 	"description": "This app adds support for devices made by [ID Lock](http://www.IDLock.no).",
 	"main": "app.js",
 	"dependencies": {
-		"homey-meshdriver": "^1.3.24"
+		"homey-zwavedriver": "^2.1.10"
 	},
-	"devDependencies": {},
+	"devDependencies": {
+		"@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.3"
+	},
 	"scripts": {
 		"run": "homey app run",
 		"test": "echo \"Error: no test specified\" && exit 1"

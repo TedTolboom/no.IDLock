@@ -1,18 +1,21 @@
 {
   "id": "no.idlock",
-  "sdk": 2,
+  "sdk": 3,
   "name": {
     "en": "ID Lock"
   },
   "brandColor": "#000000",
   "version": "1.2.5",
-  "compatibility": ">=4.0.0",
+  "compatibility": ">=5.0.0",
   "athomForumDiscussionId": 4386,
   "homeyCommunityTopicId": 161,
   "author": {
     "name": "Ted Tolboom",
     "email": "dTNL.Homey@gmail.com"
   },
+  "platforms": [
+    "local"
+  ],
   "contributors": {
     "developers": [
       {

@@ -40,7 +40,8 @@ Triggers:
 
 ## Change Log:
 
-### v 1.2.5
+### v 1.3.0
+* Updated to SDK3 🎉
 * Added Norwegian localization.
 
 ### v 1.2.4

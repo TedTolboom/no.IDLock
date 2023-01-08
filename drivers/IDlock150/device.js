@@ -1,13 +1,12 @@
 'use strict';
 
-const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
-const Homey = require('homey');
+const { ZwaveDevice } = require('homey-zwavedriver');
 
 // Documentation: https://Products.Z-WaveAlliance.org/ProductManual/File?folder=&filename=Manuals/2293/IDL Operational Manual EN v1.3.pdf
 
 class IDlock150 extends ZwaveDevice {
 
-	onMeshInit() {
+	async onMeshInit() {
 
 		// enable debugging
 		// this.enableDebug();
@@ -25,8 +24,12 @@ class IDlock150 extends ZwaveDevice {
 				if (report && report.hasOwnProperty('Door Lock Mode')) {
 					// reset alarm_tamper or alarm_heat based on Unlock report
 					if (report['Door Lock Mode'] === 'Door Unsecured') {
-						if (this.getCapabilityValue('alarm_tamper')) this.setCapabilityValue('alarm_tamper', false);
-						if (this.getCapabilityValue('alarm_heat')) this.setCapabilityValue('alarm_heat', false);
+						if (this.getCapabilityValue('alarm_tamper')) {
+							this.setCapabilityValue('alarm_tamper', false).catch(err => this.error('DOOR LOCK: Setting \'alarm_tamper\' capability value failed:', err))
+						}
+						if (this.getCapabilityValue('alarm_heat')) {
+							this.setCapabilityValue('alarm_heat', false).catch(err => this.error('DOOR LOCK: Setting \'alarm_heat\' capability value failed:', err))
+						}
 						this.log('DOOR_LOCK: reset tamper and heat alarm');
 					};
 					return report['Door Lock Mode'] === 'Door Secured';
@@ -44,13 +47,14 @@ class IDlock150 extends ZwaveDevice {
 				this.log("  ---- Notification ----");
 				if (report && report['Notification Type'] === 'Access Control' && report.hasOwnProperty('Event')) {
 
-					let triggerSettings = Homey.ManagerSettings.get('triggerSettings') || { "homey": false, "code": false, "tag": false, "button": false, "auto": false };
+					this.homey.settings
+					let triggerSettings = this.homey.settings.get('triggerSettings') || { "homey": false, "code": false, "tag": false, "button": false, "auto": false };
 					let token = { "who": "Uknown", "type": "None" };
 					let state = { "who": "Uknown", "type": "none" };
 
 					// Lock jammed
 					if (report['Event'] === 11) {
-						Homey.app.lockJammedTrigger.trigger(this, null, null).catch(this.error);
+						this.homey.flow.getTriggerCard('lock_jammed').trigger(null, null).catch(this.error);
 						this.log('Trigger lock jammed');
 					}
 
@@ -77,7 +81,7 @@ class IDlock150 extends ZwaveDevice {
 					else if (report.hasOwnProperty('Event Parameter')) {
 						let triggerSetting;
 						let keyType = parseInt(report['Event Parameter'][0]);
-						let codes = JSON.parse(Homey.ManagerSettings.get('codes'));
+						let codes = JSON.parse(this.homey.settings.get('codes'));
 						let indexMode = this.getSetting('Index_Mode');
 						let masterIndex = 1;
 						let serviceIndex = 2
@@ -213,9 +217,9 @@ class IDlock150 extends ZwaveDevice {
 
 	triggerDoorLock(token, state, triggerSetting) {
 		// this.setCapabilityValue('locked', true) // not sure if needed - but the lock icon has wrong if not added
-		Homey.app.doorLockTrigger.trigger(this, token, state).catch(this.error);
+		this.homey.flow.getTriggerCard('door_lock').trigger(token, state).catch(this.error);
 		if (triggerSetting) {
-			Homey.app.lockTrigger.trigger(this, token, state).catch(this.error);
+			this.homey.flow.getTriggerCard('unlockstate').trigger(token, state).catch(this.error);
 		}
 		this.log('---- Trigger door lock ---- ')
 		this.log(token);
@@ -224,9 +228,9 @@ class IDlock150 extends ZwaveDevice {
 
 	triggerDoorUnlock(token, state, triggerSetting) {
 		// this.setCapabilityValue('locked', false)  // not sure if needed - but the lock icon has wrong if not added
-		Homey.app.doorUnlockTrigger.trigger(this, token, state).catch(this.error);
+		this.homey.flow.getTriggerCard('door_unlock').trigger(token, state).catch(this.error);
 		if (triggerSetting) {
-			Homey.app.unlockTrigger.trigger(this, token, state).catch(this.error);
+			this.homey.flow.getTriggerCard('lockstate').trigger(token, state).catch(this.error);
 		}
 		this.log('---- Trigger door unlock ---- ')
 		this.log(token);
