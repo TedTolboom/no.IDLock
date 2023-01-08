@@ -13,6 +13,7 @@ This app adds support for ID Lock Z-wave devices made by [ID Lock AS](https://id
 ## Supported Languages:
 * English
 * Swedish
+* Norwegian
 
 ## ID Lock 101 & 150 Features
 
@@ -38,6 +39,9 @@ Triggers:
  Any requests please post them in the [ID Lock app topic on the Homey community Forum](https://community.athom.com/t/161) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)   
 
 ## Change Log:
+
+### v 1.2.5
+* Added Norwegian localization.
 
 ### v 1.2.4
 * ID Lock 150: Notification cards providing tokens with door unlock condition (Manual, RFID, Keypad or Automatic)
