@@ -5,6 +5,10 @@
         "sv": "Ställ in borta/hemma",
         "no": "Still inn hjemme-/bortemodus"
     },
+    "titleFormatted": {
+        "en": "Set lock mode [[mode]]",
+        "no": "Sett hjemme-/bortemodus til [[mode]]"
+    },
     "args": [
         {
             "name": "device",
