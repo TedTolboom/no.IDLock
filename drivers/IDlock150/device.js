@@ -6,7 +6,7 @@ const { ZwaveDevice } = require('homey-zwavedriver');
 
 class IDlock150 extends ZwaveDevice {
 
-	async onMeshInit() {
+	async onNodeInit() {
 
 		// enable debugging
 		// this.enableDebug();
