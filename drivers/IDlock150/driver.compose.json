@@ -85,6 +85,7 @@
 			"instruction": {
 				"en": "Exclusion – (Puts your device in exclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release button and type Master PIN (Factory setting: “1234”) on keypad followed by LOCK button\r\n• Press digit“ 2” on keypad followed by LOCK button(you have now entered the“ Settings menu”).\r\n• Press digit“ 5” on keypad.\r\nExclusion mode starts immediately.LED indicator below logo signals this by flashing blue."
 			}
-		}
+		},
+		"requireSecure": true
 	}
 }
