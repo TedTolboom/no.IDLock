@@ -20,12 +20,16 @@ class IDLock extends Homey.App {
 
 		// Conditions
 
+		// These conditions have no real use as they only check whats given to them by the condition card
+		// I'll just give them a new runListener so they don't throw errors in a flow.
+		// The only way these conditions will work (but have no use at all) is if the condition card is set to check Name "Any" and Type "All" (no other Name or Type will return true...)
+
 		const doorLocking = this.homey.flow.getConditionCard('door_locking')
-		doorLocking.registerRunListener(this.onTypeWhoMatchTrigger.bind(this))
+		doorLocking.registerRunListener(this.onTypeWhoMatchCondition.bind(this))
 		doorLocking.getArgument('who').registerAutocompleteListener(this.onWhoAutoComplete.bind(this))
 
 		const doorUnlocking = this.homey.flow.getConditionCard('door_unlocking')
-		doorUnlocking.registerRunListener(this.onTypeWhoMatchTrigger.bind(this))
+		doorUnlocking.registerRunListener(this.onTypeWhoMatchCondition.bind(this))
 		doorUnlocking.getArgument('who').registerAutocompleteListener(this.onWhoAutoComplete.bind(this))
 
 		// Actions
@@ -43,6 +47,16 @@ class IDLock extends Homey.App {
 
 		return (args.type === state.type || args.type === 'any') 
 			&& (args.who.name.toLowerCase() === state.who.toLowerCase() || args.who.name.toLowerCase() === 'any');
+	}
+
+	onTypeWhoMatchCondition(args, state) {
+		this.log('-- CONDITION --')
+		this.log('args.type:', args.type);
+		this.log('args.who:', args.who);
+		this.log('state:', state);
+
+		return (args.type === state.type || args.type === 'any') 
+			&& ((typeof state.who === 'string' && args.who.name.toLowerCase() === state.who.toLowerCase()) || args.who.name.toLowerCase() === 'any');
 	}
 
 	onWhoAutoComplete(query, args) {
