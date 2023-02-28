@@ -10,11 +10,11 @@ class IDLock extends Homey.App {
 
 		// Triggers
 
-		const doorLockTrigger = this.homey.flow.getTriggerCard('door_lock')
+		const doorLockTrigger = this.homey.flow.getDeviceTriggerCard('door_lock')
 		doorLockTrigger.registerRunListener(this.onTypeWhoMatchTrigger.bind(this))
 		doorLockTrigger.getArgument('who').registerAutocompleteListener(this.onWhoAutoComplete.bind(this))
 
-		const doorUnlockTrigger = this.homey.flow.getTriggerCard('door_unlock')
+		const doorUnlockTrigger = this.homey.flow.getDeviceTriggerCard('door_unlock')
 		doorUnlockTrigger.registerRunListener(this.onTypeWhoMatchTrigger.bind(this))
 		doorUnlockTrigger.getArgument('who').registerAutocompleteListener(this.onWhoAutoComplete.bind(this))
 
@@ -36,10 +36,11 @@ class IDLock extends Homey.App {
 	}
 
 	onTypeWhoMatchTrigger(args, state) {
-		this.log(args.type);
-		this.log(args.who);
-		this.log(state);
-		
+		this.log('-- TRIGGER --')
+		this.log('args.type:', args.type);
+		this.log('args.who:', args.who);
+		this.log('state:', state);
+
 		return (args.type === state.type || args.type === 'any') 
 			&& (args.who.name.toLowerCase() === state.who.toLowerCase() || args.who.name.toLowerCase() === 'any');
 	}

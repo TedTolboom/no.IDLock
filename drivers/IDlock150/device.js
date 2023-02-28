@@ -47,15 +47,14 @@ class IDlock150 extends ZwaveDevice {
 				this.log("  ---- Notification ----");
 				if (report && report['Notification Type'] === 'Access Control' && report.hasOwnProperty('Event')) {
 
-					this.homey.settings
 					let triggerSettings = this.homey.settings.get('triggerSettings') || { "homey": false, "code": false, "tag": false, "button": false, "auto": false };
 					let token = { "who": "Uknown", "type": "None" };
 					let state = { "who": "Uknown", "type": "none" };
 
 					// Lock jammed
 					if (report['Event'] === 11) {
-						this.homey.flow.getTriggerCard('lock_jammed').trigger(null, null).catch(this.error);
-						this.log('Trigger lock jammed');
+						this.homey.flow.getDeviceTriggerCard('lock_jammed').trigger(this, null, null).catch(this.error);
+						this.log('Triggered lock jammed');
 					}
 
 					// Button/manual lock/unlock Operation
@@ -215,26 +214,28 @@ class IDlock150 extends ZwaveDevice {
 		});
 	}
 
-	triggerDoorLock(token, state, triggerSetting) {
+	async triggerDoorLock(token, state, triggerSetting) {
 		// this.setCapabilityValue('locked', true) // not sure if needed - but the lock icon has wrong if not added
-		this.homey.flow.getTriggerCard('door_lock').trigger(token, state).catch(this.error);
-		if (triggerSetting) {
-			this.homey.flow.getTriggerCard('unlockstate').trigger(token, state).catch(this.error);
-		}
 		this.log('---- Trigger door lock ---- ')
-		this.log(token);
-		this.log(state);
+		this.homey.flow.getDeviceTriggerCard('door_lock').trigger(this, token, state).catch(this.error)
+		if (triggerSetting) {
+			this.log('---- Trigger unlockstate ----')
+			this.homey.flow.getDeviceTriggerCard('unlockstate').trigger(this, token, state).catch(this.error)
+		}
+		this.log('Door lock tokens:', token);
+		this.log('Door lock states:', state);
 	}
 
-	triggerDoorUnlock(token, state, triggerSetting) {
+	async triggerDoorUnlock(token, state, triggerSetting) {
 		// this.setCapabilityValue('locked', false)  // not sure if needed - but the lock icon has wrong if not added
-		this.homey.flow.getTriggerCard('door_unlock').trigger(token, state).catch(this.error);
-		if (triggerSetting) {
-			this.homey.flow.getTriggerCard('lockstate').trigger(token, state).catch(this.error);
-		}
 		this.log('---- Trigger door unlock ---- ')
-		this.log(token);
-		this.log(state);
+		this.homey.flow.getDeviceTriggerCard('door_unlock').trigger(this, token, state).catch(this.error)
+		if (triggerSetting) {
+			this.log('---- Trigger lockstate ----')
+			this.homey.flow.getDeviceTriggerCard('lockstate').trigger(this, token, state).catch(this.error)
+		}
+		this.log('Door unlock tokens:', token);
+		this.log('Door unlock states:', state);
 	}
 
 	async awaymodeActionRunListener(args, state) {
