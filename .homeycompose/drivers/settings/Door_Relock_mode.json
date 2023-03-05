@@ -2,11 +2,13 @@
 	"value": "1",
 	"label": {
 		"en": "Door ReLock Mode",
-		"sv": "Omlåsning av/på"
+		"sv": "Omlåsning av/på",
+		"no": "Gjenlåsing"
 	},
 	"hint": {
 		"en": "This parameter ({{zwaveParameterIndex}}) defines the door Relock mode",
-		"sv": "Denna parameter ({{zwaveParameterIndex}}) sätter av/på för automatisk omlåsning"
+		"sv": "Denna parameter ({{zwaveParameterIndex}}) sätter av/på för automatisk omlåsning",
+		"no": "Denne parameteren ({{zwaveParameterIndex}}) setter av/på for automatisk gjenlåsing"
 	},
 	"zwave": {
 		"index": 5,
@@ -17,14 +19,16 @@
 			"id": "1",
 			"label": {
 				"en": "Door relock mode enabled",
-				"sv": "Omlåsning på (Standard)"
+				"sv": "Omlåsning på (Standard)",
+				"no": "Gjenlåsing på (standard)"
 			}
 		},
 		{
 			"id": "0",
 			"label": {
 				"en": "Door relock mode disabled",
-				"sv": "Omlåsning av"
+				"sv": "Omlåsning av",
+				"no": "Gjenlåsing av"
 			}
 		}
 	],

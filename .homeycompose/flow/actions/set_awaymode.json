@@ -2,7 +2,12 @@
     "id": "set_awaymode",
     "title": {
         "en": "Set lock mode (home/away)",
-        "sv": "Ställ in borta/hemma"
+        "sv": "Ställ in borta/hemma",
+        "no": "Still inn hjemme-/bortemodus"
+    },
+    "titleFormatted": {
+        "en": "Set lock mode [[mode]]",
+        "no": "Sett hjemme-/bortemodus til [[mode]]"
     },
     "args": [
         {
@@ -18,28 +23,32 @@
                     "id": "0",
                     "label": {
                         "en": "Disabled Away mode and Manual locking mode",
-                        "sv": "Inaktivera Bortaläge, Manuell låsning"
+                        "sv": "Inaktivera Bortaläge, Manuell låsning",
+                        "no": "Deaktivert Bortemodus og Manuell låsing"
                     }
                 },
                 {
                     "id": "1",
                     "label": {
                         "en": "Disabled Away mode and Automatic locking mode",
-                        "sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)"
+                        "sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)",
+                        "no": "Deaktivert Bortemodus og Automatisk låsing (standard)"
                     }
                 },
                 {
                     "id": "3",
                     "label": {
                         "en": "Away mode and Automatic locking mode",
-                        "sv": "Aktiverat Bortaläge, Automatisk låsning"
+                        "sv": "Aktiverat Bortaläge, Automatisk låsning",
+                        "no": "Aktivert Bortemodus og Automatisk låsing"
                     }
                 },
                 {
                     "id": "2",
                     "label": {
                         "en": "Away mode and Manual locking mode",
-                        "sv": "Aktiverat Bortaläge, Manuell låsning"
+                        "sv": "Aktiverat Bortaläge, Manuell låsning",
+                        "no": "Aktivert Bortemodus og Manuell låsing"
                     }
                 }
             ]

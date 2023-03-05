@@ -1,17 +1,18 @@
 'use strict';
 
-const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
+const { ZwaveDevice } = require('homey-zwavedriver');
 
 // Documentation: https://Products.Z-WaveAlliance.org/ProductManual/File?folder=&filename=Manuals/2293/IDL Operational Manual EN v1.3.pdf
 
 class IDlock101 extends ZwaveDevice {
-	onMeshInit() {
+
+	async onNodeInit() {
+
 		// enable debugging
 		// this.enableDebug();
 
 		// print the node's info to the console
 		// this.printNode();
-
 		
 		this.registerCapability('locked', 'DOOR_LOCK', {
 			getOpts: {
@@ -23,8 +24,12 @@ class IDlock101 extends ZwaveDevice {
 				if (report && report.hasOwnProperty('Door Lock Mode')) {
 					// reset alarm_tamper or alarm_heat based on Unlock report
 					if (report['Door Lock Mode'] === 'Door Unsecured') {
-						if (this.getCapabilityValue('alarm_tamper')) this.setCapabilityValue('alarm_tamper', false);
-						if (this.getCapabilityValue('alarm_heat')) this.setCapabilityValue('alarm_heat', false);
+						if (this.getCapabilityValue('alarm_tamper')) {
+							this.setCapabilityValue('alarm_tamper', false).catch(err => this.error('DOOR LOCK: Setting \'alarm_tamper\' capability value failed:', err))
+						}
+						if (this.getCapabilityValue('alarm_heat')) {
+							this.setCapabilityValue('alarm_heat', false).catch(err => this.error('DOOR LOCK: Setting \'alarm_heat\' capability value failed:', err))
+						}
 						this.log('DOOR_LOCK: reset tamper and heat alarm');
 					};
 					return report['Door Lock Mode'] === 'Door Secured';

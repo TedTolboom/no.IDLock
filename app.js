@@ -10,60 +10,57 @@ class IDLock extends Homey.App {
 
 		// Triggers
 
-		this.unlockTrigger = new Homey.FlowCardTriggerDevice('lockstate').register(); // deprecated
-		
-		this.lockTrigger = new Homey.FlowCardTriggerDevice('unlockstate').register(); // deprecated
+		const doorLockTrigger = this.homey.flow.getDeviceTriggerCard('door_lock')
+		doorLockTrigger.registerRunListener(this.onTypeWhoMatchTrigger.bind(this))
+		doorLockTrigger.getArgument('who').registerAutocompleteListener(this.onWhoAutoComplete.bind(this))
 
-		this.lockJammedTrigger = new Homey.FlowCardTriggerDevice('lock_jammed').register();
-
-		this.doorLockTrigger = new Homey.FlowCardTriggerDevice('door_lock')
-			.register()
-			.registerRunListener(this.onTypeWhoMatchTrigger.bind(this));		
-	 	this.doorLockTrigger
-			.getArgument('who')
-			.registerAutocompleteListener(this.onWhoAutoComplete.bind(this));
-
-		this.doorUnlockTrigger = new Homey.FlowCardTriggerDevice('door_unlock')
-			.register()
-			.registerRunListener(this.onTypeWhoMatchTrigger.bind(this));				
-		this.doorUnlockTrigger 
-			.getArgument('who')
-			.registerAutocompleteListener(this.onWhoAutoComplete.bind(this));
+		const doorUnlockTrigger = this.homey.flow.getDeviceTriggerCard('door_unlock')
+		doorUnlockTrigger.registerRunListener(this.onTypeWhoMatchTrigger.bind(this))
+		doorUnlockTrigger.getArgument('who').registerAutocompleteListener(this.onWhoAutoComplete.bind(this))
 
 		// Conditions
 
-		this.doorLockingCondition = new Homey.FlowCardCondition('door_locking')
-			.register()
-			.registerRunListener(this.onTypeWhoMatchTrigger.bind(this));				
-		this.doorLockingCondition 
-			.getArgument('who')
-			.registerAutocompleteListener(this.onWhoAutoComplete.bind(this));
+		// These conditions have no real use as they only check whats given to them by the condition card
+		// I'll just give them a new runListener so they don't throw errors in a flow.
+		// The only way these conditions will work (but have no use at all) is if the condition card is set to check Name "Any" and Type "All" (no other Name or Type will return true...)
 
-		this.doorUnlockingCondition = new Homey.FlowCardCondition('door_unlocking')
-			.register()
-			.registerRunListener(this.onTypeWhoMatchTrigger.bind(this));				
-		this.doorUnlockingCondition 
-			.getArgument('who')
-			.registerAutocompleteListener(this.onWhoAutoComplete.bind(this));
+		const doorLocking = this.homey.flow.getConditionCard('door_locking')
+		doorLocking.registerRunListener(this.onTypeWhoMatchCondition.bind(this))
+		doorLocking.getArgument('who').registerAutocompleteListener(this.onWhoAutoComplete.bind(this))
+
+		const doorUnlocking = this.homey.flow.getConditionCard('door_unlocking')
+		doorUnlocking.registerRunListener(this.onTypeWhoMatchCondition.bind(this))
+		doorUnlocking.getArgument('who').registerAutocompleteListener(this.onWhoAutoComplete.bind(this))
 
 		// Actions
-			
-		this.awaymodeAction = new Homey.FlowCardAction('set_awaymode')
-			.register()
-			.registerRunListener((args, state) => { return args.device.awaymodeActionRunListener(args, state); });
+
+		this.homey.flow.getActionCard('set_awaymode').registerRunListener((args, state) => {
+			return args.device.awaymodeActionRunListener(args, state)
+		})
 	}
 
 	onTypeWhoMatchTrigger(args, state) {
-		this.log(args.type);
-		this.log(args.who);
-		this.log(state);
-		
+		this.log('-- TRIGGER --')
+		this.log('args.type:', args.type);
+		this.log('args.who:', args.who);
+		this.log('state:', state);
+
 		return (args.type === state.type || args.type === 'any') 
 			&& (args.who.name.toLowerCase() === state.who.toLowerCase() || args.who.name.toLowerCase() === 'any');
 	}
 
+	onTypeWhoMatchCondition(args, state) {
+		this.log('-- CONDITION --')
+		this.log('args.type:', args.type);
+		this.log('args.who:', args.who);
+		this.log('state:', state);
+
+		return (args.type === state.type || args.type === 'any') 
+			&& ((typeof state.who === 'string' && args.who.name.toLowerCase() === state.who.toLowerCase()) || args.who.name.toLowerCase() === 'any');
+	}
+
 	onWhoAutoComplete(query, args) {
-		let distinctNames = [...new Set(JSON.parse(Homey.ManagerSettings.get('codes')).map(item => item.user))].sort();
+		let distinctNames = [...new Set(JSON.parse(this.homey.settings.get('codes')).map(item => item.user))].sort();
 		let resultArray = distinctNames.map( user => { return { name:user } });
 		resultArray.unshift({ name: 'Unknown' });
 		resultArray.unshift({ name: 'Any' });

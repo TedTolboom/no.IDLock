@@ -1,0 +1,18 @@
+{
+    "triggersTitle": "Triggers",
+    "triggerSomeoneTitle": "Trigger 'Noen låste opp døren' med følgende:",
+    "homey": "Homey",
+    "code": "Kode",
+    "tag": "Tag",
+    "button": "Knapp",
+    "auto": "Auto",
+    "codesTitle" : "Kode/Tag Mappings",
+    "codesName" : "Navn",
+    "codesIndex" : "Index",
+    "codesType": "Type",
+    "codesEdit" : "Rediger",
+    "codesSave" : "Lagre",
+    "codesCancel" : "Avbryt",
+    "codesDelete" : "Slett",
+    "codesAddCode" : "Ny Kode/Tag"
+   }
