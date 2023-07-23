@@ -18,6 +18,11 @@
         {
             "name": "mode",
             "type": "dropdown",
+            "title": {
+                "en": "Lock mode",
+                "sv": "Borta/hemma",
+                "no": "Hjemme-/bortemodus"
+            },
             "values": [
                 {
                     "id": "0",
