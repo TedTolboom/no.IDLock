@@ -1,18 +1,23 @@
 {
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "no.idlock",
-  "sdk": 2,
+  "sdk": 3,
   "name": {
     "en": "ID Lock"
   },
   "brandColor": "#000000",
-  "version": "1.2.2",
-  "compatibility": ">=1.5.0",
+  "version": "2.0.0",
+  "compatibility": ">=8.0.0",
   "athomForumDiscussionId": 4386,
   "homeyCommunityTopicId": 161,
+  "support": "https://community.athom.com/t/161",
   "author": {
     "name": "Ted Tolboom",
     "email": "dTNL.Homey@gmail.com"
   },
+  "platforms": [
+    "local"
+  ],
   "contributors": {
     "developers": [
       {
@@ -22,6 +27,14 @@
       {
         "name": "Mats Paulsen",
         "email": "mats@paulsen.one"
+      },
+      {
+        "name": "Jonathan Cohen",
+        "email": "jonathan@cohen.se"
+      },
+      {
+        "name": "Rune Moskvil Lyngås",
+        "email": "runely85@gmail.com"
       }
     ]
   },
@@ -33,7 +46,8 @@
     }
   },
   "description": {
-    "en": "Adds support for ID Lock Z-wave devices"
+    "en": "Adds support for ID Lock Z-wave devices",
+    "no": "Legger til støtte for ID Lock Z-wave enheter"
   },
   "images": {
     "large": "/assets/images/large.png",
@@ -49,16 +63,42 @@
   "flow": {
     "triggers": [
       {
-        "id": "lockstate",
+        "id": "door_lock",
         "title": {
-          "en": "Someone unlocked the door"
+          "en": "A specific user locked the door",
+          "sv": "En specifik användare låste dörren",
+          "no": "En spesifikk bruker låste døren"
+        },
+        "titleFormatted": {
+          "en": "[[who]] locked the door with [[type]]",
+          "sv": "[[who]] låste dörren med [[type]]",
+          "no": "[[who]] låste døren med [[type]]"
         },
         "tokens": [
           {
             "name": "who",
             "type": "string",
             "title": {
-              "en": "Who"
+              "en": "Who",
+              "sv": "Namn",
+              "no": "Navn"
+            },
+            "example": {
+              "en": "Peter"
+            }
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "sv": "Typ",
+              "no": "Type"
+            },
+            "example": {
+              "en": "Code",
+              "sv": "Kod",
+              "no": "Kode"
             }
           }
         ],
@@ -67,6 +107,565 @@
             "name": "device",
             "type": "device",
             "filter": "driver_id=IDlock150"
+          },
+          {
+            "name": "who",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Type name...",
+              "sv": "Ange namn..",
+              "no": "Angi navn..."
+            },
+            "title": {
+              "en": "Who",
+              "sv": "Namn",
+              "no": "Navn"
+            }
+          },
+          {
+            "name": "type",
+            "type": "dropdown",
+            "placeholder": {
+              "en": "Choose a value...",
+              "sv": "Välj en typ...",
+              "no": "Velg en type..."
+            },
+            "title": {
+              "en": "Type",
+              "sv": "Typ",
+              "no": "Type"
+            },
+            "values": [
+              {
+                "id": "any",
+                "label": {
+                  "en": "Any",
+                  "sv": "Alla",
+                  "no": "Alle"
+                }
+              },
+              {
+                "id": "code",
+                "label": {
+                  "en": "Code",
+                  "sv": "Kod",
+                  "no": "Kode"
+                }
+              },
+              {
+                "id": "tag",
+                "label": {
+                  "en": "Tag",
+                  "sv": "Tag",
+                  "no": "Tag"
+                }
+              },
+              {
+                "id": "automatic",
+                "label": {
+                  "en": "Automatic",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk"
+                }
+              },
+              {
+                "id": "button",
+                "label": {
+                  "en": "Button",
+                  "sv": "Knapp/vred",
+                  "no": "Knapp"
+                }
+              },
+              {
+                "id": "homey",
+                "label": {
+                  "en": "Homey"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "door_unlock",
+        "title": {
+          "en": "A specific user unlocked the door",
+          "sv": "En specifik användare låste upp dörren",
+          "no": "En spesifikk bruker låste opp døren"
+        },
+        "titleFormatted": {
+          "en": "[[who]] unlocked the door with [[type]]",
+          "sv": "[[who]] låste upp dörren med [[type]]",
+          "no": "[[who]] låste opp døren med [[type]]"
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "sv": "Namn",
+              "no": "Navn"
+            },
+            "example": {
+              "en": "Peter"
+            }
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "sv": "Typ",
+              "no": "Type"
+            },
+            "example": {
+              "en": "Code",
+              "sv": "Kod",
+              "no": "Kode"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          },
+          {
+            "name": "who",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Type name...",
+              "sv": "Ange namn..",
+              "no": "Angi navn..."
+            },
+            "title": {
+              "en": "Who",
+              "sv": "Namn",
+              "no": "Navn"
+            }
+          },
+          {
+            "name": "type",
+            "type": "dropdown",
+            "placeholder": {
+              "en": "Choose a value...",
+              "sv": "Välj en typ...",
+              "no": "Velg en type..."
+            },
+            "title": {
+              "en": "Type",
+              "sv": "Typ",
+              "no": "Type"
+            },
+            "values": [
+              {
+                "id": "any",
+                "label": {
+                  "en": "Any",
+                  "sv": "Alla",
+                  "no": "Alle"
+                }
+              },
+              {
+                "id": "code",
+                "label": {
+                  "en": "Code",
+                  "sv": "Kod",
+                  "no": "Kode"
+                }
+              },
+              {
+                "id": "tag",
+                "label": {
+                  "en": "Tag",
+                  "sv": "Tag",
+                  "no": "Tag"
+                }
+              },
+              {
+                "id": "automatic",
+                "label": {
+                  "en": "Automatic",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk"
+                }
+              },
+              {
+                "id": "button",
+                "label": {
+                  "en": "Button",
+                  "sv": "Knapp/vred",
+                  "no": "Knapp"
+                }
+              },
+              {
+                "id": "homey",
+                "label": {
+                  "en": "Homey"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lock_jammed",
+        "title": {
+          "en": "Lock jammed",
+          "sv": "Låset har fastnat",
+          "no": "Låsen er fastkjørt"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          }
+        ]
+      },
+      {
+        "id": "lockstate",
+        "title": {
+          "en": "Someone unlocked the door",
+          "sv": "Någon låste upp dörren",
+          "no": "Noen låste opp døren"
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "sv": "Namn",
+              "no": "Navn"
+            },
+            "example": {
+              "en": "Peter"
+            }
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "sv": "Typ",
+              "no": "Type"
+            },
+            "example": {
+              "en": "Code",
+              "sv": "Kod",
+              "no": "Kode"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          }
+        ]
+      },
+      {
+        "id": "unlockstate",
+        "title": {
+          "en": "Someone locked the door",
+          "sv": "Någon användare låste dörren",
+          "no": "Noen låste døren"
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "sv": "Namn",
+              "no": "Navn"
+            },
+            "example": {
+              "en": "Peter"
+            }
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "sv": "Typ",
+              "no": "Type"
+            },
+            "example": {
+              "en": "Code",
+              "sv": "Kod",
+              "no": "Kode"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "door_locking",
+        "title": {
+          "en": "A specific user is locking the door",
+          "sv": "En specifik användare låser dörren",
+          "no": "En spesifikk bruker låser døren"
+        },
+        "titleFormatted": {
+          "en": "[[who]] !{{|do not}} lock the door with [[type]]",
+          "sv": "[[who]] låser !{{|inte}} dören med [[type]]",
+          "no": "[[who]] låser !{{|ikke}} døren med [[type]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          },
+          {
+            "name": "who",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Type name...",
+              "sv": "Ange namn..",
+              "no": "Angi navn..."
+            },
+            "title": {
+              "en": "Who",
+              "sv": "Namn",
+              "no": "Navn"
+            }
+          },
+          {
+            "name": "type",
+            "type": "dropdown",
+            "placeholder": {
+              "en": "Choose a value...",
+              "sv": "Välj en typ...",
+              "no": "Velg en type..."
+            },
+            "title": {
+              "en": "Type",
+              "sv": "Typ",
+              "no": "Type"
+            },
+            "values": [
+              {
+                "id": "any",
+                "label": {
+                  "en": "Any",
+                  "sv": "Alla",
+                  "no": "Alle"
+                }
+              },
+              {
+                "id": "code",
+                "label": {
+                  "en": "Code",
+                  "sv": "Kod",
+                  "no": "Kode"
+                }
+              },
+              {
+                "id": "tag",
+                "label": {
+                  "en": "Tag",
+                  "sv": "Tag",
+                  "no": "Tag"
+                }
+              },
+              {
+                "id": "automatic",
+                "label": {
+                  "en": "Automatic",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk"
+                }
+              },
+              {
+                "id": "button",
+                "label": {
+                  "en": "Button",
+                  "sv": "Knapp/vred",
+                  "no": "Knapp"
+                }
+              },
+              {
+                "id": "homey",
+                "label": {
+                  "en": "Homey"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "door_unlocking",
+        "title": {
+          "en": "A specific user is unlocking the door",
+          "sv": "En specifik användare låser upp dörren",
+          "no": "En spesifikk bruker låser opp døren"
+        },
+        "titleFormatted": {
+          "en": "[[who]] !{{|do not}} unlock the door with [[type]]",
+          "sv": "[[who]] låser !{{|inte}} upp dören med [[type]]",
+          "no": "[[who]] låser !{{|ikke}} opp døren med [[type]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          },
+          {
+            "name": "who",
+            "type": "autocomplete",
+            "placeholder": {
+              "en": "Type name...",
+              "sv": "Ange namn..",
+              "no": "Angi navn..."
+            },
+            "title": {
+              "en": "Who",
+              "sv": "Namn",
+              "no": "Navn"
+            }
+          },
+          {
+            "name": "type",
+            "type": "dropdown",
+            "placeholder": {
+              "en": "Choose a value...",
+              "sv": "Välj en typ...",
+              "no": "Velg en type"
+            },
+            "title": {
+              "en": "Type",
+              "sv": "Typ",
+              "no": "Type"
+            },
+            "values": [
+              {
+                "id": "any",
+                "label": {
+                  "en": "Any",
+                  "sv": "Alla",
+                  "no": "Alle"
+                }
+              },
+              {
+                "id": "code",
+                "label": {
+                  "en": "Code",
+                  "sv": "Kod",
+                  "no": "Kode"
+                }
+              },
+              {
+                "id": "tag",
+                "label": {
+                  "en": "Tag",
+                  "sv": "Tag",
+                  "no": "Tag"
+                }
+              },
+              {
+                "id": "automatic",
+                "label": {
+                  "en": "Automatic",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk"
+                }
+              },
+              {
+                "id": "button",
+                "label": {
+                  "en": "Button",
+                  "sv": "Knapp/vred",
+                  "no": "Knapp"
+                }
+              },
+              {
+                "id": "homey",
+                "label": {
+                  "en": "Homey"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "set_awaymode",
+        "title": {
+          "en": "Set lock mode (home/away)",
+          "sv": "Ställ in borta/hemma",
+          "no": "Still inn hjemme-/bortemodus"
+        },
+        "titleFormatted": {
+          "en": "Set lock mode [[mode]]",
+          "no": "Sett hjemme-/bortemodus til [[mode]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+          },
+          {
+            "name": "mode",
+            "type": "dropdown",
+            "title": {
+              "en": "Lock mode",
+              "sv": "Borta/hemma",
+              "no": "Hjemme-/bortemodus"
+            },
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Disabled Away mode and Manual locking mode",
+                  "sv": "Inaktivera Bortaläge, Manuell låsning",
+                  "no": "Deaktivert Bortemodus og Manuell låsing"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Disabled Away mode and Automatic locking mode",
+                  "sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)",
+                  "no": "Deaktivert Bortemodus og Automatisk låsing (standard)"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Away mode and Automatic locking mode",
+                  "sv": "Aktiverat Bortaläge, Automatisk låsning",
+                  "no": "Aktivert Bortemodus og Automatisk låsing"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Away mode and Manual locking mode",
+                  "sv": "Aktiverat Bortaläge, Manuell låsning",
+                  "no": "Aktivert Bortemodus og Manuell låsing"
+                }
+              }
+            ]
           }
         ]
       }
@@ -87,20 +686,38 @@
         "alarm_tamper",
         "alarm_battery"
       ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA",
+          "AA",
+          "AA",
+          "AA",
+          "AA",
+          "AA",
+          "AA"
+        ]
+      },
       "capabilitiesOptions": {
         "alarm_contact": {
           "title": {
             "en": "Door open (Contact Alarm)",
-            "nl": "Deur open (Contact alarm)"
+            "sv": "Öppen dörr (Kontaktalarm)",
+            "nl": "Deur open (Contact alarm)",
+            "no": "Åpen dør (Kontaktalarm)"
           },
           "icon": "/drivers/IDlock101/assets/door.svg"
         },
         "locked": {
           "titleTrue": {
-            "en": "Locked"
+            "en": "Locked",
+            "sv": "Låst",
+            "no": "Låst"
           },
           "titleFalse": {
-            "en": "Unlocked"
+            "en": "Unlocked",
+            "sv": "Upplåst",
+            "no": "Ulåst"
           },
           "icon": "/drivers/IDlock101/assets/locked.svg"
         }
@@ -109,56 +726,12 @@
         "large": "/drivers/IDlock101/assets/images/large.png",
         "small": "/drivers/IDlock101/assets/images/small.png"
       },
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": []
-          },
-          {
-            "id": "battery",
-            "capabilities": [
-              "measure_battery"
-            ]
-          },
-          {
-            "id": "sensor",
-            "capabilities": [
-              "locked",
-              "alarm_contact",
-              "alarm_heat",
-              "alarm_tamper",
-              "alarm_battery"
-            ],
-            "options": {
-              "icons": {
-                "locked": "/drivers/IDlock101/assets/locked.svg",
-                "alarm_contact": "/drivers/IDlock101/assets/door.svg"
-              },
-              "locked": {
-                "noblink": true,
-                "greyout": true,
-                "label": {
-                  "true": {
-                    "en": "Locked",
-                    "nl": "Gesloten"
-                  },
-                  "false": {
-                    "en": "Open",
-                    "nl": "Open"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": "toggle",
-            "capabilities": [
-              "locked"
-            ]
-          }
-        ]
-      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           560
@@ -201,10 +774,14 @@
           "id": "Doorlock_mode",
           "value": "1",
           "label": {
-            "en": "Doorlock mode"
+            "en": "Doorlock mode",
+            "sv": "Låsningsinställningar",
+            "no": "Dørlås"
           },
           "hint": {
-            "en": "This parameter (1) defines the doorlock operational behaviour"
+            "en": "This parameter (1) defines the doorlock operational behaviour",
+            "sv": "Denna parameter (1) ställer in hur låsning ska ske, bortasäkring samt autolåsning",
+            "no": "Denna parameteren (1) stiller inn hvordan låsing skal skje, bortemodus, samt autolåsing"
           },
           "zwave": {
             "index": 1,
@@ -214,25 +791,33 @@
             {
               "id": "0",
               "label": {
-                "en": "Disabled Away mode and Manual locking mode"
+                "en": "Disabled Away mode and Manual locking mode",
+                "sv": "Inaktivera Bortaläge, Manuell låsning",
+                "no": "Deaktivert Bortemodus og Manuell låsing"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "Disabled Away mode and Automatic locking mode"
+                "en": "Disabled Away mode and Automatic locking mode",
+                "sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)",
+                "no": "Deaktivert Bortemodus og Automatisk låsing (standard)"
               }
             },
             {
               "id": "3",
               "label": {
-                "en": "Away mode and Automatic locking mode"
+                "en": "Away mode and Automatic locking mode",
+                "sv": "Aktiverat Bortaläge, Automatisk låsning",
+                "no": "Aktivert Bortemodus og Automatisk låsing"
               }
             },
             {
               "id": "2",
               "label": {
-                "en": "Away mode and Manual locking mode"
+                "en": "Away mode and Manual locking mode",
+                "sv": "Aktiverat Bortaläge, Manuell låsning",
+                "no": "Aktivert Bortemodus og Manuell låsing"
               }
             }
           ],
@@ -242,10 +827,14 @@
           "id": "Doorlock_Hinge_Position",
           "value": "0",
           "label": {
-            "en": "Door Hinge Position Mode"
+            "en": "Door Hinge Position Mode",
+            "sv": "Dörrhänging",
+            "no": "Dørhengselsretning"
           },
           "hint": {
-            "en": "This parameter (3) defines the door hinge position"
+            "en": "This parameter (3) defines the door hinge position",
+            "sv": "Denna parameter (3) ställer in rätt riktning för dörrens gångjärn",
+            "no": "Denne parameteren (3) stiller inn dørhengselsretningen"
           },
           "zwave": {
             "index": 3,
@@ -255,13 +844,17 @@
             {
               "id": "0",
               "label": {
-                "en": "Right"
+                "en": "Right",
+                "sv": "Höger (Standard)",
+                "no": "Høyre"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "Left"
+                "en": "Left",
+                "sv": "Vänster",
+                "no": "Venstre"
               }
             }
           ],
@@ -283,20 +876,38 @@
         "alarm_tamper",
         "alarm_battery"
       ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA",
+          "AA",
+          "AA",
+          "AA",
+          "AA",
+          "AA",
+          "AA"
+        ]
+      },
       "capabilitiesOptions": {
         "alarm_contact": {
           "title": {
             "en": "Door open (Contact Alarm)",
-            "nl": "Deur open (Contact alarm)"
+            "sv": "Öppen dörr (Kontaktalarm)",
+            "nl": "Deur open (Contact alarm)",
+            "no": "Åpen dør (Kontaktalarm)"
           },
           "icon": "/drivers/IDlock150/assets/door.svg"
         },
         "locked": {
           "titleTrue": {
-            "en": "Locked"
+            "en": "Locked",
+            "sv": "Låst",
+            "no": "Låst"
           },
           "titleFalse": {
-            "en": "Unlocked"
+            "en": "Unlocked",
+            "sv": "Upplåst",
+            "no": "Ulåst"
           },
           "icon": "/drivers/IDlock150/assets/locked.svg"
         }
@@ -305,56 +916,12 @@
         "large": "/drivers/IDlock150/assets/images/large.png",
         "small": "/drivers/IDlock150/assets/images/small.png"
       },
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": []
-          },
-          {
-            "id": "battery",
-            "capabilities": [
-              "measure_battery"
-            ]
-          },
-          {
-            "id": "sensor",
-            "capabilities": [
-              "locked",
-              "alarm_contact",
-              "alarm_heat",
-              "alarm_tamper",
-              "alarm_battery"
-            ],
-            "options": {
-              "icons": {
-                "locked": "/drivers/IDlock150/assets/locked.svg",
-                "alarm_contact": "/drivers/IDlock150/assets/door.svg"
-              },
-              "locked": {
-                "noblink": true,
-                "greyout": true,
-                "label": {
-                  "true": {
-                    "en": "Locked",
-                    "nl": "Gesloten"
-                  },
-                  "false": {
-                    "en": "Open",
-                    "nl": "Open"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": "toggle",
-            "capabilities": [
-              "locked"
-            ]
-          }
-        ]
-      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zwave"
+      ],
       "zwave": {
         "manufacturerId": [
           883
@@ -388,17 +955,22 @@
           "instruction": {
             "en": "Exclusion – (Puts your device in exclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release button and type Master PIN (Factory setting: “1234”) on keypad followed by LOCK button\r\n• Press digit“ 2” on keypad followed by LOCK button(you have now entered the“ Settings menu”).\r\n• Press digit“ 5” on keypad.\r\nExclusion mode starts immediately.LED indicator below logo signals this by flashing blue."
           }
-        }
+        },
+        "requireSecure": true
       },
       "settings": [
         {
           "id": "Doorlock_mode",
           "value": "1",
           "label": {
-            "en": "Doorlock mode"
+            "en": "Doorlock mode",
+            "sv": "Låsningsinställningar",
+            "no": "Dørlås"
           },
           "hint": {
-            "en": "This parameter (1) defines the doorlock operational behaviour"
+            "en": "This parameter (1) defines the doorlock operational behaviour",
+            "sv": "Denna parameter (1) ställer in hur låsning ska ske, bortasäkring samt autolåsning",
+            "no": "Denna parameteren (1) stiller inn hvordan låsing skal skje, bortemodus, samt autolåsing"
           },
           "zwave": {
             "index": 1,
@@ -408,25 +980,33 @@
             {
               "id": "0",
               "label": {
-                "en": "Disabled Away mode and Manual locking mode"
+                "en": "Disabled Away mode and Manual locking mode",
+                "sv": "Inaktivera Bortaläge, Manuell låsning",
+                "no": "Deaktivert Bortemodus og Manuell låsing"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "Disabled Away mode and Automatic locking mode"
+                "en": "Disabled Away mode and Automatic locking mode",
+                "sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)",
+                "no": "Deaktivert Bortemodus og Automatisk låsing (standard)"
               }
             },
             {
               "id": "3",
               "label": {
-                "en": "Away mode and Automatic locking mode"
+                "en": "Away mode and Automatic locking mode",
+                "sv": "Aktiverat Bortaläge, Automatisk låsning",
+                "no": "Aktivert Bortemodus og Automatisk låsing"
               }
             },
             {
               "id": "2",
               "label": {
-                "en": "Away mode and Manual locking mode"
+                "en": "Away mode and Manual locking mode",
+                "sv": "Aktiverat Bortaläge, Manuell låsning",
+                "no": "Aktivert Bortemodus og Manuell låsing"
               }
             }
           ],
@@ -436,10 +1016,14 @@
           "id": "Doorlock_Hinge_Position",
           "value": "0",
           "label": {
-            "en": "Door Hinge Position Mode"
+            "en": "Door Hinge Position Mode",
+            "sv": "Dörrhänging",
+            "no": "Dørhengselsretning"
           },
           "hint": {
-            "en": "This parameter (3) defines the door hinge position"
+            "en": "This parameter (3) defines the door hinge position",
+            "sv": "Denna parameter (3) ställer in rätt riktning för dörrens gångjärn",
+            "no": "Denne parameteren (3) stiller inn dørhengselsretningen"
           },
           "zwave": {
             "index": 3,
@@ -449,13 +1033,17 @@
             {
               "id": "0",
               "label": {
-                "en": "Right"
+                "en": "Right",
+                "sv": "Höger (Standard)",
+                "no": "Høyre"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "Left"
+                "en": "Left",
+                "sv": "Vänster",
+                "no": "Venstre"
               }
             }
           ],
@@ -465,10 +1053,14 @@
           "id": "Door_Audio_Volume_Level",
           "value": "5",
           "label": {
-            "en": "Audio Volume Level"
+            "en": "Audio Volume Level",
+            "sv": "Ljudnivå",
+            "no": "Lydnivå"
           },
           "hint": {
-            "en": "This parameter (4) defines the door door audio volume. This parameter is a set only parameter. If the value is changed locally on the door lock, this value will not change"
+            "en": "This parameter (4) defines the doors audio volume. This parameter is a set only parameter. If the value is changed locally on the door lock, this value will not change",
+            "sv": "Denna parameter (4) sätter låsets ljudnivå. Parametern är en set only parameter. Om inställningen ändras på låset, kommer inte värdet i Homey att uppdateras.",
+            "no": "Denne parameteren (4) setter låsens lydnivå. Parameteren er en set-only parameter. Om instillingen endres på låsen, kommer ikke verdien i Homey til å oppdateres."
           },
           "zwave": {
             "index": 4,
@@ -478,43 +1070,57 @@
             {
               "id": "0",
               "label": {
-                "en": "No sound"
+                "en": "No sound",
+                "sv": "inget ljud",
+                "no": "Ingen lyd"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "Level 1"
+                "en": "Level 1",
+                "sv": "Nivå 1",
+                "no": "Nivå 1"
               }
             },
             {
               "id": "2",
               "label": {
-                "en": "Level 2"
+                "en": "Level 2",
+                "sv": "Nivå 2",
+                "no": "Nivå 2"
               }
             },
             {
               "id": "3",
               "label": {
-                "en": "Level 3"
+                "en": "Level 3",
+                "sv": "Nivå 3",
+                "no": "Nivå 3"
               }
             },
             {
               "id": "4",
               "label": {
-                "en": "Level 4"
+                "en": "Level 4",
+                "sv": "Nivå 4",
+                "no": "Nivå 4"
               }
             },
             {
               "id": "5",
               "label": {
-                "en": "Level 5 (default)"
+                "en": "Level 5 (default)",
+                "sv": "Nivå 5 (Standard)",
+                "no": "Nivå 5 (standard)"
               }
             },
             {
               "id": "6",
               "label": {
-                "en": "Maximum sound level"
+                "en": "Maximum sound level",
+                "sv": "Maximal ljudnivå",
+                "no": "Maks lydnivå"
               }
             }
           ],
@@ -524,10 +1130,14 @@
           "id": "Door_Relock_mode",
           "value": "1",
           "label": {
-            "en": "Door ReLock Mode"
+            "en": "Door ReLock Mode",
+            "sv": "Omlåsning av/på",
+            "no": "Gjenlåsing"
           },
           "hint": {
-            "en": "This parameter (5) defines the door Relock mode"
+            "en": "This parameter (5) defines the door Relock mode",
+            "sv": "Denna parameter (5) sätter av/på för automatisk omlåsning",
+            "no": "Denne parameteren (5) setter av/på for automatisk gjenlåsing"
           },
           "zwave": {
             "index": 5,
@@ -537,13 +1147,17 @@
             {
               "id": "1",
               "label": {
-                "en": "Door relock mode enabled"
+                "en": "Door relock mode enabled",
+                "sv": "Omlåsning på (Standard)",
+                "no": "Gjenlåsing på (standard)"
               }
             },
             {
               "id": "0",
               "label": {
-                "en": "Door relock mode disabled"
+                "en": "Door relock mode disabled",
+                "sv": "Omlåsning av",
+                "no": "Gjenlåsing av"
               }
             }
           ],
@@ -553,10 +1167,14 @@
           "id": "Service_PIN_mode",
           "value": "0",
           "label": {
-            "en": "Service PIN Mode"
+            "en": "Service PIN Mode",
+            "sv": "Hantera Service PIN",
+            "no": "Service PIN-modus"
           },
           "hint": {
-            "en": "This parameter (6) is a set only value, if changed locally on keypad these values are not changed on Z - wave module."
+            "en": "This parameter (6) is a set only value, if changed locally on keypad these values are not changed on Z-wave module.",
+            "sv": "Denna parameter (6) hanterar service PIN. Parametern är en set only parameter. Om inställningen ändras på låset, kommer inte värdet i Homey att uppdateras.",
+            "no": "Denne parameteren (6) er en set-only parameter. Om instillingen endres på låsen, kommer ikke verdien i Homey til å oppdateres."
           },
           "zwave": {
             "index": 6,
@@ -566,43 +1184,227 @@
             {
               "id": "0",
               "label": {
-                "en": "Deactivated (default)"
+                "en": "Deactivated (default)",
+                "sv": "Inaktiverat (standard)",
+                "no": "Deaktivert (standard)"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "1 times used"
+                "en": "1 times used",
+                "sv": "Giltig 1 gång",
+                "no": "Gyldig 1 gang"
               }
             },
             {
               "id": "2",
               "label": {
-                "en": "2 times used"
+                "en": "2 times used",
+                "sv": "Giltig 2 gånger",
+                "no": "Gyldig 2 ganger"
               }
             },
             {
               "id": "3",
               "label": {
-                "en": "5 times used"
+                "en": "5 times used",
+                "sv": "Giltig 5 gånger",
+                "no": "Gyldig 5 ganger"
               }
             },
             {
               "id": "4",
               "label": {
-                "en": "10 times used"
+                "en": "10 times used",
+                "sv": "Giltig 10 gånger",
+                "no": "Gyldig 10 ganger"
+              }
+            },
+            {
+              "id": "7",
+              "label": {
+                "en": "Always valid",
+                "sv": "Alltid giltig",
+                "no": "Alltid gyldig"
               }
             },
             {
               "id": "8",
               "label": {
-                "en": "12 Hours used"
+                "en": "12 Hours used",
+                "sv": "Giltig 12 timmar",
+                "no": ""
               }
             },
             {
-              "id": "6",
+              "id": "9",
               "label": {
-                "en": "24 Hours used"
+                "en": "24 Hours used",
+                "sv": "Giltig 24 timmar",
+                "no": "Gyldig 24 timer"
+              }
+            },
+            {
+              "id": "FE",
+              "label": {
+                "en": "Disables both PIN and Service PIN menu on door lock",
+                "sv": "Inaktiverar PIN and Service PIN meny på låsenheten",
+                "no": "Deaktiverer både PIN og Service PIN-modus på låsen"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "RFID_Mode",
+          "value": "5",
+          "label": {
+            "en": "RFID Mode",
+            "sv": "RFID på/av",
+            "no": "RFID-modus"
+          },
+          "hint": {
+            "en": "This parameter (2) defines if RFID is enabled",
+            "sv": "Denna parameter (2) sätter om RFID ska vara påslaget eller ej (endast IDLock 150)",
+            "no": "Denne parameteren (2) setter  om RFID skal være aktivert eller ikke (kun IDLock 150)"
+          },
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
+          "values": [
+            {
+              "id": "5",
+              "label": {
+                "en": "RFID mode enabled",
+                "sv": "RFID är aktiverat (Standard)",
+                "no": "RFID er aktivert (standard)"
+              }
+            },
+            {
+              "id": "9",
+              "label": {
+                "en": "RFID mode disabled",
+                "sv": "RFID ör inaktiverat",
+                "no": "RFID er deaktivert"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "Updater_Mode",
+          "value": "0",
+          "label": {
+            "en": "Updater Mode"
+          },
+          "hint": {
+            "en": "This parameter (8) defines the door updater mode",
+            "sv": "Denna parameter (8) aktiverar användandet av Updater App",
+            "no": "Denne parameteren (8) håndterer låsens Updater Mode"
+          },
+          "zwave": {
+            "index": 8,
+            "size": 1
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off (no sound)",
+                "sv": "Av (Inget ljud, Standard)",
+                "no": "Av (ingen lyd, standard)"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On (no sound)",
+                "sv": "På  (Inget ljud)",
+                "no": "På (ingen lyd)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Off",
+                "sv": "Av",
+                "no": "Av"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "On",
+                "sv": "På",
+                "no": "På"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "Master_Pin_Mode",
+          "value": "1",
+          "label": {
+            "en": "Master PIN Unlock Mode"
+          },
+          "hint": {
+            "en": "This parameter (9) defines the Master PIN unlock mode",
+            "sv": "Denna parameter (9) anger om man kan använda Master PIN för att låsa upp",
+            "no": "Denne parameteren (9) setter om man kan bruke Master PIN for opplåsning"
+          },
+          "zwave": {
+            "index": 9,
+            "size": 1
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off",
+                "sv": "Av",
+                "no": "Av"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On",
+                "sv": "På (Standard)",
+                "no": "På (standard)"
+              }
+            }
+          ],
+          "type": "dropdown"
+        },
+        {
+          "id": "Index_Mode",
+          "value": "1",
+          "label": {
+            "en": "Set index mode",
+            "sv": "Indexeringsmetod ",
+            "no": "Indekseringsmetode"
+          },
+          "hint": {
+            "en": "This parameter sets Index mode, based on change in firmware 1.6 - Note, if changing this your current flows may need to be re-written",
+            "sv": "Denna parameter sätter hur Indexeringen ska fungera, efter en ändring i firmware 1.6 - Varning: om aktiveras så kan dina flows behövas skrivas om",
+            "no": "Denne parameteren setter hvordan Indekseringen skal fungere, etter endring i firmware 1.6 - Advarsel: Ved endring så må kanskje dine flows skrives om"
+          },
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Pre 1.6"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "1.6 and later",
+                "sv": "1.6 eller nyare",
+                "no": "1.6 eller nyere"
               }
             }
           ],
@@ -610,21 +1412,5 @@
         }
       ]
     }
-  ],
-  "capabilities": {
-    "door": {
-      "type": "boolean",
-      "title": {
-        "en": "Door state",
-        "nl": "Deur Status"
-      },
-      "desc": {
-        "en": "Door state (open/closed)",
-        "nl": "Deur status (open/dicht)"
-      },
-      "getable": true,
-      "setable": false,
-      "greyout": true
-    }
-  }
+  ]
 }

@@ -1,10 +1,14 @@
 {
 	"value": "0",
 	"label": {
-		"en": "Door Hinge Position Mode"
+		"en": "Door Hinge Position Mode",
+		"sv": "Dörrhänging",
+		"no": "Dørhengselsretning"
 	},
 	"hint": {
-		"en": "This parameter ({{zwaveParameterIndex}}) defines the door hinge position"
+		"en": "This parameter ({{zwaveParameterIndex}}) defines the door hinge position",
+		"sv": "Denna parameter ({{zwaveParameterIndex}}) ställer in rätt riktning för dörrens gångjärn",
+		"no": "Denne parameteren ({{zwaveParameterIndex}}) stiller inn dørhengselsretningen"
 	},
 	"zwave": {
 		"index": 3,
@@ -14,15 +18,19 @@
 		{
 			"id": "0",
 			"label": {
-				"en": "Right"
+				"en": "Right",
+				"sv": "Höger (Standard)",
+				"no": "Høyre"
 			}
-    },
+		},
 		{
 			"id": "1",
 			"label": {
-				"en": "Left"
+				"en": "Left",
+				"sv": "Vänster",
+				"no": "Venstre"
 			}
-    }
-  ],
+		}
+	],
 	"type": "dropdown"
 }

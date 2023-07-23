@@ -1,0 +1,50 @@
+{
+    "value": "0",
+    "label": {
+        "en": "Updater Mode"
+    },
+    "hint": {
+        "en": "This parameter ({{zwaveParameterIndex}}) defines the door updater mode",
+        "sv": "Denna parameter ({{zwaveParameterIndex}}) aktiverar användandet av Updater App",
+        "no": "Denne parameteren ({{zwaveParameterIndex}}) håndterer låsens Updater Mode"
+    },
+    "zwave": {
+        "index": 8,
+        "size": 1
+    },
+    "values": [
+        {
+            "id": "0",
+            "label": {
+                "en": "Off (no sound)",
+                "sv": "Av (Inget ljud, Standard)",
+                "no": "Av (ingen lyd, standard)"
+            }
+        },
+        {
+            "id": "1",
+            "label": {
+                "en": "On (no sound)",
+                "sv": "På  (Inget ljud)",
+                "no": "På (ingen lyd)"
+            }
+        },
+        {
+            "id": "2",
+            "label": {
+                "en": "Off",
+                "sv": "Av",
+                "no": "Av"
+            }
+        },
+        {
+            "id": "3",
+            "label": {
+                "en": "On",
+                "sv": "På",
+                "no": "På"
+            }
+        }
+    ],
+    "type": "dropdown"
+}

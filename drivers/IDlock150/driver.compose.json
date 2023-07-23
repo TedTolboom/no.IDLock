@@ -12,20 +12,38 @@
 		"alarm_tamper",
 		"alarm_battery"
 	],
+	"energy": {
+		"batteries": [
+			"AA",
+			"AA",
+			"AA",
+			"AA",
+			"AA",
+			"AA",
+			"AA",
+			"AA"
+		]
+	},
 	"capabilitiesOptions": {
 		"alarm_contact": {
 			"title": {
 				"en": "Door open (Contact Alarm)",
-				"nl": "Deur open (Contact alarm)"
+				"sv": "Öppen dörr (Kontaktalarm)",
+				"nl": "Deur open (Contact alarm)",
+				"no": "Åpen dør (Kontaktalarm)"
 			},
 			"icon": "{{driverAssetsPath}}/door.svg"
 		},
 		"locked": {
 			"titleTrue": {
-				"en": "Locked"
+				"en": "Locked",
+				"sv": "Låst",
+				"no": "Låst"
 			},
 			"titleFalse": {
-				"en": "Unlocked"
+				"en": "Unlocked",
+				"sv": "Upplåst",
+				"no": "Ulåst"
 			},
 			"icon": "{{driverAssetsPath}}/locked.svg"
 		}
@@ -34,56 +52,10 @@
 		"large": "{{driverAssetsPath}}/images/large.png",
 		"small": "{{driverAssetsPath}}/images/small.png"
 	},
-	"mobile": {
-		"components": [
-			{
-				"id": "icon",
-				"capabilities": []
-			},
-			{
-				"id": "battery",
-				"capabilities": [
-					"measure_battery"
-				]
-			},
-			{
-				"id": "sensor",
-				"capabilities": [
-					"locked",
-					"alarm_contact",
-					"alarm_heat",
-					"alarm_tamper",
-					"alarm_battery"
-				],
-				"options": {
-					"icons": {
-						"locked": "{{driverAssetsPath}}/locked.svg",
-						"alarm_contact": "{{driverAssetsPath}}/door.svg"
-					},
-					"locked": {
-						"noblink": true,
-						"greyout": true,
-						"label": {
-							"true": {
-								"en": "Locked",
-								"nl": "Gesloten"
-							},
-							"false": {
-								"en": "Open",
-								"nl": "Open"
-							}
-						}
-					}
-				}
-			},
-			{
-				"id": "toggle",
-				"capabilities": [
-					"locked"
-				]
-			}
-		]
-	},
+	"platforms": [
+		"local"
+	],
+	"connectivity": [ "zwave" ],
 	"zwave": {
 		"manufacturerId": [
 			883
@@ -117,6 +89,7 @@
 			"instruction": {
 				"en": "Exclusion – (Puts your device in exclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release button and type Master PIN (Factory setting: “1234”) on keypad followed by LOCK button\r\n• Press digit“ 2” on keypad followed by LOCK button(you have now entered the“ Settings menu”).\r\n• Press digit“ 5” on keypad.\r\nExclusion mode starts immediately.LED indicator below logo signals this by flashing blue."
 			}
-		}
+		},
+		"requireSecure": true
 	}
 }

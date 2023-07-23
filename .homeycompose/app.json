@@ -1,0 +1,62 @@
+{
+    "id": "no.idlock",
+    "sdk": 3,
+    "name": {
+      "en": "ID Lock"
+    },
+    "brandColor": "#000000",
+    "version": "2.0.0",
+    "compatibility": ">=8.0.0",
+    "athomForumDiscussionId": 4386,
+    "homeyCommunityTopicId": 161,
+    "support": "https://community.athom.com/t/161",
+    "author": {
+      "name": "Ted Tolboom",
+      "email": "dTNL.Homey@gmail.com"
+    },
+    "platforms": [
+      "local"
+    ],
+    "contributors": {
+      "developers": [
+        {
+          "name": "Ted Tolboom",
+          "email": "dTNL.Homey@gmail.com"
+        },
+        {
+          "name": "Mats Paulsen",
+          "email": "mats@paulsen.one"
+        },
+        {
+          "name": "Jonathan Cohen",
+          "email": "jonathan@cohen.se"
+        },
+        {
+          "name": "Rune Moskvil Lyngås",
+          "email": "runely85@gmail.com"
+        }
+      ]
+    },
+    "contributing": {
+      "donate": {
+        "paypal": {
+          "username": "TedTolboom"
+        }
+      }
+    },
+    "description": {
+      "en": "Adds support for ID Lock Z-wave devices",
+      "no": "Legger til støtte for ID Lock Z-wave enheter"
+    },
+    "images": {
+      "large": "/assets/images/large.png",
+      "small": "/assets/images/small.png"
+    },
+    "category": "security",
+    "tags": {
+      "en": [
+        "door",
+        "lock"
+      ]
+    }
+}

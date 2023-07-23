@@ -1,9 +1,9 @@
 {
-	"id": "lockstate",
+	"id": "unlockstate",
 	"title": {
-		"en": "Someone unlocked the door",
-		"sv": "Någon låste upp dörren",
-		"no": "Noen låste opp døren"
+		"en": "Someone locked the door",
+		"sv": "Någon användare låste dörren",
+		"no": "Noen låste døren"
 	},
 	"tokens": [
 		{

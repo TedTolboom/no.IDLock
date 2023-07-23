@@ -1,0 +1,18 @@
+{
+    "triggersTitle": "Triggers",
+    "triggerSomeoneTitle": "Trigga 'En specifik användare låste upp dörren' med följane:",
+    "homey": "Homey",
+    "code": "Kod",
+    "tag": "Tag",
+    "button": "Knapp/vred",
+    "auto": "Auto lock/relock",
+    "codesTitle" : "Kod/Tag Mappning",
+    "codesName" : "Namn",
+    "codesIndex" : "Index",
+    "codesType": "Typ",
+    "codesEdit" : "Edit",
+    "codesSave" : "Spara",
+    "codesCancel" : "Avbryt",
+    "codesDelete" : "Radera",
+    "codesAddCode" : "Ny Kod/Tag"
+   }
