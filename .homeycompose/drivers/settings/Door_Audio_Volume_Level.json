@@ -2,7 +2,7 @@
 	"value": "5",
 	"label": {
 		"en": "Audio Volume Level",
-		"sv": "Ljudbivå",
+		"sv": "Ljudnivå",
 		"no": "Lydnivå"
 	},
 	"hint": {
