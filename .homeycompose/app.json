@@ -5,10 +5,11 @@
       "en": "ID Lock"
     },
     "brandColor": "#000000",
-    "version": "1.3.1",
-    "compatibility": ">=5.0.0",
+    "version": "2.0.0",
+    "compatibility": ">=8.0.0",
     "athomForumDiscussionId": 4386,
     "homeyCommunityTopicId": 161,
+    "support": "https://community.athom.com/t/161",
     "author": {
       "name": "Ted Tolboom",
       "email": "dTNL.Homey@gmail.com"
