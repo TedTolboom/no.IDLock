@@ -1,0 +1,36 @@
+{
+    "value": "5",
+    "label": {
+        "en": "RFID Mode",
+        "sv": "RFID på/av",
+        "no": "RFID-modus"
+    },
+    "hint": {
+        "en": "This parameter ({{zwaveParameterIndex}}) defines if RFID is enabled",
+        "sv": "Denna parameter ({{zwaveParameterIndex}}) sätter om RFID ska vara påslaget eller ej (endast IDLock 150)",
+        "no": "Denne parameteren ({{zwaveParameterIndex}}) setter  om RFID skal være aktivert eller ikke (kun IDLock 150)"
+    },
+    "zwave": {
+        "index": 2,
+        "size": 1
+    },
+    "values": [
+        {
+            "id": "5",
+            "label": {
+                "en": "RFID mode enabled",
+                "sv": "RFID är aktiverat (Standard)",
+                "no": "RFID er aktivert (standard)"
+            }
+        },
+        {
+            "id": "9",
+            "label": {
+                "en": "RFID mode disabled",
+                "sv": "RFID ör inaktiverat",
+                "no": "RFID er deaktivert"
+            }
+        }
+    ],
+    "type": "dropdown"
+}

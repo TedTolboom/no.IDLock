@@ -12,20 +12,38 @@
 		"alarm_tamper",
 		"alarm_battery"
 	],
+	"energy": {
+		"batteries": [
+			"AA",
+			"AA",
+			"AA",
+			"AA",
+			"AA",
+			"AA",
+			"AA",
+			"AA"
+		]
+	},
 	"capabilitiesOptions": {
 		"alarm_contact": {
 			"title": {
 				"en": "Door open (Contact Alarm)",
-				"nl": "Deur open (Contact alarm)"
+				"sv": "Öppen dörr (Kontaktalarm)",
+				"nl": "Deur open (Contact alarm)",
+				"no": "Åpen dør (Kontaktalarm)"
 			},
 			"icon": "{{driverAssetsPath}}/door.svg"
 		},
 		"locked": {
 			"titleTrue": {
-				"en": "Locked"
+				"en": "Locked",
+				"sv": "Låst",
+				"no": "Låst"
 			},
 			"titleFalse": {
-				"en": "Unlocked"
+				"en": "Unlocked",
+				"sv": "Upplåst",
+				"no": "Ulåst"
 			},
 			"icon": "{{driverAssetsPath}}/locked.svg"
 		}
@@ -34,62 +52,13 @@
 		"large": "{{driverAssetsPath}}/images/large.png",
 		"small": "{{driverAssetsPath}}/images/small.png"
 	},
-	"mobile": {
-		"components": [
-			{
-				"id": "icon",
-				"capabilities": []
-			},
-			{
-				"id": "battery",
-				"capabilities": [
-					"measure_battery"
-				]
-			},
-			{
-				"id": "sensor",
-				"capabilities": [
-					"locked",
-					"alarm_contact",
-					"alarm_heat",
-					"alarm_tamper",
-					"alarm_battery"
-				],
-				"options": {
-					"icons": {
-						"locked": "{{driverAssetsPath}}/locked.svg",
-						"alarm_contact": "{{driverAssetsPath}}/door.svg"
-					},
-					"locked": {
-						"noblink": true,
-						"greyout": true,
-						"label": {
-							"true": {
-								"en": "Locked",
-								"nl": "Gesloten"
-							},
-							"false": {
-								"en": "Open",
-								"nl": "Open"
-							}
-						}
-					}
-				}
-			},
-			{
-				"id": "toggle",
-				"capabilities": [
-					"locked"
-				]
-			}
-		]
-	},
 	"zwave": {
 		"manufacturerId": [
 			560
 		],
 		"productTypeId": [
-			3, 48
+			3,
+			48
 		],
 		"productId": [
 			1
@@ -104,7 +73,8 @@
 		"zwaveAllianceProductId": 2293,
 		"imageRemotePath": "https://products.z-wavealliance.org/ProductImages/Index?productName=ZC10-17055585",
 		"associationGroups": [
-			1, 2
+			1,
+			2
 		],
 		"associationGroupsOptions": {
 			"1": {

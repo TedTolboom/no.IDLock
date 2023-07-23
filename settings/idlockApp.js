@@ -12,12 +12,13 @@ myApp.controller('myCodes', function($scope, $filter) {
         "homey": true,
         "code": true,
         "tag": true,
-        "button": false
+        "button": false,
+        "auto": false
     };
     $scope.codes = [];
     $scope.types = [
         {value: 4, text: 'Tag'},
-        {value: 6, text: 'Key'}
+        {value: 6, text: 'Code'}
     ]; 
     
     $scope.showType = function(filterValue) {
@@ -36,7 +37,7 @@ myApp.controller('myCodes', function($scope, $filter) {
                 newCodes = [];
             }
             $scope.$apply(function() {
-                console.log('Set new keys:' + newCodes);
+                console.log('Set new codes:' + newCodes);
                 $scope.codes = angular.fromJson(newCodes);
                 console.log($scope.codes);
             });
@@ -50,6 +51,7 @@ myApp.controller('myCodes', function($scope, $filter) {
             document.getElementById('triggerCode').checked = $scope.triggerSettings.code;
             document.getElementById('triggerTag').checked = $scope.triggerSettings.tag;
             document.getElementById('triggerButton').checked = $scope.triggerSettings.button;
+            document.getElementById('triggerAuto').checked = $scope.triggerSettings.auto;
         });
     }
 
@@ -64,6 +66,7 @@ myApp.controller('myCodes', function($scope, $filter) {
         $scope.triggerSettings.code = document.getElementById('triggerCode').checked;
         $scope.triggerSettings.tag = document.getElementById('triggerTag').checked;
         $scope.triggerSettings.button = document.getElementById('triggerButton').checked;
+        $scope.triggerSettings.auto = document.getElementById('triggerAuto').checked;
 
         $scope.homey.set('triggerSettings', $scope.triggerSettings);
     };
@@ -89,6 +92,7 @@ myApp.controller('myCodes', function($scope, $filter) {
         };
         $scope.codes.push($scope.inserted);
     };
+
     $scope.sendToHomey = function(data) {
         console.log("Data:", data);
         temp = angular.toJson($scope.codes);

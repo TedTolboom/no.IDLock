@@ -1,10 +1,14 @@
 {
 	"value": "1",
 	"label": {
-		"en": "Doorlock mode"
+		"en": "Doorlock mode",
+		"sv": "Låsningsinställningar",
+		"no": "Dørlås"
 	},
 	"hint": {
-		"en": "This parameter ({{zwaveParameterIndex}}) defines the doorlock operational behaviour"
+		"en": "This parameter ({{zwaveParameterIndex}}) defines the doorlock operational behaviour",
+		"sv": "Denna parameter ({{zwaveParameterIndex}}) ställer in hur låsning ska ske, bortasäkring samt autolåsning",
+		"no": "Denna parameteren ({{zwaveParameterIndex}}) stiller inn hvordan låsing skal skje, bortemodus, samt autolåsing"
 	},
 	"zwave": {
 		"index": 1,
@@ -14,27 +18,35 @@
 		{
 			"id": "0",
 			"label": {
-				"en": "Disabled Away mode and Manual locking mode"
+				"en": "Disabled Away mode and Manual locking mode",
+				"sv": "Inaktivera Bortaläge, Manuell låsning",
+				"no": "Deaktivert Bortemodus og Manuell låsing"
 			}
-    },
+		},
 		{
 			"id": "1",
 			"label": {
-				"en": "Disabled Away mode and Automatic locking mode"
+				"en": "Disabled Away mode and Automatic locking mode",
+				"sv": "Inaktivera Bortaläge, Automatisk låsning (Standard)",
+				"no": "Deaktivert Bortemodus og Automatisk låsing (standard)"
 			}
-    },
+		},
 		{
 			"id": "3",
 			"label": {
-				"en": "Away mode and Automatic locking mode"
+				"en": "Away mode and Automatic locking mode",
+				"sv": "Aktiverat Bortaläge, Automatisk låsning",
+				"no": "Aktivert Bortemodus og Automatisk låsing"
 			}
-    },
+		},
 		{
 			"id": "2",
 			"label": {
-				"en": "Away mode and Manual locking mode"
+				"en": "Away mode and Manual locking mode",
+				"sv": "Aktiverat Bortaläge, Manuell låsning",
+				"no": "Aktivert Bortemodus og Manuell låsing"
 			}
-    }
-  ],
+		}
+	],
 	"type": "dropdown"
 }

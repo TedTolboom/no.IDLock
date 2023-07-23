@@ -1,0 +1,124 @@
+{
+	"id": "door_lock",
+	"title": {
+		"en": "A specific user locked the door",
+		"sv": "En specifik användare låste dörren",
+		"no": "En spesifikk bruker låste døren"
+	},
+	"titleFormatted": {
+		"en": "[[who]] locked the door with [[type]]",
+		"sv": "[[who]] låste dörren med [[type]]",
+		"no": "[[who]] låste døren med [[type]]"
+	},
+	"tokens": [
+		{
+			"name": "who",
+			"type": "string",
+			"title": {
+				"en": "Who",
+				"sv": "Namn",
+				"no": "Navn"
+			},
+			"example": {
+				"en": "Peter"
+			}
+		},
+		{
+			"name": "type",
+			"type": "string",
+			"title": {
+				"en": "Type",
+				"sv": "Typ",
+				"no": "Type"
+			},
+			"example": {
+				"en": "Code",
+				"sv": "Kod",
+				"no": "Kode"
+			}
+		}
+	],
+	"args": [
+		{
+			"name": "device",
+			"type": "device",
+			"filter": "driver_id=IDlock150"
+		},
+		{
+			"name": "who",
+			"type": "autocomplete",
+			"placeholder": {
+				"en": "Type name...",
+				"sv": "Ange namn..",
+				"no": "Angi navn..."
+			},
+			"title": {
+				"en": "Who",
+				"sv": "Namn",
+				"no": "Navn"
+			}
+		},
+		{
+			"name": "type",
+			"type": "dropdown",
+			"placeholder": {
+				"en": "Choose a value...",
+				"sv": "Välj en typ...",
+				"no": "Velg en type..."
+			},
+			"title": {
+				"en": "Type",
+				"sv": "Typ",
+				"no": "Type"
+			},
+			"values": [
+				{
+					"id": "any",
+					"label": {
+						"en": "Any",
+						"sv": "Alla",
+						"no": "Alle"
+					}
+				},
+				{
+					"id": "code",
+					"label": {
+						"en": "Code",
+						"sv": "Kod",
+						"no": "Kode"
+					}
+				},
+				{
+					"id": "tag",
+					"label": {
+						"en": "Tag",
+						"sv": "Tag",
+						"no": "Tag"
+					}
+				},
+				{
+					"id": "automatic",
+					"label": {
+						"en": "Automatic",
+						"sv": "Automatiskt",
+						"no": "Automatisk"
+					}
+				},
+				{
+					"id": "button",
+					"label": {
+						"en": "Button",
+						"sv": "Knapp/vred",
+						"no": "Knapp"
+					}
+				},
+				{
+					"id": "homey",
+					"label": {
+						"en": "Homey"
+					}
+				}
+			]
+		}
+	]
+}

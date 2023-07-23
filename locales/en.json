@@ -5,6 +5,7 @@
     "code": "Code",
     "tag": "Tag",
     "button": "Button",
+    "auto": "Auto",
     "codesTitle" : "Code/Tag Mappings",
     "codesName" : "Name",
     "codesIndex" : "Index",
@@ -13,5 +14,5 @@
     "codesSave" : "Save",
     "codesCancel" : "Cancel",
     "codesDelete" : "Delete",
-    "codesAddCode" : "Add Code"
+    "codesAddCode" : "Add Code/Tag"
    }

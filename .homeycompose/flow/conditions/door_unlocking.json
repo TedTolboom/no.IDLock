@@ -1,0 +1,96 @@
+{
+	"id": "door_unlocking",
+	"title": {
+		"en": "A specific user is unlocking the door",
+		"sv": "En specifik användare låser upp dörren",
+		"no": "En spesifikk bruker låser opp døren"
+	},
+	"titleFormatted": {
+		"en": "[[who]] !{{|do not}} unlock the door with [[type]]",
+		"sv": "[[who]] låser !{{|inte}} upp dören med [[type]]",
+		"no": "[[who]] låser !{{|ikke}} opp døren med [[type]]"
+	},
+	"args": [
+		{
+			"name": "device",
+			"type": "device",
+			"filter": "driver_id=IDlock150"
+		},
+		{
+			"name": "who",
+			"type": "autocomplete",
+			"placeholder": {
+				"en": "Type name...",
+				"sv": "Ange namn..",
+				"no": "Angi navn..."
+			},
+			"title": {
+				"en": "Who",
+				"sv": "Namn",
+				"no": "Navn"
+			}
+		},
+		{
+			"name": "type",
+			"type": "dropdown",
+			"placeholder": {
+				"en": "Choose a value...",
+				"sv": "Välj en typ...",
+				"no": "Velg en type"
+			},
+			"title": {
+				"en": "Type",
+				"sv": "Typ",
+				"no": "Type"
+			},
+			"values": [
+				{
+					"id": "any",
+					"label": {
+						"en": "Any",
+						"sv": "Alla",
+						"no": "Alle"
+					}
+				},
+				{
+					"id": "code",
+					"label": {
+						"en": "Code",
+						"sv": "Kod",
+						"no": "Kode"
+					}
+				},
+				{
+					"id": "tag",
+					"label": {
+						"en": "Tag",
+						"sv": "Tag",
+						"no": "Tag"
+					}
+				},
+				{
+					"id": "automatic",
+					"label": {
+						"en": "Automatic",
+						"sv": "Automatiskt",
+						"no": "Automatisk"
+					}
+				},
+				{
+					"id": "button",
+					"label": {
+						"en": "Button",
+						"sv": "Knapp/vred",
+						"no": "Knapp"
+					}
+				},
+				{
+					"id": "homey",
+					"label": {
+						"en": "Homey"
+					}
+				}
+			]
+		}
+	]
+}
